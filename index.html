@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9 Waves — Wood-Fired Sauna & Ice Bath Experiences, Cyprus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --frost: #f0f3f5;
+      --snow: #fafbfc;
+      --slate: #2c3340;
+      --birch: #8a9aaa;
+      --steam: #c8d4dc;
+      --ember: #c4714a;
+      --dark: #141820;
+      --ink: #3a4452;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background: var(--snow);
+      color: var(--slate);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(90, 60, 45, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    nav .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    nav ul a:hover { color: #ffffff; }
+
+    .nav-book a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      background: var(--ember);
+      padding: 0.55rem 1.3rem;
+      transition: background 0.2s;
+      font-weight: 400;
+    }
+
+    .nav-book a:hover { background: #b05e3a; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: #fff;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(20,24,32,0.97);
+      z-index: 300;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.4rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+    }
+
+    .mobile-menu a:hover { color: var(--ember); }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.4rem; right: 2rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero background — swap src for a full landscape photo */
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (max-width: 768px) {
+      #hero {
+        height: auto;
+        min-height: unset;
+        padding-top: 70px;
+        background: #e8e4df;
+        overflow: visible;
+      }
+
+      .hero-image {
+        position: relative;
+        inset: unset;
+        width: 140%;
+        margin-left: -20%;
+        height: auto;
+        object-fit: unset;
+        display: block;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .hero-scroll {
+        position: absolute;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #hero {
+        height: auto;
+        min-height: unset;
+        padding-bottom: 3rem;
+      }
+
+      .hero-image {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        object-fit: unset;
+        display: block;
+      }
+
+      .hero-overlay {
+        display: none;
+      }
+
+      .hero-scroll {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 1.2rem;
+        opacity: 1;
+        animation: none;
+      }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20,24,32,0.0) 0%,
+        rgba(20,24,32,0.15) 50%,
+        rgba(20,24,32,0.55) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    /* Overlay darkens as user scrolls */
+    .hero-overlay.scrolled {
+      opacity: 1;
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+      padding: 0 1.5rem;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    /* ── FADE-IN ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1.2s ease 0.8s forwards;
+    }
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll { opacity: 1; animation: none; }
+      .hero-overlay { opacity: 1; }
+      .scroll-line { animation: none; }
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    .hero-scroll span {
+      font-size: 1.2rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ember);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.9rem;
+    }
+
+    .divider {
+      width: 44px;
+      height: 1px;
+      background: var(--ember);
+      margin: 1.8rem auto;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--snow);
+      padding: 7rem 0;
+    }
+
+    #about .section-inner {
+      text-align: center;
+      max-width: 700px;
+    }
+
+    #about h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--ember);
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.2rem;
+    }
+
+    #about h1 em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    #about .about-tagline {
+      font-size: clamp(0.82rem, 1.8vw, 0.92rem);
+      color: var(--ember);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    #about h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--slate);
+      line-height: 1.2;
+    }
+
+    #about p:not(.about-tagline) {
+      font-size: 1.05rem;
+      line-height: 1.88;
+      color: var(--ink);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .about-fullwidth-img {
+      width: 100%;
+      margin: 3rem 0;
+      line-height: 0;
+    }
+
+    .about-fullwidth-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── LOCATIONS ── */
+    #locations {
+      background: var(--frost);
+      padding: 7rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      color: var(--slate);
+    }
+
+    .section-header h2.light { color: #fff; }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .location-card {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      background: var(--slate);
+    }
+
+    .location-card .card-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      transition: opacity 0.4s ease;
+    }
+
+    .location-card:hover .card-bg-img { opacity: 1; }
+
+    .card-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(20,24,32,0.85) 0%,
+        rgba(20,24,32,0.1) 60%,
+        rgba(20,24,32,0) 100%
+      );
+      transition: opacity 0.4s ease;
+    }
+
+    .location-card:hover .card-gradient {
+      opacity: 0.5;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      padding: 1.8rem;
+      width: 100%;
+    }
+
+    .location-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.7rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .loc-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+    }
+
+    /* Coming soon card */
+    .location-card.coming-soon {
+      background: var(--dark);
+      border: 1px solid rgba(196,113,74,0.25);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .location-card.coming-soon .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .location-card.coming-soon h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.3;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .coming-soon-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.65;
+      margin-top: 0.8rem;
+      max-width: 190px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-ember {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #fff;
+      background: var(--ember);
+      padding: 0.72rem 1.6rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-ember:hover { background: #b05e3a; }
+
+    .btn-slate {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #fff;
+      background: var(--slate);
+      padding: 0.72rem 1.6rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-slate:hover { background: var(--ember); }
+
+    .btn-outline {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.72rem 1.6rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ember);
+      background: var(--ember);
+    }
+
+    /* ── PACKAGES ── */
+    #packages {
+      background: var(--snow);
+      padding: 7rem 0;
+    }
+
+    .packages-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 1px solid var(--steam);
+      padding: 3rem 3.5rem;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .pricing-card .price-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--birch);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .pricing-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.7rem;
+      color: var(--slate);
+      margin-bottom: 0.6rem;
+    }
+
+    .pricing-card .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--ember);
+      line-height: 1;
+      margin: 0.4rem 0 0.2rem;
+    }
+
+    .pricing-card .price sup {
+      font-size: 1.7rem;
+      vertical-align: super;
+    }
+
+    .price-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--steam);
+      margin: 1.6rem auto;
+    }
+
+    .pricing-card p {
+      font-size: 0.88rem;
+      color: var(--birch);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    /* ── MODULE RENTAL ── */
+    #rental {
+      background: var(--frost);
+      padding: 7rem 0;
+    }
+
+    .rental-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .rental-note {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--birch);
+      margin-top: 2rem;
+      line-height: 1.75;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: var(--slate);
+      padding: 7rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+    }
+
+    .gallery-item {
+      background: rgba(255,255,255,0.04);
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-item.wide { grid-column: span 2; }
+
+    .ph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ph svg { opacity: 0.18; }
+
+    .ph span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--dark);
+      padding: 7rem 0;
+      text-align: center;
+    }
+
+    #contact .section-inner { max-width: 580px; }
+
+    #contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      color: #fff;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    #contact h2 em { font-style: italic; }
+
+    #contact p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-left img {
+      height: 32px;
+      width: auto;
+      margin-bottom: 0.8rem;
+      display: block;
+      opacity: 0.85;
+    }
+
+    .footer-left p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.65;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.7rem;
+    }
+
+    .footer-right a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .footer-right a:hover { color: var(--ember); }
+
+    .footer-copy {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.15);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .locations-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .location-card.coming-soon {
+        grid-column: span 2;
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #hero {
+        height: auto;
+        min-height: unset;
+      }
+
+      .hero-image {
+        position: relative;
+        width: 100%;
+        height: auto;
+        object-fit: unset;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+      }
+
+      nav ul, .nav-book { display: none; }
+      .hamburger { display: flex; }
+      nav { padding: 1rem 1.5rem; }
+
+      .hero-scroll {
+        position: relative;
+        transform: none;
+        left: unset;
+        bottom: unset;
+        margin: 1rem auto 0;
+        padding-bottom: 1.5rem;
+      }
+
+      .section-inner { padding: 0 1.5rem; }
+
+      #about, #locations, #packages, #rental, #contact, #gallery {
+        padding: 5rem 0;
+      }
+
+      .rental-grid { grid-template-columns: 1fr; }
+
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.wide { grid-column: span 2; }
+
+      .footer-inner { flex-direction: column; }
+      .footer-right { align-items: flex-start; }
+
+      .pricing-card { padding: 2.5rem 1.8rem; }
+    }
+
+    @media (max-width: 560px) {
+      .locations-grid { grid-template-columns: 1fr; }
+      .location-card.coming-soon { grid-column: span 1; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.wide { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="logo" href="#hero">
+      <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
+    </a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#rental">Rental</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+    <div class="nav-book">
+      <a href="/cdn-cgi/l/email-protection#6008050c0c0f205917011605134e0319">Book Now</a>
+    </div>
+    <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMenu()">&#215;</button>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#locations" onclick="closeMenu()">Locations</a>
+    <a href="#packages" onclick="closeMenu()">Packages</a>
+    <a href="#rental" onclick="closeMenu()">Rental</a>
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+    <a href="/cdn-cgi/l/email-protection#2048454c4c4f601957415645530e4359" onclick="closeMenu()">Book Now</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <!--
+    HERO BACKGROUND IMAGE:
+    Replace the src on .hero-image with your direct Imgur URL of a landscape sauna photo.
+    Currently showing your logo as a placeholder. The logo is also shown large and centred.
+    Once you add a real background photo, you may want to remove the hero-logo or make it smaller.
+  -->
+  <section id="hero">
+    <img
+      class="hero-image"
+      src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png"
+      alt="9 Waves sauna experience"
+    />
+    <div class="hero-overlay"></div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Discover</span>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="section-inner">
+      <h1>Authentic Wood-Fired<br /><em>Swedish Sauna Pods</em> &amp; Ice Baths</h1>
+      <p class="about-tagline">Pop-up contrast therapy for our community across Cyprus.</p>
+    </div>
+    <div class="about-fullwidth-img">
+      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Wide%20shot%2C%20tents.png" alt="9 Waves sauna pods" />
+    </div>
+    <div class="section-inner">
+      <div class="divider"></div>
+      <span class="section-label">Our Story</span>
+      <h2>What Is 9 Waves?</h2>
+      <div class="divider"></div>
+      <p>Welcome to 9 Waves, where we are burning to bring the incredible benefits of fire and ice for Body, Mind and Spirit to the beautiful island of Cyprus.</p>
+      <p>Maybe you're a veteran in hot and cold therapy or new to the game.</p>
+      <p>Maybe saunas mean recovery to you or just the perfect social shared experience.</p>
+      <p>Either way, we can't wait to have you join our steamy and chilled community.</p>
+      <p>The hot and cold revolution has landed in Cyprus!</p>
+    </div>
+  </section>
+
+  <!-- ── LOCATIONS ── -->
+  <section id="locations">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Where to Find Us</span>
+        <h2>Locations</h2>
+      </div>
+      <div class="locations-grid">
+
+        <!--
+          LOCATION CARDS:
+          Add your location images by replacing the placeholder divs below.
+          Example: <img class="card-bg-img" src="https://i.imgur.com/YOURIMAGE.jpg" alt="Limassol">
+        -->
+        <div class="location-card">
+          <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Ballers%20club%20paralimni.png" alt="Ballers Club Paralimni">
+          <div class="card-gradient"></div>
+          <div class="card-content">
+            <span class="loc-tag">Now Open</span>
+            <h3>Ballers Club, Paralimni</h3>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Force%20Fitness%20Kiti.png" alt="Force Fitness Kiti">
+          <div class="card-gradient"></div>
+          <div class="card-content">
+            <span class="loc-tag">Now Open</span>
+            <h3>Force Fitness, Kiti</h3>
+          </div>
+        </div>
+
+        <div class="location-card coming-soon">
+          <div class="card-content">
+            <span class="section-label">Where to next?</span>
+            <h3>You tell us!</h3>
+            <a class="btn-ember" href="/cdn-cgi/l/email-protection#fb939e979794bbc28c9a8d9e88d59882c4888e99919e988fc6b59e8cdbb794989a8f929495dba99e8a8e9e888f" target="_blank" rel="noopener">
+              I Want 9 Waves Near Me
+            </a>
+            <p class="coming-soon-note">We go wherever our community is in need of fire and ice. Get in touch to request a module at your business or dream location.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PACKAGES ── -->
+  <section id="packages">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Sessions</span>
+        <h2>Sauna Packages</h2>
+      </div>
+      <div class="packages-center">
+        <div class="pricing-card">
+          <span class="price-label">Best Value</span>
+          <h3>10 Session Package</h3>
+          <div class="price"><sup>€</sup>120</div>
+          <div class="price-rule"></div>
+          <p>Valid at any 9 Waves location. Can also be used as credit against any 9 Waves event.</p>
+          <a class="btn-slate" href="/cdn-cgi/l/email-protection#ee868b828281aed7998f988b9dc08d97d19d9b8c848b8d9ad3dfdecebd8b9d9d878180cebe8f8d858f898bceab809f9b879c97" target="_blank" rel="noopener">
+            Purchase Package
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MODULE RENTAL ── -->
+  <section id="rental">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Private Hire</span>
+        <h2>Private Module Rental</h2>
+      </div>
+      <div class="rental-grid">
+
+        <div class="pricing-card">
+          <span class="price-label">Short Stay</span>
+          <h3>Weekend Rental</h3>
+          <div class="price"><sup>€</sup>300</div>
+          <div class="price-rule"></div>
+          <p>Perfect for private events, retreats, gyms, or special occasions.</p>
+          <a class="btn-slate" href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce39ad4c2d5c6d08dc0da9cd0d6c1c9c6c0d79ef4c6c6c8c6cdc783eeccc7d6cfc683f1c6cdd7c2cf83e6cdd2d6cad1da" target="_blank" rel="noopener">
+            Enquire Now
+          </a>
+        </div>
+
+        <div class="pricing-card">
+          <span class="price-label">Extended</span>
+          <h3>Weekly Rental</h3>
+          <div class="price"><sup>€</sup>550</div>
+          <div class="price-rule"></div>
+          <p>Perfect for private events, retreats, gyms, or special occasions.</p>
+          <a class="btn-slate" href="/cdn-cgi/l/email-protection#c6aea3aaaaa986ffb1a7b0a3b5e8a5bff9b5b3a4aca3a5b2fb91a3a3adaabfe68ba9a2b3aaa3e694a3a8b2a7aae683a8b7b3afb4bf" target="_blank" rel="noopener">
+            Enquire Now
+          </a>
+        </div>
+
+      </div>
+      <p class="rental-note">All rentals include setup, takedown, and a full briefing.<br />Get in touch to discuss your event or venue.</p>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">The Experience</span>
+        <h2 class="light">Gallery</h2>
+      </div>
+      <!--
+        GALLERY IMAGES:
+        Replace each placeholder div with an <img> tag once you have photos.
+        Example:
+        <div class="gallery-item wide">
+          <img src="https://i.imgur.com/YOURIMAGE.jpg" alt="Sauna exterior" />
+        </div>
+      -->
+      <div class="gallery-grid">
+        <div class="gallery-item wide">
+          <div class="ph">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="ph">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="ph">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="ph">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+        </div>
+        <div class="gallery-item wide">
+          <div class="ph">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="section-inner">
+      <span class="section-label" style="color:var(--ember)">Get In Touch</span>
+      <h2>Ready to Experience<br /><em>the Heat?</em></h2>
+      <p>Book a session, enquire about module rental,<br />or just reach out — we'd love to hear from you.</p>
+      <div class="contact-btns">
+        <a class="btn-ember" href="/cdn-cgi/l/email-protection#1078757c7c7f502967716675633e7369" target="_blank" rel="noopener">
+          Email Us
+        </a>
+        <a class="btn-outline" href="https://instagram.com/9waves.cy" target="_blank" rel="noopener">
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
+        <p>Mobile contrast therapy experiences<br />across Cyprus.</p>
+      </div>
+      <div class="footer-right">
+        <a href="/cdn-cgi/l/email-protection#076f626b6b68473e706671627429647e">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+          </svg>
+          <span class="__cf_email__" data-cfemail="5d35383131321d642a3c2b382e733e24">[email&#160;protected]</span>
+        </a>
+        <a href="https://instagram.com/9waves.cy" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx= cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 9 Waves. All rights reserved.</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Darken hero overlay on scroll
+    const heroOverlay = document.querySelector('.hero-overlay');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+ 
