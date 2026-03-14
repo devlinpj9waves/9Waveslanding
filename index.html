@@ -33,16 +33,14 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed;
+      position: absolute;
       top: 0; left: 0; right: 0;
       z-index: 200;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1.1rem 3rem;
-      background: rgba(90, 60, 45, 0.72);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: transparent;
     }
 
     nav .logo img {
@@ -97,7 +95,7 @@
       display: block;
       width: 24px;
       height: 1.5px;
-      background: #fff;
+      background: var(--slate);
     }
 
     .mobile-menu {
@@ -731,13 +729,12 @@
         grid-column: span 2;
         height: 260px;
       }
-    }
-
-    @media (max-width: 768px) {
       nav ul, .nav-book { display: none; }
       .hamburger { display: flex; }
       nav { padding: 1rem 1.5rem; }
+    }
 
+    @media (max-width: 768px) {
       .section-inner { padding: 0 1.5rem; }
 
       #about, #locations, #packages, #rental, #contact, #gallery {
@@ -765,45 +762,29 @@
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav>
-    <a class="logo" href="#hero">
-      <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
-    </a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#locations">Locations</a></li>
-      <li><a href="#packages">Packages</a></li>
-      <li><a href="#rental">Rental</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-    </ul>
-    <div class="nav-book">
-      <a href="/cdn-cgi/l/email-protection#6008050c0c0f205917011605134e0319">Book Now</a>
-    </div>
-    <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- ── MOBILE MENU ── -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" onclick="closeMenu()">&#215;</button>
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#locations" onclick="closeMenu()">Locations</a>
-    <a href="#packages" onclick="closeMenu()">Packages</a>
-    <a href="#rental" onclick="closeMenu()">Rental</a>
-    <a href="#gallery" onclick="closeMenu()">Gallery</a>
-    <a href="/cdn-cgi/l/email-protection#2048454c4c4f601957415645530e4359" onclick="closeMenu()">Book Now</a>
-  </div>
-
   <!-- ── HERO ── -->
-  <!--
-    HERO BACKGROUND IMAGE:
-    Replace the src on .hero-image with your direct Imgur URL of a landscape sauna photo.
-    Currently showing your logo as a placeholder. The logo is also shown large and centred.
-    Once you add a real background photo, you may want to remove the hero-logo or make it smaller.
-  -->
   <section id="hero">
+
+    <!-- NAV overlaid on hero -->
+    <nav>
+      <a class="logo" href="#hero">
+        <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
+      </a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#rental">Rental</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <div class="nav-book">
+        <a href="/cdn-cgi/l/email-protection#6008050c0c0f205917011605134e0319">Book Now</a>
+      </div>
+      <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
     <img
       class="hero-image"
       src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png"
@@ -815,6 +796,17 @@
       <span>Discover</span>
     </div>
   </section>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMenu()">&#215;</button>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#locations" onclick="closeMenu()">Locations</a>
+    <a href="#packages" onclick="closeMenu()">Packages</a>
+    <a href="#rental" onclick="closeMenu()">Rental</a>
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+    <a href="/cdn-cgi/l/email-protection#2048454c4c4f601957415645530e4359" onclick="closeMenu()">Book Now</a>
+  </div>
 
   <!-- ── ABOUT ── -->
   <section id="about">
