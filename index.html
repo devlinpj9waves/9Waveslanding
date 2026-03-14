@@ -39,56 +39,54 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.1rem 3rem;
+      padding: 0.9rem 3rem;
+      min-height: 64px;
       background: transparent;
+      transition: background 0.4s ease;
+    }
+
+    nav.sticky {
+      position: fixed;
+      background: rgb(235, 228, 216);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.07);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      align-self: center;
+      padding: 0;
     }
 
     nav .logo img {
-      height: 40px;
+      height: 52px;
       width: auto;
       display: block;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      object-fit: contain;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2.2rem;
+    nav.sticky .logo img {
+      opacity: 1;
     }
 
-    nav ul a {
-      text-decoration: none;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.82);
-      transition: color 0.2s;
-      font-weight: 400;
+    /* Nav links and book button — burger menu only */
+    nav ul,
+    .nav-book {
+      display: none !important;
     }
 
-    nav ul a:hover { color: #ffffff; }
-
-    .nav-book a {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #fff;
-      background: var(--ember);
-      padding: 0.55rem 1.3rem;
-      transition: background 0.2s;
-      font-weight: 400;
-    }
-
-    .nav-book a:hover { background: #b05e3a; }
-
+    /* Hamburger always visible */
     .hamburger {
-      display: none;
+      display: flex;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
       background: none;
       border: none;
       padding: 4px;
+      align-self: center;
     }
 
     .hamburger span {
@@ -143,7 +141,6 @@
       line-height: 0;
     }
 
-    /* Hero banner image — scales naturally to full width at any screen size */
     .hero-image {
       display: block;
       width: 100%;
@@ -154,12 +151,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(20,24,32,0.0) 0%,
-        rgba(20,24,32,0.08) 60%,
-        rgba(20,24,32,0.3) 100%
-      );
+      background: linear-gradient(to bottom, rgba(20,24,32,0.0) 0%, rgba(20,24,32,0.08) 60%, rgba(20,24,32,0.3) 100%);
       pointer-events: none;
       opacity: 1;
     }
@@ -189,6 +181,36 @@
       to   { opacity: 1; }
     }
 
+    /* Nav CTAs — hidden until sticky */
+    .nav-cta-book,
+    .nav-cta-session {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      align-self: center;
+    }
+
+    nav.sticky .nav-cta-book,
+    nav.sticky .nav-cta-session {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-cta-book a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      background: var(--ember);
+      padding: 0.55rem 1.3rem;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta-book a:hover { background: #b05e3a; }
+
     .hero-scroll {
       display: flex;
       flex-direction: column;
@@ -199,7 +221,6 @@
       animation: fadeIn 1.2s ease 0.8s forwards;
     }
 
-    /* Respect reduced motion preferences */
     @media (prefers-reduced-motion: reduce) {
       .hero-scroll { opacity: 1; animation: none; }
       .hero-overlay { opacity: 1; }
@@ -209,16 +230,21 @@
     .scroll-line {
       width: 1px;
       height: 44px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      background: linear-gradient(to bottom, rgba(58,68,82,0.5), transparent);
       animation: scrollPulse 2.2s ease-in-out infinite;
     }
 
-    .hero-scroll span {
-      font-size: 1.2rem;
-      letter-spacing: 0.24em;
+    .hero-scroll a {
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
+      color: rgba(58, 68, 82, 0.55);
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
+
+    .hero-scroll a:hover { color: var(--ember); }
 
     @keyframes scrollPulse {
       0%, 100% { opacity: 0.4; }
@@ -270,10 +296,7 @@
       margin-bottom: 1.2rem;
     }
 
-    #about h1 em {
-      font-style: italic;
-      font-weight: 300;
-    }
+    #about h1 em { font-style: italic; font-weight: 300; }
 
     #about .about-tagline {
       font-size: clamp(0.82rem, 1.8vw, 0.92rem);
@@ -363,18 +386,11 @@
     .card-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(20,24,32,0.85) 0%,
-        rgba(20,24,32,0.1) 60%,
-        rgba(20,24,32,0) 100%
-      );
+      background: linear-gradient(to top, rgba(20,24,32,0.85) 0%, rgba(20,24,32,0.1) 60%, rgba(20,24,32,0) 100%);
       transition: opacity 0.4s ease;
     }
 
-    .location-card:hover .card-gradient {
-      opacity: 0.5;
-    }
+    .location-card:hover .card-gradient { opacity: 0.5; }
 
     .card-content {
       position: relative;
@@ -399,7 +415,6 @@
       font-weight: 400;
     }
 
-    /* Coming soon card */
     .location-card.coming-soon {
       background: var(--dark);
       border: 1px solid rgba(196,113,74,0.25);
@@ -481,10 +496,7 @@
       transition: border-color 0.2s, background 0.2s;
     }
 
-    .btn-outline:hover {
-      border-color: var(--ember);
-      background: var(--ember);
-    }
+    .btn-outline:hover { border-color: var(--ember); background: var(--ember); }
 
     /* ── PACKAGES ── */
     #packages {
@@ -533,10 +545,7 @@
       margin: 0.4rem 0 0.2rem;
     }
 
-    .pricing-card .price sup {
-      font-size: 1.7rem;
-      vertical-align: super;
-    }
+    .pricing-card .price sup { font-size: 1.7rem; vertical-align: super; }
 
     .price-rule {
       width: 36px;
@@ -605,24 +614,7 @@
     }
 
     .gallery-item:hover img { transform: scale(1.04); }
-
     .gallery-item.wide { grid-column: span 2; }
-
-    .ph {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .ph svg { opacity: 0.18; }
-
-    .ph span {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.18);
-    }
 
     /* ── CONTACT ── */
     #contact {
@@ -722,33 +714,20 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .locations-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .location-card.coming-soon {
-        grid-column: span 2;
-        height: 260px;
-      }
-      nav ul, .nav-book { display: none; }
-      .hamburger { display: flex; }
-      nav { padding: 1rem 1.5rem; }
+      .locations-grid { grid-template-columns: 1fr 1fr; }
+      .location-card.coming-soon { grid-column: span 2; height: 260px; }
     }
 
     @media (max-width: 768px) {
+      nav { padding: 0.9rem 1.5rem; min-height: 56px; }
+      .nav-cta-book, .nav-cta-session { display: none; }
       .section-inner { padding: 0 1.5rem; }
-
-      #about, #locations, #packages, #rental, #contact, #gallery {
-        padding: 5rem 0;
-      }
-
+      #about, #locations, #packages, #rental, #contact, #gallery { padding: 5rem 0; }
       .rental-grid { grid-template-columns: 1fr; }
-
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-item.wide { grid-column: span 2; }
-
       .footer-inner { flex-direction: column; }
       .footer-right { align-items: flex-start; }
-
       .pricing-card { padding: 2.5rem 1.8rem; }
     }
 
@@ -764,8 +743,6 @@
 
   <!-- ── HERO ── -->
   <section id="hero">
-
-    <!-- NAV overlaid on hero -->
     <nav>
       <a class="logo" href="#hero">
         <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
@@ -777,23 +754,19 @@
         <li><a href="#rental">Rental</a></li>
         <li><a href="#gallery">Gallery</a></li>
       </ul>
-      <div class="nav-book">
-        <a href="/cdn-cgi/l/email-protection#6008050c0c0f205917011605134e0319">Book Now</a>
+      <div class="nav-cta-book">
+        <a href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">Book Now</a>
       </div>
       <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
 
-    <img
-      class="hero-image"
-      src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png"
-      alt="9 Waves sauna experience"
-    />
+    <img class="hero-image" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png" alt="9 Waves sauna experience" />
     <div class="hero-overlay"></div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
-      <span>Discover</span>
+      <a href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">Choose My Session</a>
     </div>
   </section>
 
@@ -805,7 +778,7 @@
     <a href="#packages" onclick="closeMenu()">Packages</a>
     <a href="#rental" onclick="closeMenu()">Rental</a>
     <a href="#gallery" onclick="closeMenu()">Gallery</a>
-    <a href="/cdn-cgi/l/email-protection#2048454c4c4f601957415645530e4359" onclick="closeMenu()">Book Now</a>
+    <a href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener" onclick="closeMenu()">Book Now</a>
   </div>
 
   <!-- ── ABOUT ── -->
@@ -838,12 +811,6 @@
         <h2>Locations</h2>
       </div>
       <div class="locations-grid">
-
-        <!--
-          LOCATION CARDS:
-          Add your location images by replacing the placeholder divs below.
-          Example: <img class="card-bg-img" src="https://i.imgur.com/YOURIMAGE.jpg" alt="Limassol">
-        -->
         <div class="location-card">
           <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Ballers%20club%20paralimni.png" alt="Ballers Club Paralimni">
           <div class="card-gradient"></div>
@@ -852,7 +819,6 @@
             <h3>Ballers Club, Paralimni</h3>
           </div>
         </div>
-
         <div class="location-card">
           <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Force%20Fitness%20Kiti.png" alt="Force Fitness Kiti">
           <div class="card-gradient"></div>
@@ -861,18 +827,14 @@
             <h3>Force Fitness, Kiti</h3>
           </div>
         </div>
-
         <div class="location-card coming-soon">
           <div class="card-content">
             <span class="section-label">Where to next?</span>
             <h3>You tell us!</h3>
-            <a class="btn-ember" href="/cdn-cgi/l/email-protection#fb939e979794bbc28c9a8d9e88d59882c4888e99919e988fc6b59e8cdbb794989a8f929495dba99e8a8e9e888f" target="_blank" rel="noopener">
-              I Want 9 Waves Near Me
-            </a>
+            <a class="btn-ember" href="mailto:hello@9-waves.com" target="_blank" rel="noopener">I Want 9 Waves Near Me</a>
             <p class="coming-soon-note">We go wherever our community is in need of fire and ice. Get in touch to request a module at your business or dream location.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -891,9 +853,7 @@
           <div class="price"><sup>€</sup>120</div>
           <div class="price-rule"></div>
           <p>Valid at any 9 Waves location. Can also be used as credit against any 9 Waves event.</p>
-          <a class="btn-slate" href="/cdn-cgi/l/email-protection#ee868b828281aed7998f988b9dc08d97d19d9b8c848b8d9ad3dfdecebd8b9d9d878180cebe8f8d858f898bceab809f9b879c97" target="_blank" rel="noopener">
-            Purchase Package
-          </a>
+          <a class="btn-slate" href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">Purchase Package</a>
         </div>
       </div>
     </div>
@@ -907,29 +867,22 @@
         <h2>Private Module Rental</h2>
       </div>
       <div class="rental-grid">
-
         <div class="pricing-card">
           <span class="price-label">Short Stay</span>
           <h3>Weekend Rental</h3>
           <div class="price"><sup>€</sup>300</div>
           <div class="price-rule"></div>
           <p>Perfect for private events, retreats, gyms, or special occasions.</p>
-          <a class="btn-slate" href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce39ad4c2d5c6d08dc0da9cd0d6c1c9c6c0d79ef4c6c6c8c6cdc783eeccc7d6cfc683f1c6cdd7c2cf83e6cdd2d6cad1da" target="_blank" rel="noopener">
-            Enquire Now
-          </a>
+          <a class="btn-slate" href="mailto:hello@9-waves.com" target="_blank" rel="noopener">Enquire Now</a>
         </div>
-
         <div class="pricing-card">
           <span class="price-label">Extended</span>
           <h3>Weekly Rental</h3>
           <div class="price"><sup>€</sup>550</div>
           <div class="price-rule"></div>
           <p>Perfect for private events, retreats, gyms, or special occasions.</p>
-          <a class="btn-slate" href="/cdn-cgi/l/email-protection#c6aea3aaaaa986ffb1a7b0a3b5e8a5bff9b5b3a4aca3a5b2fb91a3a3adaabfe68ba9a2b3aaa3e694a3a8b2a7aae683a8b7b3afb4bf" target="_blank" rel="noopener">
-            Enquire Now
-          </a>
+          <a class="btn-slate" href="mailto:hello@9-waves.com" target="_blank" rel="noopener">Enquire Now</a>
         </div>
-
       </div>
       <p class="rental-note">All rentals include setup, takedown, and a full briefing.<br />Get in touch to discuss your event or venue.</p>
     </div>
@@ -942,54 +895,36 @@
         <span class="section-label">The Experience</span>
         <h2 class="light">Gallery</h2>
       </div>
-      <!--
-        GALLERY IMAGES:
-        Replace each placeholder div with an <img> tag once you have photos.
-        Example:
-        <div class="gallery-item wide">
-          <img src="https://i.imgur.com/YOURIMAGE.jpg" alt="Sauna exterior" />
-        </div>
-      -->
       <div class="gallery-grid">
         <div class="gallery-item wide">
-          <div class="ph">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20double%20decker.png" alt="Double decker sauna" />
         </div>
         <div class="gallery-item">
-          <div class="ph">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20guy%20coming%20out%20into%20nature.png" alt="Guy coming out into nature" />
         </div>
         <div class="gallery-item">
-          <div class="ph">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20interior%20on%20the%20sand.png" alt="Interior on the sand" />
         </div>
         <div class="gallery-item">
-          <div class="ph">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20leaves%20and%20lake.png" alt="Leaves and lake" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20look%20at%20that%20view.png" alt="Look at that view" />
         </div>
         <div class="gallery-item wide">
-          <div class="ph">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20running%20to%20the%20water.png" alt="Running to the water" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20stove.png" alt="Sauna stove" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20sundown.png" alt="Sundown" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20tattooed%20ladler.png" alt="Tattooed ladler" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20two%20blokes%20lake.png" alt="Two blokes by the lake" />
         </div>
       </div>
     </div>
@@ -1002,12 +937,8 @@
       <h2>Ready to Experience<br /><em>the Heat?</em></h2>
       <p>Book a session, enquire about module rental,<br />or just reach out — we'd love to hear from you.</p>
       <div class="contact-btns">
-        <a class="btn-ember" href="/cdn-cgi/l/email-protection#1078757c7c7f502967716675633e7369" target="_blank" rel="noopener">
-          Email Us
-        </a>
-        <a class="btn-outline" href="https://instagram.com/9waves.cy" target="_blank" rel="noopener">
-          Follow on Instagram
-        </a>
+        <a class="btn-ember" href="mailto:hello@9-waves.com">Email Us</a>
+        <a class="btn-outline" href="https://instagram.com/9waves.cy" target="_blank" rel="noopener">Follow on Instagram</a>
       </div>
     </div>
   </section>
@@ -1020,15 +951,15 @@
         <p>Mobile contrast therapy experiences<br />across Cyprus.</p>
       </div>
       <div class="footer-right">
-        <a href="/cdn-cgi/l/email-protection#076f626b6b68473e706671627429647e">
+        <a href="mailto:hello@9-waves.com">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
           </svg>
-          <span class="__cf_email__" data-cfemail="5d35383131321d642a3c2b382e733e24">[email&#160;protected]</span>
+          hello@9-waves.com
         </a>
         <a href="https://instagram.com/9waves.cy" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx= cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
           </svg>
           Instagram
         </a>
@@ -1037,7 +968,7 @@
     <p class="footer-copy">© 2025 9 Waves. All rights reserved.</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     function openMenu() {
       document.getElementById('mobileMenu').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1047,8 +978,17 @@
       document.body.style.overflow = '';
     }
 
-    // Darken hero overlay on scroll
-    const heroOverlay = document.querySelector('.hero-overlay');
+    const navEl = document.querySelector('nav');
+    const hero = document.getElementById('hero');
+
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 60) {
- 
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom <= 0) {
+        navEl.classList.add('sticky');
+      } else {
+        navEl.classList.remove('sticky');
+      }
+    });
+  </script>
+</body>
+</html>
