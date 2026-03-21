@@ -1068,6 +1068,7 @@
         <li>All of the above <em>(this is the move, really)</em></li>
       </ul>
       <form class="contact-form" action="https://formspree.io/f/mqeyoeon" method="POST">
+        <input type="hidden" name="_next" value="https://9-waves.com/?submitted=true#contact" />
         <div class="form-row">
           <input type="email" name="email" placeholder="Your email address" required />
           <button type="submit">Subscribe</button>
@@ -1263,6 +1264,20 @@
         navEl.classList.remove('sticky');
       }
     });
+
+    // Show welcome message if returning from Formspree submission
+    if (window.location.search.includes('submitted=true')) {
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        form.querySelectorAll('input, textarea').forEach(el => el.value = '');
+        const msg = document.createElement('p');
+        msg.textContent = 'Welcome 9-Waver — want to add any more emails?';
+        msg.style.cssText = 'color: var(--ember); font-size: 0.82rem; letter-spacing: 0.08em; margin-bottom: 0.8rem; animation: fadeIn 0.6s ease both;';
+        form.insertAdjacentElement('beforebegin', msg);
+      }
+      // Clean the URL without reloading
+      window.history.replaceState({}, '', window.location.pathname + '#contact');
+    }
   </script>
 </body>
 </html>
