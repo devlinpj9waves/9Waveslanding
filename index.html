@@ -141,6 +141,7 @@
       line-height: 0;
     }
 
+    /* Hero banner image — scales naturally to full width at any screen size */
     .hero-image {
       display: block;
       width: 100%;
@@ -151,7 +152,12 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(20,24,32,0.0) 0%, rgba(20,24,32,0.08) 60%, rgba(20,24,32,0.3) 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(20,24,32,0.0) 0%,
+        rgba(20,24,32,0.08) 60%,
+        rgba(20,24,32,0.3) 100%
+      );
       pointer-events: none;
       opacity: 1;
     }
@@ -196,6 +202,21 @@
       pointer-events: auto;
     }
 
+    .nav-cta-session a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--slate);
+      border-bottom: 1px solid var(--ember);
+      padding-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-cta-session a:hover { color: var(--ember); }
+
     .nav-cta-book a {
       font-family: 'Jost', sans-serif;
       font-size: 0.68rem;
@@ -221,6 +242,7 @@
       animation: fadeIn 1.2s ease 0.8s forwards;
     }
 
+    /* Respect reduced motion preferences */
     @media (prefers-reduced-motion: reduce) {
       .hero-scroll { opacity: 1; animation: none; }
       .hero-overlay { opacity: 1; }
@@ -296,7 +318,10 @@
       margin-bottom: 1.2rem;
     }
 
-    #about h1 em { font-style: italic; font-weight: 300; }
+    #about h1 em {
+      font-style: italic;
+      font-weight: 300;
+    }
 
     #about .about-tagline {
       font-size: clamp(0.82rem, 1.8vw, 0.92rem);
@@ -356,9 +381,20 @@
 
     .section-header h2.light { color: #fff; }
 
+    .locations-intro {
+      font-size: 0.92rem;
+      color: var(--ink);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-top: 0.8rem;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .locations-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.2rem;
     }
 
@@ -386,11 +422,18 @@
     .card-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(20,24,32,0.85) 0%, rgba(20,24,32,0.1) 60%, rgba(20,24,32,0) 100%);
+      background: linear-gradient(
+        to top,
+        rgba(20,24,32,0.85) 0%,
+        rgba(20,24,32,0.1) 60%,
+        rgba(20,24,32,0) 100%
+      );
       transition: opacity 0.4s ease;
     }
 
-    .location-card:hover .card-gradient { opacity: 0.5; }
+    .location-card:hover .card-gradient {
+      opacity: 0.5;
+    }
 
     .card-content {
       position: relative;
@@ -415,6 +458,7 @@
       font-weight: 400;
     }
 
+    /* Coming soon card */
     .location-card.coming-soon {
       background: var(--dark);
       border: 1px solid rgba(196,113,74,0.25);
@@ -496,7 +540,10 @@
       transition: border-color 0.2s, background 0.2s;
     }
 
-    .btn-outline:hover { border-color: var(--ember); background: var(--ember); }
+    .btn-outline:hover {
+      border-color: var(--ember);
+      background: var(--ember);
+    }
 
     /* ── PACKAGES ── */
     #packages {
@@ -545,7 +592,10 @@
       margin: 0.4rem 0 0.2rem;
     }
 
-    .pricing-card .price sup { font-size: 1.7rem; vertical-align: super; }
+    .pricing-card .price sup {
+      font-size: 1.7rem;
+      vertical-align: super;
+    }
 
     .price-rule {
       width: 36px;
@@ -614,23 +664,68 @@
     }
 
     .gallery-item:hover img { transform: scale(1.04); }
+
     .gallery-item.wide { grid-column: span 2; }
+
+    .ph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ph svg { opacity: 0.18; }
+
+    .ph span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+    }
 
     /* ── CONTACT ── */
     #contact {
-      background: var(--dark);
+      position: relative;
       padding: 7rem 0;
       text-align: center;
+      overflow: hidden;
     }
 
-    #contact .section-inner { max-width: 580px; }
+    .contact-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .contact-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .contact-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 24, 32, 0.78);
+      z-index: 1;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    #contact .section-label { color: var(--ember); }
 
     #contact h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       font-size: clamp(1.9rem, 3.5vw, 2.8rem);
       color: #fff;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
       line-height: 1.2;
     }
 
@@ -638,16 +733,112 @@
 
     #contact p {
       font-size: 0.92rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.6);
       line-height: 1.85;
-      margin-bottom: 2.5rem;
+      margin-bottom: 0.9rem;
     }
+
+    .contact-how {
+      color: rgba(255,255,255,0.85) !important;
+      font-weight: 400;
+      margin-top: 1rem;
+      margin-bottom: 0.4rem !important;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .contact-list li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .contact-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--ember);
+    }
+
+    .contact-list li em { color: rgba(255,255,255,0.35); }
+
+    .contact-form {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .form-row input {
+      flex: 1;
+      padding: 0.85rem 1.2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-right: none;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-row input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-row input:focus { border-color: var(--ember); }
+
+    .form-row button {
+      padding: 0.85rem 1.6rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--ember);
+      color: #fff;
+      border: 1px solid var(--ember);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-row button:hover { background: #b05e3a; }
+
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85rem 1.2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      outline: none;
+      resize: vertical;
+      min-height: 90px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form textarea:focus { border-color: var(--ember); }
 
     .contact-btns {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
 
     /* ── FOOTER ── */
@@ -713,27 +904,28 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .locations-grid { grid-template-columns: 1fr 1fr; }
-      .location-card.coming-soon { grid-column: span 2; height: 260px; }
-    }
-
     @media (max-width: 768px) {
-      nav { padding: 0.9rem 1.5rem; min-height: 56px; }
+      nav { padding: 0 1.5rem; min-height: 56px; }
       .nav-cta-book, .nav-cta-session { display: none; }
       .section-inner { padding: 0 1.5rem; }
-      #about, #locations, #packages, #rental, #contact, #gallery { padding: 5rem 0; }
+      .locations-grid { grid-template-columns: 1fr; }
+
+      #about, #locations, #packages, #rental, #contact, #gallery {
+        padding: 5rem 0;
+      }
+
       .rental-grid { grid-template-columns: 1fr; }
+
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-item.wide { grid-column: span 2; }
+
       .footer-inner { flex-direction: column; }
       .footer-right { align-items: flex-start; }
+
       .pricing-card { padding: 2.5rem 1.8rem; }
     }
 
     @media (max-width: 560px) {
-      .locations-grid { grid-template-columns: 1fr; }
-      .location-card.coming-soon { grid-column: span 1; }
       .gallery-grid { grid-template-columns: 1fr; }
       .gallery-item.wide { grid-column: span 1; }
     }
@@ -743,6 +935,8 @@
 
   <!-- ── HERO ── -->
   <section id="hero">
+
+    <!-- NAV overlaid on hero -->
     <nav>
       <a class="logo" href="#hero">
         <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
@@ -755,15 +949,20 @@
         <li><a href="#gallery">Gallery</a></li>
       </ul>
       <div class="nav-cta-book">
-        <a href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">Book Now</a>
+        <a href="#contact">Join the Community</a>
       </div>
       <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
 
-    <img class="hero-image" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png" alt="9 Waves sauna experience" />
+    <img
+      class="hero-image"
+      src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png"
+      alt="9 Waves sauna experience"
+    />
     <div class="hero-overlay"></div>
+
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       <a href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">Choose My Session</a>
@@ -778,7 +977,7 @@
     <a href="#packages" onclick="closeMenu()">Packages</a>
     <a href="#rental" onclick="closeMenu()">Rental</a>
     <a href="#gallery" onclick="closeMenu()">Gallery</a>
-    <a href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener" onclick="closeMenu()">Book Now</a>
+    <a href="#contact" onclick="closeMenu()">Join the Community</a>
   </div>
 
   <!-- ── ABOUT ── -->
@@ -795,11 +994,9 @@
       <span class="section-label">Our Story</span>
       <h2>What Is 9 Waves?</h2>
       <div class="divider"></div>
-      <p>Welcome to 9 Waves, where we are burning to bring the incredible benefits of fire and ice for Body, Mind and Spirit to the beautiful island of Cyprus.</p>
-      <p>Maybe you're a veteran in hot and cold therapy or new to the game.</p>
-      <p>Maybe saunas mean recovery to you or just the perfect social shared experience.</p>
-      <p>Either way, we can't wait to have you join our steamy and chilled community.</p>
-      <p>The hot and cold revolution has landed in Cyprus!</p>
+      <p>9 Waves' mission is to make hot and cold therapy accessible and awesome across stunning Cyprus.</p>
+      <p>Irish sauna culture has taught us the steam and frost just hit different when the surroundings are next level.</p>
+      <p>Join our community and shape where our wood-fired Swedish saunas and SUP-material ice baths pop up. You are fire and ice. You are 9 Waves.</p>
     </div>
   </section>
 
@@ -809,32 +1006,35 @@
       <div class="section-header">
         <span class="section-label">Where to Find Us</span>
         <h2>Locations</h2>
+        <p class="locations-intro">9 Waves tents love to wander, but we'll have permanent setups at select locations so you can just book and enjoy.</p>
       </div>
       <div class="locations-grid">
+
+        <!--
+          LOCATION CARDS:
+          Add your location images by replacing the placeholder divs below.
+          Example: <img class="card-bg-img" src="https://i.imgur.com/YOURIMAGE.jpg" alt="Limassol">
+        -->
         <div class="location-card">
           <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Ballers%20club%20paralimni.png" alt="Ballers Club Paralimni">
           <div class="card-gradient"></div>
           <div class="card-content">
-            <span class="loc-tag">Now Open</span>
+            <span class="loc-tag">Opening Soon</span>
             <h3>Ballers Club, Paralimni</h3>
           </div>
         </div>
-        <div class="location-card">
-          <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Force%20Fitness%20Kiti.png" alt="Force Fitness Kiti">
-          <div class="card-gradient"></div>
-          <div class="card-content">
-            <span class="loc-tag">Now Open</span>
-            <h3>Force Fitness, Kiti</h3>
-          </div>
-        </div>
+
         <div class="location-card coming-soon">
           <div class="card-content">
             <span class="section-label">Where to next?</span>
             <h3>You tell us!</h3>
-            <a class="btn-ember" href="mailto:hello@9-waves.com" target="_blank" rel="noopener">I Want 9 Waves Near Me</a>
+            <a class="btn-ember" href="/cdn-cgi/l/email-protection#fb939e979794bbc28c9a8d9e88d59882c4888e99919e988fc6b59e8cdbb794989a8f929495dba99e8a8e9e888f" target="_blank" rel="noopener">
+              I Want 9 Waves Near Me
+            </a>
             <p class="coming-soon-note">We go wherever our community is in need of fire and ice. Get in touch to request a module at your business or dream location.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -853,7 +1053,9 @@
           <div class="price"><sup>€</sup>120</div>
           <div class="price-rule"></div>
           <p>Valid at any 9 Waves location. Can also be used as credit against any 9 Waves event.</p>
-          <a class="btn-slate" href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">Purchase Package</a>
+          <a class="btn-slate" href="/cdn-cgi/l/email-protection#ee868b828281aed7998f988b9dc08d97d19d9b8c848b8d9ad3dfdecebd8b9d9d878180cebe8f8d858f898bceab809f9b879c97" target="_blank" rel="noopener">
+            Purchase Package
+          </a>
         </div>
       </div>
     </div>
@@ -867,22 +1069,29 @@
         <h2>Private Module Rental</h2>
       </div>
       <div class="rental-grid">
+
         <div class="pricing-card">
           <span class="price-label">Short Stay</span>
           <h3>Weekend Rental</h3>
           <div class="price"><sup>€</sup>300</div>
           <div class="price-rule"></div>
           <p>Perfect for private events, retreats, gyms, or special occasions.</p>
-          <a class="btn-slate" href="mailto:hello@9-waves.com" target="_blank" rel="noopener">Enquire Now</a>
+          <a class="btn-slate" href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce39ad4c2d5c6d08dc0da9cd0d6c1c9c6c0d79ef4c6c6c8c6cdc783eeccc7d6cfc683f1c6cdd7c2cf83e6cdd2d6cad1da" target="_blank" rel="noopener">
+            Enquire Now
+          </a>
         </div>
+
         <div class="pricing-card">
           <span class="price-label">Extended</span>
           <h3>Weekly Rental</h3>
           <div class="price"><sup>€</sup>550</div>
           <div class="price-rule"></div>
           <p>Perfect for private events, retreats, gyms, or special occasions.</p>
-          <a class="btn-slate" href="mailto:hello@9-waves.com" target="_blank" rel="noopener">Enquire Now</a>
+          <a class="btn-slate" href="/cdn-cgi/l/email-protection#c6aea3aaaaa986ffb1a7b0a3b5e8a5bff9b5b3a4aca3a5b2fb91a3a3adaabfe68ba9a2b3aaa3e694a3a8b2a7aae683a8b7b3afb4bf" target="_blank" rel="noopener">
+            Enquire Now
+          </a>
         </div>
+
       </div>
       <p class="rental-note">All rentals include setup, takedown, and a full briefing.<br />Get in touch to discuss your event or venue.</p>
     </div>
@@ -895,6 +1104,14 @@
         <span class="section-label">The Experience</span>
         <h2 class="light">Gallery</h2>
       </div>
+      <!--
+        GALLERY IMAGES:
+        Replace each placeholder div with an <img> tag once you have photos.
+        Example:
+        <div class="gallery-item wide">
+          <img src="https://i.imgur.com/YOURIMAGE.jpg" alt="Sauna exterior" />
+        </div>
+      -->
       <div class="gallery-grid">
         <div class="gallery-item wide">
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20double%20decker.png" alt="Double decker sauna" />
@@ -910,9 +1127,6 @@
         </div>
         <div class="gallery-item">
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20look%20at%20that%20view.png" alt="Look at that view" />
-        </div>
-        <div class="gallery-item wide">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20running%20to%20the%20water.png" alt="Running to the water" />
         </div>
         <div class="gallery-item">
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20stove.png" alt="Sauna stove" />
@@ -932,13 +1146,40 @@
 
   <!-- ── CONTACT ── -->
   <section id="contact">
-    <div class="section-inner">
-      <span class="section-label" style="color:var(--ember)">Get In Touch</span>
-      <h2>Ready to Experience<br /><em>the Heat?</em></h2>
-      <p>Book a session, enquire about module rental,<br />or just reach out — we'd love to hear from you.</p>
+    <div class="contact-bg">
+      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20running%20to%20the%20water.png" alt="Running to the water" />
+    </div>
+    <div class="contact-overlay"></div>
+    <div class="section-inner contact-content">
+      <span class="section-label" style="color:var(--ember)">Join the 9 Waves Community</span>
+      <h2>We're Looking for the<br /><em>First 9-Wavers</em></h2>
+      <p>You were here when it all began; soon we'll be dropping the first events and locations around Cyprus.</p>
+      <p>Become an OG 9-Waver and we'll make sure you get especially steamy treatment with discounts, early access and more.</p>
+      <p class="contact-how">How?</p>
+      <ul class="contact-list">
+        <li>Add your email to our mailing list</li>
+        <li>Follow us on IG</li>
+        <li>Send us a DM or email to pre-book the first sessions, enquire about module rental (or just reach out — we'd love to hear from you)</li>
+        <li>All of the above <em>(this is the move, really)</em></li>
+      </ul>
+
+      <!-- Formspree form — replace YOUR_FORM_ID with your Formspree endpoint ID -->
+      <form class="contact-form" action="https://formspree.io/f/mqeyoeon" method="POST">
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Your email address" required />
+          <button type="submit">Subscribe</button>
+        </div>
+        <textarea name="message" placeholder="Leave a message (optional)"></textarea>
+      </form>
+
       <div class="contact-btns">
         <a class="btn-ember" href="mailto:hello@9-waves.com">Email Us</a>
-        <a class="btn-outline" href="https://instagram.com/9waves.cy" target="_blank" rel="noopener">Follow on Instagram</a>
+        <a class="btn-outline" href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:0.4rem">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          Follow on Instagram
+        </a>
       </div>
     </div>
   </section>
@@ -951,15 +1192,15 @@
         <p>Mobile contrast therapy experiences<br />across Cyprus.</p>
       </div>
       <div class="footer-right">
-        <a href="mailto:hello@9-waves.com">
+        <a href="/cdn-cgi/l/email-protection#076f626b6b68473e706671627429647e">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
           </svg>
-          hello@9-waves.com
+          <span class="__cf_email__" data-cfemail="5d35383131321d642a3c2b382e733e24">[email&#160;protected]</span>
         </a>
-        <a href="https://instagram.com/9waves.cy" target="_blank" rel="noopener">
+        <a href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx= cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
           </svg>
           Instagram
         </a>
@@ -968,7 +1209,7 @@
     <p class="footer-copy">© 2025 9 Waves. All rights reserved.</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function openMenu() {
       document.getElementById('mobileMenu').classList.add('open');
       document.body.style.overflow = 'hidden';
