@@ -299,8 +299,36 @@
 
     /* ── ABOUT ── */
     #about {
-      background: var(--snow);
+      position: relative;
       padding: 7rem 0;
+      overflow: hidden;
+    }
+
+    #about .about-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    #about .about-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    #about .about-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(250, 251, 252, 0.88);
+      z-index: 1;
+    }
+
+    #about .section-inner,
+    #about .about-fullwidth-img {
+      position: relative;
+      z-index: 2;
     }
 
     #about .section-inner {
@@ -400,7 +428,7 @@
 
     .location-card {
       position: relative;
-      height: 340px;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
       display: flex;
       align-items: flex-end;
@@ -905,10 +933,13 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 0 1.5rem; min-height: 56px; }
-      .nav-cta-book, .nav-cta-session { display: none; }
+      nav { padding: 0 1rem; min-height: 56px; }
+      .nav-cta-session { display: none; }
+      .nav-cta-book { display: flex; }
+      .nav-cta-book a { font-size: 0.62rem; padding: 0.45rem 0.9rem; letter-spacing: 0.15em; }
       .section-inner { padding: 0 1.5rem; }
       .locations-grid { grid-template-columns: 1fr; }
+      .location-card { height: auto; aspect-ratio: 1 / 1; }
 
       #about, #locations, #packages, #rental, #contact, #gallery {
         padding: 5rem 0;
@@ -982,6 +1013,10 @@
 
   <!-- ── ABOUT ── -->
   <section id="about">
+    <div class="about-bg">
+      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20look%20at%20that%20view.png" alt="" />
+    </div>
+    <div class="about-overlay"></div>
     <div class="section-inner">
       <h1>Authentic Wood-Fired<br /><em>Swedish Sauna Pods</em> &amp; Ice Baths</h1>
       <p class="about-tagline">Pop-up contrast therapy for our community across Cyprus.</p>
@@ -997,6 +1032,43 @@
       <p>9 Waves' mission is to make hot and cold therapy accessible and awesome across stunning Cyprus.</p>
       <p>Irish sauna culture has taught us the steam and frost just hit different when the surroundings are next level.</p>
       <p>Join our community and shape where our wood-fired Swedish saunas and SUP-material ice baths pop up. You are fire and ice. You are 9 Waves.</p>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-bg">
+      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20running%20to%20the%20water.png" alt="Running to the water" />
+    </div>
+    <div class="contact-overlay"></div>
+    <div class="section-inner contact-content">
+      <span class="section-label" style="color:var(--ember)">Join the 9 Waves Community</span>
+      <h2>We're Looking for the<br /><em>First 9-Wavers</em></h2>
+      <p>You were here when it all began; soon we'll be dropping the first events and locations around Cyprus.</p>
+      <p>Become an OG 9-Waver and we'll make sure you get especially steamy treatment with discounts, early access and more.</p>
+      <p class="contact-how">How?</p>
+      <ul class="contact-list">
+        <li>Add your email to our mailing list</li>
+        <li>Follow us on IG</li>
+        <li>Send us a DM or email to pre-book the first sessions, enquire about module rental (or just reach out — we'd love to hear from you)</li>
+        <li>All of the above <em>(this is the move, really)</em></li>
+      </ul>
+      <form class="contact-form" action="https://formspree.io/f/mqeyoeon" method="POST">
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Your email address" required />
+          <button type="submit">Subscribe</button>
+        </div>
+        <textarea name="message" placeholder="Leave a message (optional)"></textarea>
+      </form>
+      <div class="contact-btns">
+        <a class="btn-ember" href="mailto:hello9waves@gmail.com">Email Us</a>
+        <a class="btn-outline" href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:0.4rem">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          Follow on Instagram
+        </a>
+      </div>
     </div>
   </section>
 
@@ -1126,9 +1198,6 @@
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20leaves%20and%20lake.png" alt="Leaves and lake" />
         </div>
         <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20look%20at%20that%20view.png" alt="Look at that view" />
-        </div>
-        <div class="gallery-item">
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20stove.png" alt="Sauna stove" />
         </div>
         <div class="gallery-item">
@@ -1144,46 +1213,6 @@
     </div>
   </section>
 
-  <!-- ── CONTACT ── -->
-  <section id="contact">
-    <div class="contact-bg">
-      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20running%20to%20the%20water.png" alt="Running to the water" />
-    </div>
-    <div class="contact-overlay"></div>
-    <div class="section-inner contact-content">
-      <span class="section-label" style="color:var(--ember)">Join the 9 Waves Community</span>
-      <h2>We're Looking for the<br /><em>First 9-Wavers</em></h2>
-      <p>You were here when it all began; soon we'll be dropping the first events and locations around Cyprus.</p>
-      <p>Become an OG 9-Waver and we'll make sure you get especially steamy treatment with discounts, early access and more.</p>
-      <p class="contact-how">How?</p>
-      <ul class="contact-list">
-        <li>Add your email to our mailing list</li>
-        <li>Follow us on IG</li>
-        <li>Send us a DM or email to pre-book the first sessions, enquire about module rental (or just reach out — we'd love to hear from you)</li>
-        <li>All of the above <em>(this is the move, really)</em></li>
-      </ul>
-
-      <!-- Formspree form — replace YOUR_FORM_ID with your Formspree endpoint ID -->
-      <form class="contact-form" action="https://formspree.io/f/mqeyoeon" method="POST">
-        <div class="form-row">
-          <input type="email" name="email" placeholder="Your email address" required />
-          <button type="submit">Subscribe</button>
-        </div>
-        <textarea name="message" placeholder="Leave a message (optional)"></textarea>
-      </form>
-
-      <div class="contact-btns">
-        <a class="btn-ember" href="mailto:hello@9-waves.com">Email Us</a>
-        <a class="btn-outline" href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:0.4rem">
-            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-          </svg>
-          Follow on Instagram
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-inner">
@@ -1192,11 +1221,11 @@
         <p>Mobile contrast therapy experiences<br />across Cyprus.</p>
       </div>
       <div class="footer-right">
-        <a href="/cdn-cgi/l/email-protection#076f626b6b68473e706671627429647e">
+        <a href="mailto:hello9waves@gmail.com">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
           </svg>
-          <span class="__cf_email__" data-cfemail="5d35383131321d642a3c2b382e733e24">[email&#160;protected]</span>
+          hello9waves@gmail.com
         </a>
         <a href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
