@@ -828,9 +828,25 @@
       border: 1px solid var(--ember);
       cursor: pointer;
       transition: background 0.2s;
+      -webkit-appearance: none;
+      touch-action: manipulation;
     }
 
     .form-row button:hover { background: #b05e3a; }
+
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+      }
+      .form-row input {
+        border-right: 1px solid rgba(255,255,255,0.18);
+        border-bottom: none;
+      }
+      .form-row button {
+        width: 100%;
+        padding: 1rem;
+      }
+    }
 
     .contact-form textarea {
       width: 100%;
@@ -1067,7 +1083,7 @@
         <li>Send us a DM or email to pre-book the first sessions, enquire about module rental (or just reach out — we'd love to hear from you)</li>
         <li>All of the above <em>(this is the move, really)</em></li>
       </ul>
-      <p class="form-success" id="formSuccess" style="display:none; color:var(--ember); font-size:0.82rem; letter-spacing:0.08em; margin-bottom:0.8rem;">Welcome 9-Waver — want to add any more emails?</p>
+      <p class="form-success" id="formSuccess" style="display:none; color:var(--ember); font-size:0.82rem; letter-spacing:0.08em; margin-bottom:0.8rem;">Welcome aboard 9-Waver! We got your email — want to add any more?</p>
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqeyoeon" method="POST">
         <div class="form-row">
           <input type="email" name="email" id="formEmail" placeholder="Your email address" required />
@@ -1268,9 +1284,15 @@
     // Handle form submission via fetch so we stay on the page
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-      contactForm.addEventListener('submit', async function(e) {
+      async function submitForm(e) {
         e.preventDefault();
+        e.stopPropagation();
         const btn = document.getElementById('formBtn');
+        const emailField = document.getElementById('formEmail');
+        if (!emailField.value || !emailField.checkValidity()) {
+          emailField.reportValidity();
+          return;
+        }
         btn.textContent = 'Sending...';
         btn.disabled = true;
 
@@ -1296,7 +1318,9 @@
           btn.textContent = 'Try again';
           btn.disabled = false;
         }
-      });
+      }
+
+      contactForm.addEventListener('submit', submitForm);
     }
   </script>
 </body>
