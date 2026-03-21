@@ -573,10 +573,21 @@
       background: var(--ember);
     }
 
-    /* ── PACKAGES ── */
+    /* ── PACKAGES & RENTAL ── */
     #packages {
       background: var(--snow);
       padding: 7rem 0;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .packages-col .pricing-card {
+      max-width: 100%;
     }
 
     .packages-center {
@@ -638,28 +649,6 @@
       line-height: 1.75;
       margin-bottom: 2rem;
       font-weight: 300;
-    }
-
-    /* ── MODULE RENTAL ── */
-    #rental {
-      background: var(--frost);
-      padding: 7rem 0;
-    }
-
-    .rental-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      max-width: 740px;
-      margin: 0 auto;
-    }
-
-    .rental-note {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--birch);
-      margin-top: 2rem;
-      line-height: 1.75;
     }
 
     /* ── GALLERY ── */
@@ -886,6 +875,29 @@
       gap: 2rem;
     }
 
+    .footer-myth {
+      max-width: 420px;
+      flex: 1;
+    }
+
+    .footer-myth-title {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ember);
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-myth p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.75;
+      margin-bottom: 0.6rem;
+      font-weight: 300;
+    }
+
     .footer-left img {
       height: 32px;
       width: auto;
@@ -945,6 +957,7 @@
         padding: 5rem 0;
       }
 
+      .packages-grid { grid-template-columns: 1fr; gap: 3rem; }
       .rental-grid { grid-template-columns: 1fr; }
 
       .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -996,7 +1009,7 @@
 
     <div class="hero-scroll">
       <div class="scroll-line"></div>
-      <a href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">Choose My Session</a>
+      <a href="#contact">Become a 9-Waver</a>
     </div>
   </section>
 
@@ -1111,61 +1124,46 @@
     </div>
   </section>
 
-  <!-- ── PACKAGES ── -->
+  <!-- ── PACKAGES & RENTAL ── -->
   <section id="packages">
     <div class="section-inner">
-      <div class="section-header">
-        <span class="section-label">Sessions</span>
-        <h2>Sauna Packages</h2>
-      </div>
-      <div class="packages-center">
-        <div class="pricing-card">
-          <span class="price-label">Best Value</span>
-          <h3>10 Session Package</h3>
-          <div class="price"><sup>€</sup>120</div>
-          <div class="price-rule"></div>
-          <p>Valid at any 9 Waves location. Can also be used as credit against any 9 Waves event.</p>
-          <a class="btn-slate" href="/cdn-cgi/l/email-protection#ee868b828281aed7998f988b9dc08d97d19d9b8c848b8d9ad3dfdecebd8b9d9d878180cebe8f8d858f898bceab809f9b879c97" target="_blank" rel="noopener">
-            Purchase Package
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="packages-grid">
 
-  <!-- ── MODULE RENTAL ── -->
-  <section id="rental">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-label">Private Hire</span>
-        <h2>Private Module Rental</h2>
-      </div>
-      <div class="rental-grid">
-
-        <div class="pricing-card">
-          <span class="price-label">Short Stay</span>
-          <h3>Weekend Rental</h3>
-          <div class="price"><sup>€</sup>300</div>
-          <div class="price-rule"></div>
-          <p>Perfect for private events, retreats, gyms, or special occasions.</p>
-          <a class="btn-slate" href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce39ad4c2d5c6d08dc0da9cd0d6c1c9c6c0d79ef4c6c6c8c6cdc783eeccc7d6cfc683f1c6cdd7c2cf83e6cdd2d6cad1da" target="_blank" rel="noopener">
-            Enquire Now
-          </a>
+        <div class="packages-col">
+          <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+            <span class="section-label">Sessions</span>
+            <h2>Sauna Packages</h2>
+          </div>
+          <div class="pricing-card">
+            <span class="price-label">Best Value</span>
+            <h3>10 Session Package</h3>
+            <div class="price"><sup>€</sup>120</div>
+            <div class="price-rule"></div>
+            <p>Valid at any 9 Waves location. Can also be used as credit against any 9 Waves event.</p>
+            <a class="btn-slate" href="https://flutterwbdev.azurewebsites.net/#/tenantDetails?tenantName=Nine_Waves" target="_blank" rel="noopener">
+              Purchase Package
+            </a>
+          </div>
         </div>
 
-        <div class="pricing-card">
-          <span class="price-label">Extended</span>
-          <h3>Weekly Rental</h3>
-          <div class="price"><sup>€</sup>550</div>
-          <div class="price-rule"></div>
-          <p>Perfect for private events, retreats, gyms, or special occasions.</p>
-          <a class="btn-slate" href="/cdn-cgi/l/email-protection#c6aea3aaaaa986ffb1a7b0a3b5e8a5bff9b5b3a4aca3a5b2fb91a3a3adaabfe68ba9a2b3aaa3e694a3a8b2a7aae683a8b7b3afb4bf" target="_blank" rel="noopener">
-            Enquire Now
-          </a>
+        <div class="packages-col">
+          <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+            <span class="section-label">Private Hire</span>
+            <h2>Rent an entire 9 Waves module</h2>
+          </div>
+          <div class="pricing-card">
+            <span class="price-label">Perfect for private events, retreats, special occasions</span>
+            <h3>Daily, weekend, weekly rentals available</h3>
+            <div class="price-rule" style="margin-top:1.2rem;"></div>
+            <p class="price-label" style="margin-bottom:0.5rem;">Discounts for first customers</p>
+            <p>All rentals include setup, takedown, and a full briefing. Get in touch to discuss your event or venue.</p>
+            <a class="btn-slate" href="mailto:hello9waves@gmail.com">
+              Enquire Now
+            </a>
+          </div>
         </div>
 
       </div>
-      <p class="rental-note">All rentals include setup, takedown, and a full briefing.<br />Get in touch to discuss your event or venue.</p>
     </div>
   </section>
 
@@ -1220,6 +1218,11 @@
         <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
         <p>Mobile contrast therapy experiences<br />across Cyprus.</p>
       </div>
+      <div class="footer-myth">
+        <span class="footer-myth-title">Why 9 Waves?</span>
+        <p>The number 9, along with the number 3, is everywhere in Celtic mythology. Nine waves was the distance the Milesian Gaels, invading from what's now Spain, were ordered to keep from the Irish shore by the Tuath Dé Danann, the magical race who then inhabited Ireland. When the shivering warriors made it to shore, it was "over nine waves".</p>
+        <p>When doing your cold immersion (in ice bath or in wild water) try settling in for nine deep, slow breaths. If it doesn't wake something mythical in you, nothing will.</p>
+      </div>
       <div class="footer-right">
         <a href="mailto:hello9waves@gmail.com">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1229,7 +1232,7 @@
         </a>
         <a href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx= cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
           </svg>
           Instagram
         </a>
