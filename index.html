@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tell Cloudflare NOT to obfuscate emails on this page -->
+  <meta name="email-obfuscation" content="off" />
   <title>9 Waves — Wood-Fired Sauna & Ice Bath Experiences, Cyprus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,31 +70,30 @@
       object-fit: contain;
     }
 
-    nav.sticky .logo img {
-      opacity: 1;
-    }
+    nav.sticky .logo img { opacity: 1; }
 
-    /* Nav links and book button — burger menu only */
-    nav ul,
-    .nav-book {
-      display: none !important;
-    }
+    nav ul, .nav-book { display: none !important; }
 
-    /* Hamburger always visible */
     .hamburger {
       display: flex;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      background: none;
+      background: rgba(235, 228, 216, 0.75);
       border: none;
-      padding: 4px;
+      padding: 8px 10px;
       align-self: center;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    nav.sticky .hamburger {
+      background: transparent;
     }
 
     .hamburger span {
       display: block;
-      width: 24px;
+      width: 22px;
       height: 1.5px;
       background: var(--slate);
     }
@@ -142,42 +143,19 @@
       line-height: 0;
     }
 
-    /* Hero banner image — scales naturally to full width at any screen size */
     .hero-image {
       display: block;
       width: 100%;
       height: auto;
-      object-fit: unset;
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(20,24,32,0.0) 0%,
-        rgba(20,24,32,0.08) 60%,
-        rgba(20,24,32,0.3) 100%
-      );
+      background: linear-gradient(to bottom, rgba(20,24,32,0.0) 0%, rgba(20,24,32,0.08) 60%, rgba(20,24,32,0.3) 100%);
       pointer-events: none;
-      opacity: 1;
     }
 
-    .hero-overlay.scrolled { opacity: 1; }
-
-    .hero-content {
-      position: absolute;
-      bottom: 8rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      text-align: center;
-      padding: 0 1.5rem;
-      width: 100%;
-      max-width: 860px;
-    }
-
-    /* ── FADE-IN ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -188,35 +166,18 @@
       to   { opacity: 1; }
     }
 
-    /* Nav CTAs — hidden until sticky */
-    .nav-cta-book,
-    .nav-cta-session {
+    /* Nav CTAs */
+    .nav-cta-book, .nav-cta-session {
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease;
       align-self: center;
     }
 
-    nav.sticky .nav-cta-book,
-    nav.sticky .nav-cta-session {
+    nav.sticky .nav-cta-book, nav.sticky .nav-cta-session {
       opacity: 1;
       pointer-events: auto;
     }
-
-    .nav-cta-session a {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--slate);
-      border-bottom: 1px solid var(--ember);
-      padding-bottom: 2px;
-      transition: color 0.2s ease;
-    }
-
-    .nav-cta-session a:hover { color: var(--ember); }
 
     .nav-cta-book a {
       font-family: 'Jost', sans-serif;
@@ -243,10 +204,8 @@
       animation: fadeIn 1.2s ease 0.8s forwards;
     }
 
-    /* Respect reduced motion preferences */
     @media (prefers-reduced-motion: reduce) {
       .hero-scroll { opacity: 1; animation: none; }
-      .hero-overlay { opacity: 1; }
       .scroll-line { animation: none; }
     }
 
@@ -274,7 +233,7 @@
       50% { opacity: 1; }
     }
 
-    /* ── SHARED SECTION STYLES ── */
+    /* ── SHARED ── */
     .section-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -326,8 +285,7 @@
       z-index: 1;
     }
 
-    #about .section-inner,
-    #about .about-fullwidth-img {
+    #about .section-inner, #about .about-fullwidth-img {
       position: relative;
       z-index: 2;
     }
@@ -347,10 +305,7 @@
       margin-bottom: 1.2rem;
     }
 
-    #about h1 em {
-      font-style: italic;
-      font-weight: 300;
-    }
+    #about h1 em { font-style: italic; font-weight: 300; }
 
     #about .about-tagline {
       font-size: clamp(0.82rem, 1.8vw, 0.92rem);
@@ -451,18 +406,11 @@
     .card-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(20,24,32,0.85) 0%,
-        rgba(20,24,32,0.1) 60%,
-        rgba(20,24,32,0) 100%
-      );
+      background: linear-gradient(to top, rgba(20,24,32,0.85) 0%, rgba(20,24,32,0.1) 60%, rgba(20,24,32,0) 100%);
       transition: opacity 0.4s ease;
     }
 
-    .location-card:hover .card-gradient {
-      opacity: 0.5;
-    }
+    .location-card:hover .card-gradient { opacity: 0.5; }
 
     .card-content {
       position: relative;
@@ -487,7 +435,6 @@
       font-weight: 400;
     }
 
-    /* Coming soon card */
     .location-card.coming-soon {
       background: var(--dark);
       border: 1px solid rgba(196,113,74,0.25);
@@ -569,10 +516,7 @@
       transition: border-color 0.2s, background 0.2s;
     }
 
-    .btn-outline:hover {
-      border-color: var(--ember);
-      background: var(--ember);
-    }
+    .btn-outline:hover { border-color: var(--ember); background: var(--ember); }
 
     /* ── PACKAGES & RENTAL ── */
     #packages {
@@ -587,14 +531,7 @@
       align-items: start;
     }
 
-    .packages-col .pricing-card {
-      max-width: 100%;
-    }
-
-    .packages-center {
-      display: flex;
-      justify-content: center;
-    }
+    .packages-col .pricing-card { max-width: 100%; }
 
     .pricing-card {
       background: #fff;
@@ -632,10 +569,7 @@
       margin: 0.4rem 0 0.2rem;
     }
 
-    .pricing-card .price sup {
-      font-size: 1.7rem;
-      vertical-align: super;
-    }
+    .pricing-card .price sup { font-size: 1.7rem; vertical-align: super; }
 
     .price-rule {
       width: 36px;
@@ -682,24 +616,7 @@
     }
 
     .gallery-item:hover img { transform: scale(1.04); }
-
     .gallery-item.wide { grid-column: span 2; }
-
-    .ph {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .ph svg { opacity: 0.18; }
-
-    .ph span {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.18);
-    }
 
     /* ── CONTACT ── */
     #contact {
@@ -735,8 +652,6 @@
       z-index: 2;
       max-width: 640px;
     }
-
-    #contact .section-label { color: var(--ember); }
 
     #contact h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -834,20 +749,6 @@
 
     .form-row button:hover { background: #b05e3a; }
 
-    @media (max-width: 768px) {
-      .form-row {
-        flex-direction: column;
-      }
-      .form-row input {
-        border-right: 1px solid rgba(255,255,255,0.18);
-        border-bottom: none;
-      }
-      .form-row button {
-        width: 100%;
-        padding: 1rem;
-      }
-    }
-
     .contact-form textarea {
       width: 100%;
       padding: 0.85rem 1.2rem;
@@ -893,7 +794,7 @@
     }
 
     .footer-myth {
-      max-width: 420px;
+      max-width: 300px;
       flex: 1;
     }
 
@@ -980,22 +881,18 @@
       .nav-cta-book a { font-size: 0.62rem; padding: 0.45rem 0.9rem; letter-spacing: 0.15em; }
       .section-inner { padding: 0 1.5rem; }
       .locations-grid { grid-template-columns: 1fr; }
-      .location-card { height: auto; aspect-ratio: 1 / 1; }
-
-      #about, #locations, #packages, #rental, #contact, #gallery {
-        padding: 5rem 0;
-      }
-
+      .location-card { aspect-ratio: 1 / 1; }
+      #about, #locations, #packages, #contact, #gallery { padding: 5rem 0; }
       .packages-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .rental-grid { grid-template-columns: 1fr; }
-
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-item.wide { grid-column: span 2; }
-
       .footer-inner { flex-direction: column; }
       .footer-right { align-items: flex-start; }
-
+      .footer-myth { max-width: 100%; }
       .pricing-card { padding: 2.5rem 1.8rem; }
+      .form-row { flex-direction: column; }
+      .form-row input { border-right: 1px solid rgba(255,255,255,0.18); border-bottom: none; }
+      .form-row button { width: 100%; padding: 1rem; }
     }
 
     @media (max-width: 560px) {
@@ -1008,8 +905,6 @@
 
   <!-- ── HERO ── -->
   <section id="hero">
-
-    <!-- NAV overlaid on hero -->
     <nav>
       <a class="logo" href="#hero">
         <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
@@ -1017,7 +912,7 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#locations">Locations</a></li>
-        <li><a href="#packages">Packages & Rentals</a></li>
+        <li><a href="#packages">Packages &amp; Rentals</a></li>
         <li><a href="#gallery">Gallery</a></li>
       </ul>
       <div class="nav-cta-book">
@@ -1028,13 +923,8 @@
       </button>
     </nav>
 
-    <img
-      class="hero-image"
-      src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png"
-      alt="9 Waves sauna experience"
-    />
+    <img class="hero-image" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20terracotta%20fatter%20banner.png" alt="9 Waves sauna experience" />
     <div class="hero-overlay"></div>
-
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       <a href="#contact">Become a 9-Waver</a>
@@ -1046,7 +936,7 @@
     <button class="mobile-close" onclick="closeMenu()">&#215;</button>
     <a href="#about" onclick="closeMenu()">About</a>
     <a href="#locations" onclick="closeMenu()">Locations</a>
-    <a href="#packages" onclick="closeMenu()">Packages & Rentals</a>
+    <a href="#packages" onclick="closeMenu()">Packages &amp; Rentals</a>
     <a href="#gallery" onclick="closeMenu()">Gallery</a>
     <a href="#contact" onclick="closeMenu()">Join the Community</a>
   </div>
@@ -1082,7 +972,7 @@
     </div>
     <div class="contact-overlay"></div>
     <div class="section-inner contact-content">
-      <span class="section-label" style="color:var(--ember)">Join the 9 Waves Community</span>
+      <span class="section-label">Join the 9 Waves Community</span>
       <h2>We're Looking for the<br /><em>First 9-Wavers</em></h2>
       <p>You were here when it all began; soon we'll be dropping the first events and locations around Cyprus.</p>
       <p>Become an OG 9-Waver and we'll make sure you get especially steamy treatment with discounts, early access and more.</p>
@@ -1093,7 +983,7 @@
         <li>Send us a DM or email to pre-book the first sessions, enquire about module rental (or just reach out — we'd love to hear from you)</li>
         <li>All of the above <em>(this is the move, really)</em></li>
       </ul>
-      <p class="form-success" id="formSuccess" style="display:none; color:var(--ember); font-size:0.82rem; letter-spacing:0.08em; margin-bottom:0.8rem;">Welcome aboard 9-Waver! We got your email — want to add any more?</p>
+      <p id="formSuccess" style="display:none; color:var(--ember); font-size:0.82rem; letter-spacing:0.08em; margin-bottom:0.8rem;">Welcome aboard 9-Waver! We got your email — want to add any more?</p>
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqeyoeon" method="POST">
         <div class="form-row">
           <input type="email" name="email" id="formEmail" placeholder="Your email address" required />
@@ -1102,7 +992,7 @@
         <textarea name="message" id="formMessage" placeholder="Leave a message (optional)"></textarea>
       </form>
       <div class="contact-btns">
-        <a class="btn-ember" href="/cdn-cgi/l/email-protection#5038353c3c3f69273126352310373d31393c7e333f3d">Email Us</a>
+        <a class="btn-ember" href="mailto:hello9waves@gmail.com">Email Us</a>
         <a class="btn-outline" href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:0.4rem">
             <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
@@ -1122,12 +1012,6 @@
         <p class="locations-intro">9 Waves tents love to wander, but we'll have permanent setups at select locations so you can just book and enjoy.</p>
       </div>
       <div class="locations-grid">
-
-        <!--
-          LOCATION CARDS:
-          Add your location images by replacing the placeholder divs below.
-          Example: <img class="card-bg-img" src="https://i.imgur.com/YOURIMAGE.jpg" alt="Limassol">
-        -->
         <div class="location-card">
           <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/refs/heads/main/Ballers%20club%20paralimni.png" alt="Ballers Club Paralimni">
           <div class="card-gradient"></div>
@@ -1136,18 +1020,14 @@
             <h3>Ballers Club, Paralimni</h3>
           </div>
         </div>
-
         <div class="location-card coming-soon">
           <div class="card-content">
             <span class="section-label">Where to next?</span>
             <h3>You tell us!</h3>
-            <a class="btn-ember" href="/cdn-cgi/l/email-protection#fb939e979794bbc28c9a8d9e88d59882c4888e99919e988fc6b59e8cdbb794989a8f929495dba99e8a8e9e888f" target="_blank" rel="noopener">
-              I Want 9 Waves Near Me
-            </a>
+            <a class="btn-ember" href="mailto:hello9waves@gmail.com">I Want 9 Waves Near Me</a>
             <p class="coming-soon-note">We go wherever our community is in need of fire and ice. Get in touch to request a module at your business or dream location.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1156,7 +1036,6 @@
   <section id="packages">
     <div class="section-inner">
       <div class="packages-grid">
-
         <div class="packages-col">
           <div class="section-header" style="text-align:left; margin-bottom:2rem;">
             <span class="section-label">Sessions</span>
@@ -1168,12 +1047,9 @@
             <div class="price"><sup>€</sup>120</div>
             <div class="price-rule"></div>
             <p>Valid at any 9 Waves location. Can also be used as credit against any 9 Waves event.</p>
-            <a class="btn-slate" href="https://checkout.revolut.com/pay/68cdc17b-5a82-40a1-87fc-b631ef4348ca" target="_blank" rel="noopener">
-              Purchase Package
-            </a>
+            <a class="btn-slate" href="https://checkout.revolut.com/pay/68cdc17b-5a82-40a1-87fc-b631ef4348ca" target="_blank" rel="noopener">Purchase Package</a>
           </div>
         </div>
-
         <div class="packages-col">
           <div class="section-header" style="text-align:left; margin-bottom:2rem;">
             <span class="section-label">Private Hire</span>
@@ -1185,12 +1061,9 @@
             <div class="price-rule" style="margin-top:1.2rem;"></div>
             <p class="price-label" style="margin-bottom:0.5rem;">Discounts for first customers</p>
             <p>All rentals include setup, takedown, and a full briefing. Get in touch to discuss your event or venue.</p>
-            <a class="btn-slate" href="/cdn-cgi/l/email-protection#eb838e878784d29c8a9d8e98ab8c868a8287c5888486">
-              Enquire Now
-            </a>
+            <a class="btn-slate" href="mailto:hello9waves@gmail.com">Enquire Now</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1202,14 +1075,6 @@
         <span class="section-label">The Experience</span>
         <h2 class="light">Gallery</h2>
       </div>
-      <!--
-        GALLERY IMAGES:
-        Replace each placeholder div with an <img> tag once you have photos.
-        Example:
-        <div class="gallery-item wide">
-          <img src="https://i.imgur.com/YOURIMAGE.jpg" alt="Sauna exterior" />
-        </div>
-      -->
       <div class="gallery-grid">
         <div class="gallery-item wide">
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20double%20decker.png" alt="Double decker sauna" />
@@ -1258,11 +1123,11 @@
         <a href="https://bastsauna.com/" target="_blank" rel="noopener" class="footer-partner-link">bastsauna.com →</a>
       </div>
       <div class="footer-right">
-        <a href="/cdn-cgi/l/email-protection#f8909d949497c18f998e9d8bb89f95999194d69b9795">
+        <a href="mailto:hello9waves@gmail.com">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
           </svg>
-          <span class="__cf_email__" data-cfemail="99f1fcf5f5f6a0eef8effcead9fef4f8f0f5b7faf6f4">[email&#160;protected]</span>
+          hello9waves@gmail.com
         </a>
         <a href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1275,7 +1140,7 @@
     <p class="footer-copy">© 2025 9 Waves. All rights reserved.</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     function openMenu() {
       document.getElementById('mobileMenu').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1297,7 +1162,6 @@
       }
     });
 
-    // Handle form submission via fetch so we stay on the page
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       async function submitForm(e) {
@@ -1311,18 +1175,29 @@
         }
         btn.textContent = 'Sending...';
         btn.disabled = true;
-
         try {
           const response = await fetch(contactForm.action, {
             method: 'POST',
             body: new FormData(contactForm),
             headers: { 'Accept': 'application/json' }
           });
-
           if (response.ok) {
             document.getElementById('formEmail').value = '';
             document.getElementById('formMessage').value = '';
-            const msg = document.getElementById('formSuccess');
-            msg.style.display = 'block';
+            document.getElementById('formSuccess').style.display = 'block';
             btn.textContent = 'Subscribe';
-            bt
+            btn.disabled = false;
+          } else {
+            btn.textContent = 'Try again';
+            btn.disabled = false;
+          }
+        } catch (err) {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      }
+      contactForm.addEventListener('submit', submitForm);
+    }
+  </script>
+</body>
+</html>
