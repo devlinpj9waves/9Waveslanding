@@ -384,6 +384,34 @@
       object-fit: cover;
     }
 
+    /* ── REELS ── */
+    #reels {
+      background: var(--snow);
+      padding: 7rem 0;
+    }
+
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .reels-item {
+      display: flex;
+      justify-content: center;
+    }
+
+    .reels-item .instagram-media {
+      margin: 0 !important;
+      min-width: unset !important;
+      width: 100% !important;
+    }
+
+    @media (max-width: 900px) {
+      .reels-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
     /* ── LOCATIONS ── */
     #locations {
       background: var(--frost);
@@ -1302,6 +1330,35 @@
     </div>
   </section>
 
+  <!-- ── REELS ── -->
+  <section id="reels">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">In Action</span>
+        <h2>See What It Feels Like</h2>
+      </div>
+      <div class="reels-grid">
+        <div class="reels-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaDf5hhoFpN/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="reels-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DagQ_DssErT/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="reels-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DY7gZ5DMn1X/" data-instgrm-version="14"></blockquote>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a class="btn-outline" href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener" style="border-color:var(--slate); color:var(--slate); display:inline-flex; align-items:center; gap:0.5rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          See More on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="contact-bg">
@@ -1331,27 +1388,6 @@
           </svg>
           Follow on Instagram
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── LOCATIONS ── -->
-  <section id="locations">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-label">Where to Find Us</span>
-        <h2>Locations</h2>
-        <p class="locations-intro">9 Waves tents love to wander, but we'll have permanent setups at select locations so you can just book and enjoy.</p>
-      </div>
-      <div class="locations-grid" style="grid-template-columns: 1fr; max-width: 560px; margin: 0 auto;">
-        <div class="location-card coming-soon">
-          <div class="card-content">
-            <span class="section-label">Where to next?</span>
-            <h3>You tell us!</h3>
-            <a class="btn-ember" href="mailto:hello9waves@gmail.com">I Want 9 Waves Near Me</a>
-            <p class="coming-soon-note">We go wherever our community is in need of fire and ice. Get in touch to request a module at your business or dream location.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1436,6 +1472,27 @@
     </div>
   </section>
 
+  <!-- ── LOCATIONS ── -->
+  <section id="locations">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Where to Find Us</span>
+        <h2>Locations</h2>
+        <p class="locations-intro">9 Waves tents love to wander, but we'll have permanent setups at select locations so you can just book and enjoy.</p>
+      </div>
+      <div class="locations-grid" style="grid-template-columns: 1fr; max-width: 560px; margin: 0 auto;">
+        <div class="location-card coming-soon">
+          <div class="card-content">
+            <span class="section-label">Where to next?</span>
+            <h3>You tell us!</h3>
+            <a class="btn-ember" href="mailto:hello9waves@gmail.com">I Want 9 Waves Near Me</a>
+            <p class="coming-soon-note">We go wherever our community is in need of fire and ice. Get in touch to request a module at your business or dream location.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── GALLERY ── -->
   <section id="gallery">
     <div class="section-inner">
@@ -1444,32 +1501,8 @@
         <h2 class="light">Gallery</h2>
       </div>
       <div class="gallery-grid">
+        <!-- ── JULY PICCIES (most recent) ── -->
         <div class="gallery-item wide">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20double%20decker.png" alt="Double decker sauna" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20guy%20coming%20out%20into%20nature.png" alt="Guy coming out into nature" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20interior%20on%20the%20sand.png" alt="Interior on the sand" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20leaves%20and%20lake.png" alt="Leaves and lake" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20stove.png" alt="Sauna stove" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20sundown.png" alt="Sundown" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20tattooed%20ladler.png" alt="Tattooed ladler" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20two%20blokes%20lake.png" alt="Two blokes by the lake" />
-        </div>
-        <!-- ── JULY PICCIES ── -->
-        <div class="gallery-item">
           <img src="https://wsrv.nl/?url=raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/July%20Piccies%20Alfons.jpg&w=900&output=jpg&q=85" alt="July - Alfons" />
         </div>
         <div class="gallery-item">
@@ -1495,6 +1528,31 @@
         </div>
         <div class="gallery-item">
           <img src="https://wsrv.nl/?url=raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/July%20Piccies%20heads.jpg&w=900&output=jpg&q=85" alt="July - Heads" />
+        </div>
+        <!-- ── ORIGINALS ── -->
+        <div class="gallery-item wide">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20double%20decker.png" alt="Double decker sauna" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20guy%20coming%20out%20into%20nature.png" alt="Guy coming out into nature" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20interior%20on%20the%20sand.png" alt="Interior on the sand" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20leaves%20and%20lake.png" alt="Leaves and lake" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20stove.png" alt="Sauna stove" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20sundown.png" alt="Sundown" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20tattooed%20ladler.png" alt="Tattooed ladler" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/resized%20two%20blokes%20lake.png" alt="Two blokes by the lake" />
         </div>
       </div>
     </div>
@@ -1637,6 +1695,9 @@
       }
       contactForm.addEventListener('submit', submitForm);
     }
+    // Instagram embeds
+    if (window.instgrm) window.instgrm.Embeds.process();
   </script>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
