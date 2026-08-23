@@ -1410,9 +1410,24 @@
     .shop-btn-call:hover { background: var(--slate); color: #fff; border-color: var(--slate); }
 
 
-    /* Shop grid variants */
+    /* Lightbox */
+    .shop-lightbox {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(20,24,32,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .shop-lightbox.open { display: flex; }
+
+    /* Frost card — force full row break before it */
     .shop-grid-one {
-      display: flex; justify-content: center; width: 100%;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      clear: both;
     }
     .shop-grid-one .shop-card {
       max-width: 380px; width: 100%;
@@ -2178,11 +2193,26 @@
     }
     // Instagram embeds
     if (window.instgrm) window.instgrm.Embeds.process();
+
+    // Shop image lightbox
+    function openLightbox(src) {
+      document.getElementById('shopLightboxImg').src = src;
+      document.getElementById('shopLightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('shopLightbox').classList.remove('open');
+      document.getElementById('shopLightboxImg').src = '';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
   <script async src="https://www.instagram.com/embed.js"></script>
 
   <!-- ── SHOP IMAGE LIGHTBOX ── -->
-  <div id="shopLightbox" style="display:none; position:fixed; inset:0; background:rgba(20,24,32,0.92); z-index:9999; align-items:center; justify-content:center; padding:2rem;" onclick="closeLightbox()">
+  <div id="shopLightbox" class="shop-lightbox" onclick="closeLightbox()">
     <button onclick="closeLightbox()" style="position:absolute; top:1.2rem; right:1.5rem; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; line-height:1;">&#215;</button>
     <img id="shopLightboxImg" src="" alt="" style="max-width:90vw; max-height:88vh; object-fit:contain; display:block; box-shadow:0 8px 48px rgba(0,0,0,0.5);" onclick="event.stopPropagation()" />
   </div>
