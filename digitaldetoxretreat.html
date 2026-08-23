@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="email-obfuscation" content="off" />
+  <title>Digital Detox & Nervous System Reset Retreat -- 9 Waves × For Rest, Cyprus</title>
+  <meta name="description" content="A 6-day digital detox and nervous system reset retreat in Cyprus. Wood-fired saunas, ice baths, glamping, and genuine disconnection. Hosted by 9 Waves and For Rest." />
+  <meta property="og:title" content="Digital Detox Retreat in Cyprus -- 9 Waves × For Rest" />
+  <meta property="og:description" content="6 days, 5 nights. Hand over your phone. Wood-fired saunas, ice baths, nature hikes, and real food with real people in the Cyprus hills." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20large%20black%20and%20white.png" />
+  <meta property="og:url" content="https://9-waves.com/digitaldetoxretreat" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --frost: #f0f3f5; --snow: #fafbfc; --slate: #2c3340;
+      --birch: #8a9aaa; --steam: #c8d4dc; --ember: #c4714a;
+      --dark: #141820; --ink: #3a4452;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; font-weight: 300; background: var(--snow); color: var(--slate); overflow-x: hidden; }
+
+    /* ── BOOKING BUBBLE ── */
+    #booking-bubble {
+      position: fixed;
+      top: 80px; right: 1.5rem;
+      z-index: 500;
+      background: #fff;
+      border: 1px solid var(--steam);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+      padding: 1.2rem 1.4rem;
+      max-width: 260px;
+      width: 100%;
+      display: none;
+      animation: slideIn 0.25s ease;
+    }
+    @keyframes slideIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+    #booking-bubble.visible { display: block; }
+    .bubble-close { position:absolute; top:0.5rem; right:0.7rem; background:none; border:none; font-size:1.1rem; color:var(--birch); cursor:pointer; line-height:1; }
+    .bubble-label { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--birch); margin-bottom:0.3rem; display:block; }
+    .bubble-selection { font-size:0.82rem; color:var(--slate); margin-bottom:0.2rem; line-height:1.5; }
+    .bubble-price { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--ember); margin:0.4rem 0 0.8rem; line-height:1; }
+    .bubble-price small { font-size:0.9rem; color:var(--birch); font-family:'Jost',sans-serif; }
+    .bubble-earlybird { font-size:0.68rem; color:#25D366; font-weight:400; margin-bottom:0.8rem; display:block; }
+    .bubble-wa { display:flex; align-items:center; justify-content:center; gap:0.5rem; background:#25D366; color:#fff; text-decoration:none; padding:0.7rem 1rem; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:400; width:100%; transition:background 0.2s; border:none; cursor:pointer; }
+    .bubble-wa:hover { background:#1aad55; }
+    .bubble-divider { border:none; border-top:1px solid var(--steam); margin:0.8rem 0; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top:0; left:0; right:0; z-index:400;
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 0 3rem; min-height:64px;
+      background: rgba(250,251,252,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.07);
+    }
+    header .logo img { height:40px; width:auto; display:block; }
+    header .back-link { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--birch); text-decoration:none; transition:color 0.2s; }
+    header .back-link:hover { color:var(--ember); }
+
+    /* Ask us button in header */
+    .header-ask {
+      display:flex; align-items:center; gap:0.6rem;
+    }
+    .header-ask-label { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--birch); white-space:nowrap; }
+    .header-icon-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:32px; height:32px;
+      border:1px solid var(--steam); background:none; cursor:pointer; color:var(--slate);
+      text-decoration:none; transition:border-color 0.2s, color 0.2s;
+    }
+    .header-icon-btn:hover { border-color:var(--ember); color:var(--ember); }
+    .header-icon-btn.wa { border-color:#25D366; color:#25D366; }
+    .header-icon-btn.wa:hover { background:#25D366; color:#fff; }
+
+    /* ── HERO ── */
+    #hero {
+      position:relative; width:100%; height:100vh; min-height:600px;
+      overflow:hidden; display:flex; align-items:flex-end; padding-bottom:5rem;
+    }
+    .hero-bg { position:absolute; inset:0; background:#2a3528; }
+    .hero-bg img { width:100%; height:100%; object-fit:cover; display:block; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(20,24,32,0.2) 0%, rgba(20,24,32,0.72) 100%); }
+    .hero-content { position:relative; z-index:2; width:100%; max-width:1100px; margin:0 auto; padding:0 2rem; }
+    .hero-collab { font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:1rem; display:block; }
+    .hero-content h1 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(2.8rem,7vw,5.5rem); color:#fff; line-height:1.08; margin-bottom:1.4rem; }
+    .hero-content h1 em { font-style:italic; }
+    .hero-meta { display:flex; gap:2.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .hero-meta-item { display:flex; flex-direction:column; gap:0.2rem; }
+    .hero-meta-label { font-size:0.6rem; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+    .hero-meta-value { font-size:0.88rem; color:rgba(255,255,255,0.9); font-weight:300; }
+    .hero-meta-value.price { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--ember); }
+    .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+    .hero-ask { display:flex; align-items:center; gap:0.5rem; margin-left:0.5rem; }
+    .hero-ask span { font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+    .icon-btn-hero { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); text-decoration:none; transition:all 0.2s; }
+    .icon-btn-hero:hover { border-color:#fff; color:#fff; }
+    .icon-btn-hero.wa { border-color:rgba(37,211,102,0.5); color:#25D366; }
+    .icon-btn-hero.wa:hover { background:#25D366; color:#fff; border-color:#25D366; }
+
+    /* ── BUTTONS ── */
+    .btn-ember { display:inline-block; text-decoration:none; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:400; color:#fff; background:var(--ember); padding:0.9rem 2rem; transition:background 0.2s; border:none; cursor:pointer; }
+    .btn-ember:hover { background:#b05e3a; }
+    .btn-ghost { display:inline-block; text-decoration:none; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:400; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.35); padding:0.9rem 2rem; transition:border-color 0.2s, color 0.2s; }
+    .btn-ghost:hover { border-color:#fff; color:#fff; }
+    .btn-outline-dark { display:inline-block; text-decoration:none; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:400; color:var(--slate); border:1px solid rgba(44,51,64,0.35); padding:0.9rem 2rem; transition:all 0.2s; }
+    .btn-outline-dark:hover { background:var(--ember); color:#fff; border-color:var(--ember); }
+
+    /* ── SHARED ── */
+    .section-inner { max-width:1100px; margin:0 auto; padding:0 2rem; }
+    .section-label { font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--ember); font-weight:400; display:block; margin-bottom:0.9rem; }
+    .divider { width:44px; height:1px; background:var(--ember); margin:1.8rem auto; }
+    .section-header { text-align:center; margin-bottom:3.5rem; }
+    .section-header h2 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(1.9rem,3.5vw,2.8rem); color:var(--slate); line-height:1.2; }
+    .section-header h2.light { color:#fff; }
+    .section-header p { font-size:0.92rem; color:var(--birch); line-height:1.8; margin-top:0.8rem; max-width:600px; margin-left:auto; margin-right:auto; }
+
+    /* ── INTRO ── */
+    #intro { background:var(--snow); padding:6rem 0; }
+    .intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .intro-text h2 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(1.8rem,3vw,2.6rem); color:var(--slate); line-height:1.2; margin-bottom:1.4rem; }
+    .intro-text h2 em { font-style:italic; color:var(--ember); }
+    .intro-text p { font-size:0.95rem; line-height:1.9; color:var(--ink); margin-bottom:1rem; font-weight:300; }
+    .intro-image { position:relative; overflow:hidden; }
+    .intro-image img { width:100%; height:auto; display:block; }
+
+    /* ── PHOTO GRID (auto-shape) ── */
+    #photos { background:var(--frost); padding:6rem 0; }
+    .photo-grid { columns:3; column-gap:0.4rem; }
+    .photo-grid-item { break-inside:avoid; margin-bottom:0.4rem; overflow:hidden; display:block; }
+    .photo-grid-item img { width:100%; height:auto; display:block; transition:transform 0.4s ease; }
+    .photo-grid-item:hover img { transform:scale(1.03); }
+    /* Placeholder for missing photos */
+    .photo-grid-item .img-ph {
+      background:var(--steam); display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:0.4rem; padding:3rem 1rem; text-align:center;
+    }
+    .img-ph-name { font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ember); }
+    .img-ph-desc { font-size:0.7rem; color:var(--birch); line-height:1.5; font-weight:300; }
+
+    /* ── WHAT'S INCLUDED ── */
+    #included { background:var(--dark); padding:6rem 0; }
+    .included-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.1rem; }
+    .included-item { padding:2rem; border:1px solid rgba(255,255,255,0.06); display:flex; gap:1rem; align-items:flex-start; }
+    .included-icon { width:6px; height:6px; border-radius:50%; background:var(--ember); flex-shrink:0; margin-top:0.5rem; }
+    .included-item p { font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.65; font-weight:300; }
+    .included-item p strong { color:rgba(255,255,255,0.9); font-weight:400; display:block; margin-bottom:0.2rem; }
+
+    /* ── SESSIONS ── */
+    #sessions { background:var(--frost); padding:6rem 0; }
+    .sessions-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+    .session-card { background:#fff; border:1px solid var(--steam); padding:2.5rem; }
+    .session-day { font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--ember); margin-bottom:0.6rem; display:block; }
+    .session-card h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.5rem; color:var(--slate); margin-bottom:1rem; line-height:1.2; }
+    .session-card p { font-size:0.85rem; color:var(--ink); line-height:1.8; font-weight:300; margin-bottom:0.8rem; }
+    .session-elements { list-style:none; margin-top:1.2rem; display:flex; flex-direction:column; gap:0.5rem; }
+    .session-elements li { font-size:0.8rem; color:var(--birch); padding-left:1rem; position:relative; line-height:1.6; }
+    .session-elements li::before { content:'--'; position:absolute; left:0; color:var(--ember); }
+
+    /* ── PROGRAMME ── */
+    #programme { background:var(--snow); padding:6rem 0; }
+    .programme-day { display:grid; grid-template-columns:140px 1fr; border-bottom:1px solid var(--steam); }
+    .programme-day:first-child { border-top:1px solid var(--steam); }
+    .programme-day-label { padding:2rem 2rem 2rem 0; border-right:1px solid var(--steam); }
+    .programme-day-label span { font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ember); display:block; margin-bottom:0.3rem; }
+    .programme-day-label strong { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--slate); }
+    .programme-day-content { padding:2rem; }
+    .programme-day-content p { font-size:0.85rem; color:var(--ink); line-height:1.8; font-weight:300; }
+    .highlight { color:var(--ember); font-weight:400; }
+
+    /* ── ACCOMMODATION / BOOKING ── */
+    #accommodation { background:var(--frost); padding:6rem 0; }
+
+    /* Date selector */
+    .date-selector { display:flex; justify-content:center; gap:0; margin-bottom:3rem; flex-wrap:wrap; }
+    .date-btn {
+      padding:0.75rem 2rem; font-family:'Jost',sans-serif; font-size:0.72rem;
+      letter-spacing:0.18em; text-transform:uppercase; cursor:pointer;
+      background:#fff; border:1px solid var(--steam); color:var(--birch);
+      transition:all 0.2s; font-weight:400;
+    }
+    .date-btn + .date-btn { border-left:none; }
+    .date-btn.active { background:var(--slate); color:#fff; border-color:var(--slate); }
+    .date-btn:hover:not(.active) { border-color:var(--slate); color:var(--slate); }
+
+    /* Accom cards */
+    .accom-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .accom-card { background:#fff; border:1px solid var(--steam); overflow:hidden; }
+    .accom-card-img img { width:100%; height:auto; display:block; }
+    .accom-card-img .img-ph { background:var(--frost); padding:4rem 2rem; }
+    .accom-card-body { padding:1.8rem; }
+    .accom-type { font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--birch); margin-bottom:0.4rem; display:block; }
+    .accom-card-body h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.35rem; color:var(--slate); margin-bottom:0.8rem; line-height:1.2; }
+    .accom-card-body p { font-size:0.8rem; color:var(--birch); line-height:1.7; font-weight:300; margin-bottom:1rem; }
+
+    /* Pricing rows */
+    .accom-pricing { border-top:1px solid var(--steam); padding-top:1.2rem; margin-bottom:1.4rem; display:flex; flex-direction:column; gap:0.6rem; }
+    .pricing-row { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; }
+    .pricing-row-label { font-size:0.72rem; color:var(--ink); font-weight:300; flex:1; }
+    .pricing-row-price { text-align:right; }
+    .pricing-row-price .earlybird { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--ember); }
+    .pricing-row-price .standard { font-size:0.72rem; color:var(--birch); text-decoration:line-through; margin-left:0.3rem; }
+    .pricing-row-price .pp { font-size:0.65rem; color:var(--birch); }
+
+    /* Select buttons */
+    .accom-select-btns { display:flex; flex-direction:column; gap:0.5rem; }
+    .select-option {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0.7rem 1rem; border:1px solid var(--steam); cursor:pointer;
+      background:#fff; font-family:'Jost',sans-serif; font-size:0.7rem;
+      letter-spacing:0.12em; text-transform:uppercase; color:var(--slate);
+      transition:all 0.2s; width:100%; text-align:left;
+    }
+    .select-option:hover:not(:disabled) { border-color:var(--ember); color:var(--ember); }
+    .select-option.selected { background:var(--slate); color:#fff; border-color:var(--slate); }
+    .select-option:disabled { opacity:0.4; cursor:not-allowed; }
+    .select-option .opt-price { font-family:'Cormorant Garamond',serif; font-size:1.1rem; }
+
+    /* Availability badge */
+    .avail-badge {
+      display:inline-block; font-size:0.58rem; letter-spacing:0.18em;
+      text-transform:uppercase; padding:0.2rem 0.6rem; margin-bottom:0.8rem;
+      font-weight:400; border-radius:0;
+    }
+    .avail-badge.plenty { background:rgba(37,211,102,0.12); color:#1aad55; border:1px solid rgba(37,211,102,0.3); }
+    .avail-badge.few { background:rgba(196,113,74,0.1); color:var(--ember); border:1px solid rgba(196,113,74,0.3); }
+    .avail-badge.one { background:rgba(196,113,74,0.15); color:var(--ember); border:1px solid var(--ember); }
+    .avail-badge.soldout { background:rgba(44,51,64,0.08); color:var(--birch); border:1px solid var(--steam); }
+    .select-option.soldout { opacity:0.35; pointer-events:none; }
+
+    /* ── LOCATION ── */
+    #location { background:var(--snow); padding:6rem 0; }
+    .location-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+    .location-text h2 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(1.8rem,3vw,2.4rem); color:var(--slate); margin-bottom:1.2rem; line-height:1.2; }
+    .location-text p { font-size:0.9rem; color:var(--ink); line-height:1.85; font-weight:300; margin-bottom:1rem; }
+    .location-details { display:flex; flex-direction:column; gap:1.2rem; margin-top:2rem; }
+    .location-detail { display:flex; gap:1rem; align-items:flex-start; }
+    .location-detail-label { font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--ember); min-width:90px; padding-top:0.15rem; }
+    .location-detail-value { font-size:0.85rem; color:var(--ink); line-height:1.65; font-weight:300; }
+    /* Auto-shape location images */
+    .location-images { display:flex; flex-direction:column; gap:0.4rem; }
+    .location-images img { width:100%; height:auto; display:block; }
+
+    /* ── HOSTS ── */
+    #hosts { background:var(--dark); padding:6rem 0; }
+    .hosts-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+    .host-card { display:flex; gap:1.5rem; align-items:flex-start; }
+    .host-avatar { width:80px; height:80px; border-radius:50%; background:var(--slate); flex-shrink:0; overflow:hidden; }
+    .host-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+    .host-avatar .img-ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    .host-info h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.3rem; color:#fff; margin-bottom:0.2rem; }
+    .host-role { font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ember); margin-bottom:0.8rem; display:block; }
+    .host-info p { font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.75; font-weight:300; }
+
+    /* ── FAQ ── */
+    #faq { background:var(--frost); padding:6rem 0; }
+    .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem 4rem; }
+    .faq-item h4 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.15rem; color:var(--slate); margin-bottom:0.6rem; line-height:1.3; }
+    .faq-item p { font-size:0.82rem; color:var(--birch); line-height:1.75; font-weight:300; }
+
+    /* ── PRICING CTA ── */
+    #pricing { background:var(--snow); padding:6rem 0; text-align:center; }
+    .pricing-strip { display:flex; justify-content:center; gap:0; margin:3rem 0; flex-wrap:wrap; }
+    .pricing-block { padding:2.5rem 3rem; border:1px solid var(--steam); text-align:center; min-width:180px; }
+    .pricing-block + .pricing-block { border-left:none; }
+    .pricing-block-label { font-size:0.6rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--birch); display:block; margin-bottom:0.6rem; }
+    .pricing-block-value { font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:var(--ember); font-weight:300; }
+    .pricing-block-value.earlybird { font-size:2.8rem; }
+    .pricing-block-note { font-size:0.68rem; color:var(--birch); margin-top:0.3rem; }
+    .pricing-cta-text { font-size:0.82rem; color:var(--birch); margin-bottom:2rem; line-height:1.75; }
+    .pricing-ctas { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; align-items:center; }
+    .pricing-ask { display:flex; align-items:center; gap:0.5rem; }
+    .pricing-ask span { font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--birch); }
+
+    /* ── FOOTER ── */
+    footer { background:var(--dark); border-top:1px solid rgba(255,255,255,0.06); padding:2.5rem 2rem; text-align:center; }
+    .footer-logo img { height:28px; width:auto; display:block; margin:0 auto 1rem; opacity:0.7; }
+    footer p { font-size:0.72rem; color:rgba(255,255,255,0.25); letter-spacing:0.08em; line-height:1.8; }
+    footer a { color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.2s; }
+    footer a:hover { color:var(--ember); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:900px) {
+      .intro-grid, .sessions-grid, .location-grid, .hosts-grid { grid-template-columns:1fr; gap:3rem; }
+      .included-grid { grid-template-columns:1fr 1fr; }
+      .accom-grid { grid-template-columns:1fr; }
+      .faq-grid { grid-template-columns:1fr; }
+      .photo-grid { columns:2; }
+      .programme-day { grid-template-columns:100px 1fr; }
+    }
+    @media (max-width:600px) {
+      header { padding:0 1.2rem; }
+      header .back-link { display:none; }
+      .hero-content h1 { font-size:2.4rem; }
+      .section-inner { padding:0 1.5rem; }
+      .included-grid { grid-template-columns:1fr; }
+      .photo-grid { columns:1; }
+      .pricing-strip { flex-direction:column; }
+      .pricing-block + .pricing-block { border-left:1px solid var(--steam); border-top:none; }
+      .programme-day { grid-template-columns:1fr; }
+      .programme-day-label { border-right:none; border-bottom:1px solid var(--steam); padding:1.2rem 0; }
+      #booking-bubble { top:auto; bottom:1rem; right:1rem; left:1rem; max-width:100%; }
+      .date-selector { flex-direction:column; }
+      .date-btn + .date-btn { border-left:1px solid var(--steam); border-top:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── BOOKING BUBBLE ── -->
+  <div id="booking-bubble">
+    <button class="bubble-close" onclick="closeBubble()">✕</button>
+    <span class="bubble-label">Your selection</span>
+    <div class="bubble-selection" id="bubble-selection-text">--</div>
+    <div class="bubble-price" id="bubble-price-text">--</div>
+    <span class="bubble-earlybird" id="bubble-earlybird-text"></span>
+    <a class="bubble-wa" id="bubble-wa-link" href="#" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Book via WhatsApp
+    </a>
+  </div>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <a class="logo" href="https://9-waves.com">
+      <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
+    </a>
+    <a class="back-link" href="https://9-waves.com">← Back to 9 Waves</a>
+    <div class="header-ask">
+      <span class="header-ask-label">Ask us</span>
+      <a class="header-icon-btn" href="mailto:hello9waves@gmail.com" title="Email us" aria-label="Email us">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      </a>
+      <a class="header-icon-btn wa" href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I%20have%20a%20question%20about%20the%209%20Waves%20Digital%20Detox%20Retreat%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener" title="WhatsApp us" aria-label="WhatsApp us">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- PLACEHOLDER: HERO_IMAGE -- Suggested: Wide landscape shot of For Rest glamping at golden hour -->
+      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_IMAGE.jpg" alt="For Rest Glamping" onerror="this.parentElement.style.background='#2a3528'; this.remove();" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content section-inner">
+      <span class="hero-collab">9 Waves × For Rest Glamping</span>
+      <h1>Digital Detox &<br /><em>Nervous System Reset</em></h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Duration</span>
+          <span class="hero-meta-value">6 days / 5 nights</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Location</span>
+          <span class="hero-meta-value">Agios Theodoros, Larnaca</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Earlybird from</span>
+          <span class="hero-meta-value price">€674</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Rating</span>
+          <span class="hero-meta-value">4.92 ★ (38 reviews)</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn-ember" href="#accommodation">I Need This</a>
+        <a class="btn-ghost" href="#included">See What's Included</a>
+        <div class="hero-ask">
+          <span>Ask us</span>
+          <a class="icon-btn-hero" href="mailto:hello9waves@gmail.com" title="Email" aria-label="Email us">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </a>
+          <a class="icon-btn-hero wa" href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I%20have%20a%20question%20about%20the%209%20Waves%20Digital%20Detox%20Retreat%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp us">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INTRO ── -->
+  <section id="intro">
+    <div class="section-inner">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <span class="section-label">The Idea</span>
+          <h2>You scroll to find us.<br /><em>Then you put the phone down.</em></h2>
+          <p>We know you stare at screens every day, for every reason under the sun. We know it's part of life. We also know you're exhausted.</p>
+          <p>What if you could give yourself the gift of a true disconnect? Free your phone, connect with nature, walk barefoot on grass and stone, cook and eat real food with real people.</p>
+          <p>To learn to be a human again.</p>
+          <p>It doesn't matter that you had to scroll to find us. What matters is that you've arrived.</p>
+          <br />
+          <a class="btn-outline-dark" href="#accommodation">I Need This</a>
+        </div>
+        <div class="intro-image">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/INTRO_IMAGE_01.jpg" alt="At peace in nature" onerror="imgFallback(this,'INTRO_IMAGE_01','Suggested: Person at peace -- hammock, reading, or barefoot at For Rest')" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHOTO GRID ── -->
+  <section id="photos">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">The Place</span>
+        <h2>For Rest in Pictures</h2>
+      </div>
+      <div class="photo-grid">
+        <!-- Images auto-adjust to their natural shape (portrait or landscape) -->
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_01.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_01','Group BBQ or dinner together')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_02.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_02','Glamping tent exterior at dusk')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_03.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_03','Hilltop panoramic Cyprus view')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_04.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_04','Hot tub under stars or outdoor kitchen')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_05.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_05','Morning yoga or meditation')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_06.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_06','Beach day at Akakia / Mediterranean')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_07.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_07','9 Waves sauna tent exterior')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_08.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_08','Ice bath / cold plunge')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_09.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_09','Village walk / hiking trail')" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT'S INCLUDED ── -->
+  <section id="included">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">What's Included</span>
+        <h2 class="light">Everything You Need to Switch Off</h2>
+        <p style="color:rgba(255,255,255,0.45);">All activities are included in the price. Nothing is compulsory. This is your week.</p>
+      </div>
+      <div class="included-grid">
+        <div class="included-item"><div class="included-icon"></div><p><strong>5 Nights Accommodation</strong>Choose from simple tents to luxury comfort tents with private hot tubs</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Breakfasts & Dinners</strong>Nutritious meals daily, often prepared together with your hosts</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>2 Sauna & Ice Sessions</strong>Led by Paul from 9 Waves -- wood-fired sauna with rosemary infusions and ice plunges</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>2 Guided Moonlight Yoga Sessions</strong>Under the Cyprus night sky</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Village Hike & Excursions</strong>Guided walk through Agios Theodoros, hilltop hike, and a free exploration day</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Two Beach Days</strong>Shuttle to Akakia beach -- Mediterranean swimming, kayaks, and seaside restaurants</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Community Cookery Night</strong>Roll up your sleeves, chop, cook, and eat together around the barbecue</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Optional Silent Meals</strong>Share a table without conversation -- intensely peaceful and a retreat favourite</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Transport During the Retreat</strong>All shuttles and transfers during the week are covered</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>3 Optional Open-Air Workouts</strong>Bodyweight sessions guided by Paul in the open air</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Water, Tea & Coffee</strong>Served throughout the day</p></div>
+        <div class="included-item"><div class="included-icon"></div><p><strong>Parking & Luggage Storage</strong>Free on site. Airport pickup available for €30 one-way</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 9 WAVES SESSIONS ── -->
+  <section id="sessions">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">The 9 Waves Experience</span>
+        <h2>Fire & Ice in the Cyprus Hills</h2>
+        <p>Two full contrast therapy sessions led by Paul. A physical reset to match the digital one.</p>
+      </div>
+      <div class="sessions-grid">
+        <div class="session-card">
+          <span class="session-day">Monday Afternoon</span>
+          <h3>Introduction to Hot & Cold Therapy</h3>
+          <p>Your first session eases you in with the science and practice of contrast therapy. By the end you'll wonder why you ever needed a phone to feel alive.</p>
+          <ul class="session-elements">
+            <li>Introduction to the benefits of hot and cold therapy</li>
+            <li>Breathing techniques and preparation</li>
+            <li>Wood-fired sauna with rosemary from the For Rest gardens</li>
+            <li>Aromatic essential oils and electrolyte drinks</li>
+            <li>Ice plunges and guided recovery</li>
+            <li>Deep stress release and nervous system reset</li>
+          </ul>
+        </div>
+        <div class="session-card">
+          <span class="session-day">Thursday Afternoon</span>
+          <h3>The Full Experience</h3>
+          <p>By Thursday you know the rhythm. This session goes deeper -- longer rounds, more intense contrast, and a group that has been through a week together.</p>
+          <ul class="session-elements">
+            <li>Full hot and cold cycle protocol</li>
+            <li>Advanced breathing and cold exposure</li>
+            <li>Guided sauna rounds with scent and sound</li>
+            <li>Ice plunges and active recovery</li>
+            <li>Integration and reflection</li>
+            <li>Followed by moonlight yoga at 19:00</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROGRAMME ── -->
+  <section id="programme">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">The Week</span>
+        <h2>Day by Day</h2>
+        <p>Enough structure to switch off, enough freedom to make it your own.</p>
+      </div>
+      <div class="programme-days">
+        <div class="programme-day">
+          <div class="programme-day-label"><span>Day 1</span><strong>Sunday</strong></div>
+          <div class="programme-day-content"><p>Arrive from 15:00. Settle in, explore. <span class="highlight">Welcome Cyprus BBQ dinner at 19:00</span> -- sheftalies, souvlaki, Greek salad around the table. Hot tub relaxation under the stars at 21:00.</p></div>
+        </div>
+        <div class="programme-day">
+          <div class="programme-day-label"><span>Day 2</span><strong>Monday</strong></div>
+          <div class="programme-day-content"><p>Morning green smoothies and village tour and hilltop hike. Community brunch back at the glamping. Free time from 14:00. <span class="highlight">9 Waves sauna and ice therapy session at 16:00 (2-3 hours).</span> Dinner at the local village tavern.</p></div>
+        </div>
+        <div class="programme-day">
+          <div class="programme-day-label"><span>Day 3</span><strong>Tuesday</strong></div>
+          <div class="programme-day-content"><p>Morning yoga and detox bowl brunch. Shuttle to the beach at 12:00 -- swim, kayak, or relax by the Mediterranean. Back at 16:00. <span class="highlight">Community cooking dinner</span> -- hands on, sleeves rolled up. Board games, hot tub, and stars.</p></div>
+        </div>
+        <div class="programme-day">
+          <div class="programme-day-label"><span>Day 4</span><strong>Wednesday</strong></div>
+          <div class="programme-day-content"><p>Barefoot breakfast picnic at Governor's Beach at 08:00. Free day to explore Cyprus -- beach, cycling, horse riding, massage, or reading in a hammock. <span class="highlight">Traditional Cyprus meze dinner at a local tavern in the evening.</span></p></div>
+        </div>
+        <div class="programme-day">
+          <div class="programme-day-label"><span>Day 5</span><strong>Thursday</strong></div>
+          <div class="programme-day-content"><p>Community breakfast. Beach shuttle at 11:30. Back at 15:00. <span class="highlight">9 Waves sauna and ice session at 16:00.</span> Moonlight yoga at 19:00. Light community dinner under the stars.</p></div>
+        </div>
+        <div class="programme-day">
+          <div class="programme-day-label"><span>Day 6</span><strong>Friday</strong></div>
+          <div class="programme-day-content"><p>Farewell breakfast together -- sharing reflections and new friendships. Check-out by 11:00. Take your final deep breath of fresh Cyprus air and head home rested and recharged.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ACCOMMODATION & BOOKING ── -->
+  <section id="accommodation">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Choose Your Sanctuary</span>
+        <h2>Select Your Dates & Accommodation</h2>
+        <p>Two weeks available. Select your dates, then choose your sanctuary and occupancy. Your selection will appear in the booking panel -- then WhatsApp us to confirm.</p>
+      </div>
+
+      <!-- Date selector -->
+      <div class="date-selector">
+        <button class="date-btn active" onclick="selectDate('sep', this)">Sep 20 - 25, 2025</button>
+        <button class="date-btn" onclick="selectDate('oct', this)">Oct 18 - 23, 2025</button>
+      </div>
+
+      <div class="accom-grid">
+
+        <!-- SIMPLE & SPACIOUS (shared twin) -->
+        <div class="accom-card">
+          <div class="accom-card-img">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_TENT.jpg" alt="Simple & Spacious Tent" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_TENT','Simple tent interior or exterior')" />
+          </div>
+          <div class="accom-card-body">
+            <span class="avail-badge plenty" id="badge-simple-twin">Available</span>
+            <span class="accom-type">Shared Tent · 2 Single Beds</span>
+            <h3>Simple & Spacious Tent</h3>
+            <p>Spacious and breezy, fewer frills. Access to all For Rest facilities including outdoor kitchens, BBQs, and hot tubs. The surroundings are the real star.</p>
+            <div class="accom-pricing">
+              <div class="pricing-row">
+                <span class="pricing-row-label">2 people sharing</span>
+                <div class="pricing-row-price"><span class="earlybird">€816</span> <span class="standard">€1,020</span> <span class="pp">/ pp</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">Single occupancy</span>
+                <div class="pricing-row-price"><span class="earlybird">€939</span> <span class="pp">/ person</span></div>
+              </div>
+            </div>
+            <div class="accom-select-btns">
+              <button class="select-option" onclick="selectOption(this, 'Simple & Spacious Tent (2 sharing)', 816, 'simple-twin')">
+                <span>2 Sharing</span><span class="opt-price">€816 pp</span>
+              </button>
+              <button class="select-option" onclick="selectOption(this, 'Simple & Spacious Tent (single)', 939, 'simple-twin')">
+                <span>Single Occupancy</span><span class="opt-price">€939</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMPLE & SPACIOUS (private double) -->
+        <div class="accom-card">
+          <div class="accom-card-img">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_DOUBLE.jpg" alt="Simple Tent Double" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_DOUBLE','Simple tent with double bed interior')" />
+          </div>
+          <div class="accom-card-body">
+            <span class="avail-badge plenty" id="badge-simple-dbl">Available</span>
+            <span class="accom-type">Private Tent · 1 Double Bed</span>
+            <h3>Simple & Spacious Tent -- Double</h3>
+            <p>The same breezy, natural simplicity with a private double bed. Access to all shared For Rest facilities. A great choice for couples who know the surroundings are what matters.</p>
+            <div class="accom-pricing">
+              <div class="pricing-row">
+                <span class="pricing-row-label">2 people sharing double</span>
+                <div class="pricing-row-price"><span class="earlybird">€674</span> <span class="standard">€843</span> <span class="pp">/ pp</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">Single occupancy</span>
+                <div class="pricing-row-price"><span class="earlybird">€1,050</span> <span class="standard">€1,312</span> <span class="pp">/ person</span></div>
+              </div>
+            </div>
+            <div class="accom-select-btns">
+              <button class="select-option" onclick="selectOption(this, 'Simple & Spacious Double Tent (2 sharing)', 674, 'simple-dbl')">
+                <span>2 Sharing Double</span><span class="opt-price">€674 pp</span>
+              </button>
+              <button class="select-option" onclick="selectOption(this, 'Simple & Spacious Double Tent (single)', 1050, 'simple-dbl')">
+                <span>Single Occupancy</span><span class="opt-price">€1,050</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAT OWL -->
+        <div class="accom-card">
+          <div class="accom-card-img">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_FAT_OWL.jpg" alt="Fat Owl Tent" onerror="imgFallback(this,'ACCOM_IMAGE_FAT_OWL','Fat Owl tent with hot tub')" />
+          </div>
+          <div class="accom-card-body">
+            <span class="avail-badge few" id="badge-fatowl">Two left</span>
+            <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
+            <h3>Fat Owl Tent</h3>
+            <p>AC, double bed, private outdoor bathroom, pergola kitchen, gas BBQ, and a private hot tub with views over the trees and hills. Can sleep up to 6 -- contact us for groups of 3+.</p>
+            <div class="accom-pricing">
+              <div class="pricing-row">
+                <span class="pricing-row-label">2 people sharing</span>
+                <div class="pricing-row-price"><span class="earlybird">€933</span> <span class="standard">€1,275</span> <span class="pp">/ pp</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">Single occupancy</span>
+                <div class="pricing-row-price"><span class="earlybird">€1,165</span> <span class="pp">/ person</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">3 or more</span>
+                <div class="pricing-row-price"><span style="font-size:0.72rem; color:var(--birch);">Contact us</span></div>
+              </div>
+            </div>
+            <div class="accom-select-btns">
+              <button class="select-option" onclick="selectOption(this, 'Fat Owl Tent (2 sharing)', 933, 'fatowl')">
+                <span>2 Sharing</span><span class="opt-price">€933 pp</span>
+              </button>
+              <button class="select-option" onclick="selectOption(this, 'Fat Owl Tent (single)', 1165, 'fatowl')">
+                <span>Single Occupancy</span><span class="opt-price">€1,165</span>
+              </button>
+              <a class="select-option" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between;" href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I'm%20interested%20in%20the%20Fat%20Owl%20Tent%20for%203%20or%20more%20people%20at%20the%209%20Waves%20Retreat%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener">
+                <span>3+ People</span><span class="opt-price" style="font-size:0.75rem;">Contact us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AURA -->
+        <div class="accom-card">
+          <div class="accom-card-img">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_AURA.jpg" alt="Aura Tent" onerror="imgFallback(this,'ACCOM_IMAGE_AURA','Aura tent with hot tub and hill views')" />
+          </div>
+          <div class="accom-card-body">
+            <span class="avail-badge plenty" id="badge-aura">Available</span>
+            <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
+            <h3>Aura Tent</h3>
+            <p>Peaceful stay close to nature. Double bed and sofa bed, AC, private outdoor bathroom with shower, pergola with outdoor kitchen, and an exclusive hot tub with hill views. Can sleep up to 5.</p>
+            <div class="accom-pricing">
+              <div class="pricing-row">
+                <span class="pricing-row-label">2 people sharing</span>
+                <div class="pricing-row-price"><span class="earlybird">€933</span> <span class="standard">€1,275</span> <span class="pp">/ pp</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">Single occupancy</span>
+                <div class="pricing-row-price"><span class="earlybird">€1,165</span> <span class="pp">/ person</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">3 or more</span>
+                <div class="pricing-row-price"><span style="font-size:0.72rem; color:var(--birch);">Contact us</span></div>
+              </div>
+            </div>
+            <div class="accom-select-btns">
+              <button class="select-option" onclick="selectOption(this, 'Aura Tent (2 sharing)', 933, 'aura')">
+                <span>2 Sharing</span><span class="opt-price">€933 pp</span>
+              </button>
+              <button class="select-option" onclick="selectOption(this, 'Aura Tent (single)', 1165, 'aura')">
+                <span>Single Occupancy</span><span class="opt-price">€1,165</span>
+              </button>
+              <a class="select-option" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between;" href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I'm%20interested%20in%20the%20Aura%20Tent%20for%203%20or%20more%20people%20at%20the%209%20Waves%20Retreat%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener">
+                <span>3+ People</span><span class="opt-price" style="font-size:0.75rem;">Contact us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MUDRA -->
+        <div class="accom-card">
+          <div class="accom-card-img">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_MUDRA.jpg" alt="Mudra Tent" onerror="imgFallback(this,'ACCOM_IMAGE_MUDRA','Mudra tent with open-air bathtub')" />
+          </div>
+          <div class="accom-card-body">
+            <span class="avail-badge one" id="badge-mudra">One left</span>
+            <span class="accom-type">Extra Comfort · Open-Air Bathtub Under the Stars</span>
+            <h3>Mudra Tent</h3>
+            <p>A quiet retreat for deep rest. The highlight is a private white bathtub under the open sky -- available only to guests of this tent. Pergola with kitchen, BBQ, and hill views. Sleeps up to 4.</p>
+            <div class="accom-pricing">
+              <div class="pricing-row">
+                <span class="pricing-row-label">2 people sharing</span>
+                <div class="pricing-row-price"><span class="earlybird">€933</span> <span class="standard">€1,275</span> <span class="pp">/ pp</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">Single occupancy</span>
+                <div class="pricing-row-price"><span class="earlybird">€1,165</span> <span class="pp">/ person</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">3 or more</span>
+                <div class="pricing-row-price"><span style="font-size:0.72rem; color:var(--birch);">Contact us</span></div>
+              </div>
+            </div>
+            <div class="accom-select-btns">
+              <button class="select-option" onclick="selectOption(this, 'Mudra Tent (2 sharing)', 933, 'mudra')">
+                <span>2 Sharing</span><span class="opt-price">€933 pp</span>
+              </button>
+              <button class="select-option" onclick="selectOption(this, 'Mudra Tent (single)', 1165, 'mudra')">
+                <span>Single Occupancy</span><span class="opt-price">€1,165</span>
+              </button>
+              <a class="select-option" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between;" href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I'm%20interested%20in%20the%20Mudra%20Tent%20for%203%20or%20more%20people%20at%20the%209%20Waves%20Retreat%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener">
+                <span>3+ People</span><span class="opt-price" style="font-size:0.75rem;">Contact us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GEO-SPHERES -->
+        <div class="accom-card">
+          <div class="accom-card-img">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_GEODOME.jpg" alt="Luxury Geo-Spheres" onerror="imgFallback(this,'ACCOM_IMAGE_GEODOME','Luxury geodesic dome interior or exterior')" />
+          </div>
+          <div class="accom-card-body">
+            <span class="avail-badge soldout" id="badge-geo">Sold out -- Sep 20</span>
+            <span class="accom-type">Luxury · Geodesic Dome · Outdoor Hot Tub</span>
+            <h3>Luxury Geo-Spheres</h3>
+            <p>Beautiful geodesic domes 5 minutes from the main glamping. Full kitchen, AC, hanging cocoons, barbecue area, and an outdoor hot tub with hydromassage. Double bed, mini kitchen, private bathroom.</p>
+            <div class="accom-pricing">
+              <div class="pricing-row">
+                <span class="pricing-row-label">2 people sharing</span>
+                <div class="pricing-row-price"><span class="earlybird">€1,167</span> <span class="standard">€1,458</span> <span class="pp">/ pp</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">Single occupancy</span>
+                <div class="pricing-row-price"><span class="earlybird">€1,332</span> <span class="pp">/ person</span></div>
+              </div>
+              <div class="pricing-row">
+                <span class="pricing-row-label">3 or more</span>
+                <div class="pricing-row-price"><span style="font-size:0.72rem; color:var(--birch);">Contact us</span></div>
+              </div>
+            </div>
+            <div class="accom-select-btns" id="geo-btns">
+              <button class="select-option soldout" disabled>
+                <span>2 Sharing -- Sep 20</span><span class="opt-price">Sold Out</span>
+              </button>
+              <button class="select-option soldout" disabled>
+                <span>Single -- Sep 20</span><span class="opt-price">Sold Out</span>
+              </button>
+              <button class="select-option" onclick="selectOption(this, 'Luxury Geo-Sphere (2 sharing, Oct 18)', 1167, 'geo')">
+                <span>2 Sharing -- Oct 18</span><span class="opt-price">€1,167 pp</span>
+              </button>
+              <button class="select-option" onclick="selectOption(this, 'Luxury Geo-Sphere (single, Oct 18)', 1332, 'geo')">
+                <span>Single -- Oct 18</span><span class="opt-price">€1,332</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p style="text-align:center; margin-top:2rem; font-size:0.78rem; color:var(--birch);">
+        <a href="https://forrestglamping.cy/home" target="_blank" rel="noopener" style="color:var(--ember); text-decoration:none;">See more details on For Rest Glamping →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── LOCATION ── -->
+  <section id="location">
+    <div class="section-inner">
+      <div class="location-grid">
+        <div class="location-text">
+          <span class="section-label">The Setting</span>
+          <h2>A Hidden Valley in the Cyprus Hills</h2>
+          <p>For Rest is tucked into a hidden valley, perched on a breezy ridge, with goat tracks leading up to a stunning viewpoint and clearings that look out over the quaint village of Agios Theodoros.</p>
+          <p>The passion project of hosts Loucas and Polina -- every inch of the unique glamping space has been lovingly dreamt into life. Private tents, quiet mornings, unhurried meals, and time that belongs only to you.</p>
+          <div class="location-details">
+            <div class="location-detail">
+              <span class="location-detail-label">Location</span>
+              <span class="location-detail-value">Agios Theodoros, Larnaca District, Cyprus</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-label">Airport</span>
+              <span class="location-detail-value">Larnaca (LCA) -- pickup €30 one-way, €50 return. Paphos (PFO) -- contact us</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-label">Weather</span>
+              <span class="location-detail-value">24-31°C days, 18-22°C evenings. Mediterranean still warm for swimming</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-label">By car</span>
+              <span class="location-detail-value">Along the coast or motorway. Parking on site. A 4×4 is helpful but not required</span>
+            </div>
+            <div class="location-detail">
+              <span class="location-detail-label">Outlets</span>
+              <span class="location-detail-value">UK/Ireland three-pronged plugs (same as Cyprus)</span>
+            </div>
+          </div>
+        </div>
+        <div class="location-images">
+          <!-- Images display at their natural shape -- portrait or landscape -->
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/LOCATION_IMAGE_01.jpg" alt="For Rest exterior" onerror="imgFallback(this,'LOCATION_IMAGE_01','For Rest tents on the hillside')" />
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/LOCATION_IMAGE_02.jpg" alt="Hill view" onerror="imgFallback(this,'LOCATION_IMAGE_02','View from hilltop / panoramic landscape')" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOSTS ── -->
+  <section id="hosts">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">The People Behind It</span>
+        <h2 class="light">Who You'll Meet</h2>
+        <p style="color:rgba(255,255,255,0.45);">People who care about genuine experiences that allow for laughter, don't take themselves too seriously, and truly resonate.</p>
+      </div>
+      <div class="hosts-grid">
+        <div class="host-card">
+          <div class="host-avatar">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HOST_IMAGE_PAUL.jpg" alt="Paul" onerror="imgFallback(this,'HOST_IMAGE_PAUL','')" />
+          </div>
+          <div class="host-info">
+            <h3>Paul</h3>
+            <span class="host-role">9 Waves -- Sauna & Ice Specialist</span>
+            <p>Paul set up 9 Waves Sauna and Ice to bring the best of hot and cold culture from his native Ireland to beautiful Cyprus. He leads both contrast therapy sessions and three optional outdoor workouts during the week.</p>
+          </div>
+        </div>
+        <div class="host-card">
+          <div class="host-avatar">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HOST_IMAGE_POLINA_LOUCAS.jpg" alt="Polina and Loucas" onerror="imgFallback(this,'HOST_IMAGE_POLINA_LOUCAS','')" />
+          </div>
+          <div class="host-info">
+            <h3>Polina & Loucas</h3>
+            <span class="host-role">For Rest Glamping -- Your Retreat Hosts</span>
+            <p>Polina and Loucas built For Rest from a passion for experiences that let people truly slow down. They'll be on hand all week -- and were inspired to build this joint project with Paul by their shared love of wellness experiences that resonate, that allow for laughter, and that don't take themselves too seriously.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Questions</span>
+        <h2>Good to Know</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item"><h4>Do I really have to hand in my phone?</h4><p>Yes -- that's the idea. It'll be safely stored in a secure lockbox. If being completely offline feels daunting, there are two optional phone access windows during the week. Before arrival you'll receive an emergency contact number for your family.</p></div>
+        <div class="faq-item"><h4>I've never used a sauna or ice bath. Is that okay?</h4><p>Absolutely. Paul will explain everything before your first session and guide you throughout. No experience needed -- the sessions are suitable for complete beginners.</p></div>
+        <div class="faq-item"><h4>Are solo travellers welcome?</h4><p>Completely. Some come alone to be alone. Others find friendships they didn't expect. Still others think they want to isolate and find themselves opening up more than ever. All of it is perfect.</p></div>
+        <div class="faq-item"><h4>Is it physically demanding?</h4><p>Not especially. Hikes include some hills but are short and taken at a relaxed pace. The sauna and ice sessions are optional and beginner-friendly. If you want to push yourself, that can also be arranged.</p></div>
+        <div class="faq-item"><h4>Do I have to take part in everything?</h4><p>Not at all. Everything is included in your price, but nothing is compulsory. If you'd rather spend an afternoon in a hammock or walking on your own, that's completely fine. This is your week.</p></div>
+        <div class="faq-item"><h4>What should I bring?</h4><p>Comfortable clothes, swimwear, walking shoes, a light jumper for evenings, a reusable water bottle, and a book you've been meaning to read. A notebook or journal is optional but often becomes a retreat highlight.</p></div>
+        <div class="faq-item"><h4>What's the cancellation policy?</h4><p>100% refund on your deposit if you cancel 1 or more days before the retreat start date. The remaining balance is due upon arrival. We accept credit/debit card or bank transfer.</p></div>
+        <div class="faq-item"><h4>Is there WiFi?</h4><p>Yes -- but don't worry, you won't need it. In case of a genuine emergency, the WiFi works well and will cover you if you need to get online.</p></div>
+        <div class="faq-item"><h4>Is a shorter or longer stay possible?</h4><p>Reach out to us and let us know what you're thinking and we'll see what we can do!</p></div>
+        <div class="faq-item"><h4>Do you cater to dietary requirements?</h4><p>Yes -- vegan, vegetarian, gluten-free, dairy-free, keto, nut-allergy-friendly and more. Just let us know when booking.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING CTA ── -->
+  <section id="pricing">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Ready?</span>
+        <h2>Put the Phone Down</h2>
+      </div>
+      <div class="pricing-strip">
+        <div class="pricing-block"><span class="pricing-block-label">From (earlybird)</span><div class="pricing-block-value earlybird">€674</div><div class="pricing-block-note">2 sharing a double</div></div>
+        <div class="pricing-block"><span class="pricing-block-label">Deposit to secure</span><div class="pricing-block-value">€108</div><div class="pricing-block-note">free cancellation 1+ days before</div></div>
+        <div class="pricing-block"><span class="pricing-block-label">Duration</span><div class="pricing-block-value">6</div><div class="pricing-block-note">days / 5 nights</div></div>
+        <div class="pricing-block"><span class="pricing-block-label">Rating</span><div class="pricing-block-value">4.92</div><div class="pricing-block-note">★ from 38 reviews</div></div>
+      </div>
+      <p class="pricing-cta-text">All activities included. Arrive Sunday. Leave Friday. Come back to yourself.</p>
+      <div class="pricing-ctas">
+        <a class="btn-ember" href="#accommodation">Book Your Spot Now</a>
+        <div class="pricing-ask">
+          <span>Ask us</span>
+          <a class="header-icon-btn" href="mailto:hello9waves@gmail.com" title="Email" aria-label="Email us" style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--steam); text-decoration:none; color:var(--slate); transition:all 0.2s;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </a>
+          <a href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I%20have%20a%20question%20about%20the%209%20Waves%20Digital%20Detox%20Retreat%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid #25D366; color:#25D366; text-decoration:none; transition:all 0.2s;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo">
+      <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
+    </div>
+    <p>
+      A <a href="https://9-waves.com">9 Waves</a> × <a href="https://forrestglamping.cy/home" target="_blank" rel="noopener">For Rest Glamping</a> collaboration.<br />
+      <a href="mailto:hello9waves@gmail.com">hello9waves@gmail.com</a> &nbsp;·&nbsp;
+      <a href="https://wa.me/34679225067" target="_blank" rel="noopener">WhatsApp</a> &nbsp;·&nbsp;
+      <a href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">Instagram</a><br /><br />
+      © 2025 9 Waves. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Clean image fallback -- avoids inline HTML in onerror attributes
+    function imgFallback(el, name, desc) {
+      var ph = document.createElement('div');
+      ph.className = 'img-ph';
+      ph.innerHTML = '<span class="img-ph-name">' + name + '</span><span class="img-ph-desc">' + desc + '</span>';
+      el.parentNode.replaceChild(ph, el);
+    }
+
+    // ── INVENTORY CONFIG ──
+    // Edit these to update availability without touching the HTML.
+    // Options: 'plenty' | 'few' | 'one' | 'soldout'
+    // Text shown: 'Available' | 'Two left' | 'One left' | 'Sold out'
+    const inventory = {
+      sep: {
+        'simple-twin': { status: 'plenty', label: 'Available' },
+        'simple-dbl':  { status: 'plenty', label: 'Available' },
+        'fatowl':      { status: 'few',    label: 'Two left' },
+        'aura':        { status: 'plenty', label: 'Available' },
+        'mudra':       { status: 'one',    label: 'One left' },
+        'geo':         { status: 'soldout',label: 'Sold out' },
+      },
+      oct: {
+        'simple-twin': { status: 'plenty', label: 'Available' },
+        'simple-dbl':  { status: 'plenty', label: 'Available' },
+        'fatowl':      { status: 'plenty', label: 'Available' },
+        'aura':        { status: 'plenty', label: 'Available' },
+        'mudra':       { status: 'plenty', label: 'Available' },
+        'geo':         { status: 'few',    label: 'Two left' },
+      }
+    };
+
+    const dateLabels = {
+      sep: 'Sep 20 - 25, 2025',
+      oct: 'Oct 18 - 23, 2025'
+    };
+
+    let selectedDate = 'sep';
+    let selectedOption = null;
+    let selectedPrice = null;
+
+    function selectDate(date, btn) {
+      selectedDate = date;
+      document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateBadges();
+      // Deselect any chosen option since date changed
+      clearSelection();
+    }
+
+    function updateBadges() {
+      const inv = inventory[selectedDate];
+      Object.keys(inv).forEach(key => {
+        const badge = document.getElementById('badge-' + key);
+        if (badge) {
+          badge.className = 'avail-badge ' + inv[key].status;
+          badge.textContent = inv[key].label;
+        }
+        // Disable buttons for sold-out
+        const btns = document.querySelectorAll(`[onclick*="'${key}'"]`);
+        btns.forEach(b => {
+          if (inv[key].status === 'soldout') {
+            b.disabled = true;
+            b.classList.add('soldout');
+          } else {
+            b.disabled = false;
+            b.classList.remove('soldout');
+          }
+        });
+      });
+    }
+
+    function selectOption(btn, label, price, cardKey) {
+      // Deselect others in same card
+      const allBtns = document.querySelectorAll(`[onclick*="'${cardKey}'"]`);
+      allBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      selectedOption = label;
+      selectedPrice = price;
+      showBubble(label, price);
+    }
+
+    function showBubble(label, price) {
+      const bubble = document.getElementById('booking-bubble');
+      const dateStr = dateLabels[selectedDate];
+      document.getElementById('bubble-selection-text').textContent = label + ' · ' + dateStr;
+      document.getElementById('bubble-price-text').innerHTML = '€' + price.toLocaleString() + ' <small>earlybird</small>';
+      document.getElementById('bubble-earlybird-text').textContent = '+ €108 deposit to secure your spot';
+
+      const msg = encodeURIComponent(
+        '〰〰〰〰〰\nHi! I would like to book the 9 Waves Digital Detox Retreat 🔥🧊\n\n' +
+        'Accommodation: ' + label + '\nDates: ' + dateStr + '\nPrice: €' + price + '\n〰〰〰〰'
+      );
+      document.getElementById('bubble-wa-link').href = 'https://wa.me/34679225067?text=' + msg;
+
+      bubble.classList.add('visible');
+    }
+
+    function closeBubble() {
+      document.getElementById('booking-bubble').classList.remove('visible');
+    }
+
+    function clearSelection() {
+      document.querySelectorAll('.select-option').forEach(b => b.classList.remove('selected'));
+      closeBubble();
+      selectedOption = null;
+      selectedPrice = null;
+    }
+
+    // Init badges on load
+    updateBadges();
+  </script>
+</body>
+</html>
