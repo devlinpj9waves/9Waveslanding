@@ -14,6 +14,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <script>
+    // Must be in <head> so it's available when onerror fires on images
+    function imgFallback(el, name, desc) {
+      var ph = document.createElement('div');
+      ph.className = 'img-ph';
+      ph.innerHTML = '<span class="img-ph-name">' + name + '</span>' + (desc ? '<span class="img-ph-desc">' + desc + '</span>' : '');
+      if (el.parentNode) el.parentNode.replaceChild(ph, el);
+    }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -284,6 +293,50 @@
     footer a { color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.2s; }
     footer a:hover { color:var(--ember); }
 
+
+    .bubble-email, .bubble-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.8rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 400;
+      width: 100%;
+      transition: all 0.2s;
+      text-decoration: none;
+      margin-top: 0.4rem;
+      border: 1px solid var(--steam);
+      color: var(--slate);
+      background: #fff;
+    }
+    .bubble-email:hover { border-color: var(--ember); color: var(--ember); }
+    .bubble-call { color: var(--slate); }
+    .bubble-call:hover { border-color: var(--slate); background: var(--slate); color: #fff; }
+
+    .header-book-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      background: var(--ember);
+      padding: 0.5rem 1.1rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+      margin-right: 0.8rem;
+    }
+    .header-book-btn:hover { background: #b05e3a; }
+
+    @media (max-width:600px) {
+      .header-book-btn { font-size: 0.58rem; padding: 0.45rem 0.7rem; margin-right: 0.4rem; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width:900px) {
       .intro-grid, .sessions-grid, .location-grid, .hosts-grid { grid-template-columns:1fr; gap:3rem; }
@@ -323,6 +376,14 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Book via WhatsApp
     </a>
+    <a class="bubble-email" id="bubble-email-link" href="#">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      Book via Email
+    </a>
+    <a class="bubble-call" href="tel:+35794334411">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+      Call to Book &nbsp;+357 94 334 411
+    </a>
   </div>
 
   <!-- ── HEADER ── -->
@@ -331,6 +392,7 @@
       <img src="https://github.com/devlinpj9waves/9Waveslanding/blob/main/9%20waves%20stamp%20landscape.png?raw=true" alt="9 Waves" />
     </a>
     <a class="back-link" href="https://9-waves.com">← Back to 9 Waves</a>
+    <a class="header-book-btn" href="#accommodation">Book Your Spot</a>
     <div class="header-ask">
       <span class="header-ask-label">Ask us</span>
       <a class="header-icon-btn" href="mailto:hello9waves@gmail.com" title="Email us" aria-label="Email us">
@@ -571,8 +633,7 @@
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_TENT.jpg" alt="Simple & Spacious Tent" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_TENT','Simple tent interior or exterior')" />
           </div>
           <div class="accom-card-body">
-            <span class="avail-badge plenty" id="badge-simple-twin">Available</span>
-            <span class="accom-type">Shared Tent · 2 Single Beds</span>
+          <span class="accom-type">Shared Tent · 2 Single Beds</span>
             <h3>Simple & Spacious Tent</h3>
             <p>Spacious and breezy, fewer frills. Access to all For Rest facilities including outdoor kitchens, BBQs, and hot tubs. The surroundings are the real star.</p>
             <div class="accom-pricing">
@@ -602,8 +663,7 @@
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_DOUBLE.jpg" alt="Simple Tent Double" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_DOUBLE','Simple tent with double bed interior')" />
           </div>
           <div class="accom-card-body">
-            <span class="avail-badge plenty" id="badge-simple-dbl">Available</span>
-            <span class="accom-type">Private Tent · 1 Double Bed</span>
+          <span class="accom-type">Private Tent · 1 Double Bed</span>
             <h3>Simple & Spacious Tent -- Double</h3>
             <p>The same breezy, natural simplicity with a private double bed. Access to all shared For Rest facilities. A great choice for couples who know the surroundings are what matters.</p>
             <div class="accom-pricing">
@@ -633,8 +693,7 @@
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_FAT_OWL.jpg" alt="Fat Owl Tent" onerror="imgFallback(this,'ACCOM_IMAGE_FAT_OWL','Fat Owl tent with hot tub')" />
           </div>
           <div class="accom-card-body">
-            <span class="avail-badge few" id="badge-fatowl">Two left</span>
-            <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
+          <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
             <h3>Fat Owl Tent</h3>
             <p>AC, double bed, private outdoor bathroom, pergola kitchen, gas BBQ, and a private hot tub with views over the trees and hills. Can sleep up to 6 -- contact us for groups of 3+.</p>
             <div class="accom-pricing">
@@ -671,8 +730,7 @@
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_AURA.jpg" alt="Aura Tent" onerror="imgFallback(this,'ACCOM_IMAGE_AURA','Aura tent with hot tub and hill views')" />
           </div>
           <div class="accom-card-body">
-            <span class="avail-badge plenty" id="badge-aura">Available</span>
-            <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
+          <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
             <h3>Aura Tent</h3>
             <p>Peaceful stay close to nature. Double bed and sofa bed, AC, private outdoor bathroom with shower, pergola with outdoor kitchen, and an exclusive hot tub with hill views. Can sleep up to 5.</p>
             <div class="accom-pricing">
@@ -709,8 +767,7 @@
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_MUDRA.jpg" alt="Mudra Tent" onerror="imgFallback(this,'ACCOM_IMAGE_MUDRA','Mudra tent with open-air bathtub')" />
           </div>
           <div class="accom-card-body">
-            <span class="avail-badge one" id="badge-mudra">One left</span>
-            <span class="accom-type">Extra Comfort · Open-Air Bathtub Under the Stars</span>
+          <span class="accom-type">Extra Comfort · Open-Air Bathtub Under the Stars</span>
             <h3>Mudra Tent</h3>
             <p>A quiet retreat for deep rest. The highlight is a private white bathtub under the open sky -- available only to guests of this tent. Pergola with kitchen, BBQ, and hill views. Sleeps up to 4.</p>
             <div class="accom-pricing">
@@ -747,8 +804,7 @@
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_GEODOME.jpg" alt="Luxury Geo-Spheres" onerror="imgFallback(this,'ACCOM_IMAGE_GEODOME','Luxury geodesic dome interior or exterior')" />
           </div>
           <div class="accom-card-body">
-            <span class="avail-badge soldout" id="badge-geo">Sold out -- Sep 20</span>
-            <span class="accom-type">Luxury · Geodesic Dome · Outdoor Hot Tub</span>
+          <span class="accom-type">Luxury · Geodesic Dome · Outdoor Hot Tub</span>
             <h3>Luxury Geo-Spheres</h3>
             <p>Beautiful geodesic domes 5 minutes from the main glamping. Full kitchen, AC, hanging cocoons, barbecue area, and an outdoor hot tub with hydromassage. Double bed, mini kitchen, private bathroom.</p>
             <div class="accom-pricing">
@@ -891,6 +947,9 @@
       <div class="section-header">
         <span class="section-label">Ready?</span>
         <h2>Put the Phone Down</h2>
+        <div style="margin-top:1.5rem;">
+          <a class="btn-ember" href="#accommodation" style="padding:0.9rem 2.5rem;">Book Your Spot</a>
+        </div>
       </div>
       <div class="pricing-strip">
         <div class="pricing-block"><span class="pricing-block-label">From (earlybird)</span><div class="pricing-block-value earlybird">€674</div><div class="pricing-block-note">2 sharing a double</div></div>
@@ -899,6 +958,9 @@
         <div class="pricing-block"><span class="pricing-block-label">Rating</span><div class="pricing-block-value">4.92</div><div class="pricing-block-note">★ from 38 reviews</div></div>
       </div>
       <p class="pricing-cta-text">All activities included. Arrive Sunday. Leave Friday. Come back to yourself.</p>
+      <div style="margin-bottom:2rem;">
+        <a class="btn-ember" href="#accommodation" style="padding:1rem 3rem; font-size:0.78rem; letter-spacing:0.22em;">Book Your Spot</a>
+      </div>
       <div class="pricing-ctas">
         <a class="btn-ember" href="#accommodation">Book Your Spot Now</a>
         <div class="pricing-ask">
@@ -929,14 +991,6 @@
   </footer>
 
   <script>
-    // Clean image fallback -- avoids inline HTML in onerror attributes
-    function imgFallback(el, name, desc) {
-      var ph = document.createElement('div');
-      ph.className = 'img-ph';
-      ph.innerHTML = '<span class="img-ph-name">' + name + '</span><span class="img-ph-desc">' + desc + '</span>';
-      el.parentNode.replaceChild(ph, el);
-    }
-
     // ── INVENTORY CONFIG ──
     // Edit these to update availability without touching the HTML.
     // Options: 'plenty' | 'few' | 'one' | 'soldout'
@@ -963,6 +1017,16 @@
     const dateLabels = {
       sep: 'Sep 20 - 25, 2025',
       oct: 'Oct 18 - 23, 2025'
+    };
+
+    // Standard (non-earlybird) prices by cardKey for strikethrough display
+    const standardPrices = {
+      'simple-twin': 1020,
+      'simple-dbl': 843,
+      'fatowl': 1275,
+      'aura': 1275,
+      'mudra': 1275,
+      'geo': 1458
     };
 
     let selectedDate = 'sep';
@@ -1016,13 +1080,16 @@
       const dateStr = dateLabels[selectedDate];
       document.getElementById('bubble-selection-text').textContent = label + ' · ' + dateStr;
       document.getElementById('bubble-price-text').innerHTML = '€' + price.toLocaleString() + ' <small>earlybird</small>';
-      document.getElementById('bubble-earlybird-text').textContent = '+ €108 deposit to secure your spot';
+      document.getElementById('bubble-earlybird-text').textContent = 'Payable now: €108 deposit to secure your spot';
 
       const msg = encodeURIComponent(
         '〰〰〰〰〰\nHi! I would like to book the 9 Waves Digital Detox Retreat 🔥🧊\n\n' +
         'Accommodation: ' + label + '\nDates: ' + dateStr + '\nPrice: €' + price + '\n〰〰〰〰'
       );
       document.getElementById('bubble-wa-link').href = 'https://wa.me/34679225067?text=' + msg;
+      var emailMsg = 'I would like to book the 9 Waves Digital Detox Retreat.%0A%0AAccommodation: ' + label + '%0ADates: ' + dateStr + '%0APrice: €' + price;
+      var emailLink = document.getElementById('bubble-email-link');
+      if (emailLink) emailLink.href = 'mailto:hello9waves@gmail.com?subject=Retreat%20Booking%20Enquiry&body=' + emailMsg;
 
       bubble.classList.add('visible');
     }
