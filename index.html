@@ -1293,6 +1293,121 @@
     }
     .retreat-cta:hover { background: var(--ember); color: #fff; }
 
+    /* ── SHOP ── */
+    #shop { background: var(--snow); padding: 7rem 0; }
+
+    .shop-subhead {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 3rem 0 1.5rem;
+    }
+    .shop-subhead span {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--birch); font-weight: 400; white-space: nowrap;
+    }
+    .shop-subhead::before, .shop-subhead::after {
+      content: ''; flex: 1; height: 1px; background: var(--steam);
+    }
+
+    .shop-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-bottom: 1rem;
+    }
+    .shop-grid-bundles { grid-template-columns: repeat(2, 1fr); }
+
+    .shop-card {
+      background: #fff; border: 1px solid var(--steam);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+
+    .shop-card-imgs {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--frost);
+    }
+    .shop-card-imgs img {
+      width: 100%; height: 180px; object-fit: contain;
+      display: block; padding: 1rem; background: var(--frost);
+    }
+    .shop-card-imgs img:only-child { grid-column: span 2; height: 220px; }
+
+    .shop-card-bundle .shop-card-imgs img { height: 260px; }
+
+    .shop-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+
+    .shop-card-eyebrow {
+      font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--birch); display: block; margin-bottom: 0.3rem;
+    }
+    .shop-card-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: 1.35rem; color: var(--slate); margin-bottom: 0.5rem; line-height: 1.2;
+    }
+    .shop-card-price {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+      color: var(--ember); font-weight: 300; margin-bottom: 0.4rem; line-height: 1;
+    }
+    .shop-price-vat { font-family: 'Jost', sans-serif; font-size: 0.62rem; color: var(--birch); font-weight: 300; }
+
+    .shop-card-note { font-size: 0.75rem; color: var(--birch); line-height: 1.6; margin-bottom: 0.6rem; }
+
+    .shop-bundle-saving {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.72rem; color: var(--birch); margin-bottom: 0.8rem;
+    }
+    .saving-badge {
+      background: rgba(37,211,102,0.12); color: #1aad55;
+      border: 1px solid rgba(37,211,102,0.3);
+      font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.15rem 0.5rem;
+      font-weight: 400;
+    }
+
+    /* Collapsible includes */
+    .shop-includes { margin: 0.8rem 0; border-top: 1px solid var(--steam); padding-top: 0.8rem; }
+    .shop-includes summary {
+      font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--slate); cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.2rem 0; user-select: none;
+    }
+    .shop-includes summary::-webkit-details-marker { display: none; }
+    .shop-includes-toggle::after { content: '+'; font-size: 1rem; color: var(--ember); }
+    .shop-includes[open] .shop-includes-toggle::after { content: '−'; }
+    .shop-includes-list {
+      list-style: none; margin-top: 0.8rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+    .shop-includes-list li {
+      font-size: 0.75rem; color: var(--birch); line-height: 1.5;
+      padding-left: 0.9rem; position: relative; font-weight: 300;
+    }
+    .shop-includes-list li::before { content: '—'; position: absolute; left: 0; color: var(--ember); font-size: 0.65rem; }
+    .shop-includes-list li strong { color: var(--slate); font-weight: 400; display: block; margin-top: 0.5rem; }
+
+    /* Shop CTAs */
+    .shop-ctas { display: flex; flex-direction: column; gap: 0.4rem; margin-top: auto; padding-top: 1rem; }
+    .shop-btn-wa {
+      display: flex; align-items: center; justify-content: center; gap: 0.45rem;
+      background: #25D366; color: #fff; text-decoration: none;
+      padding: 0.7rem; font-size: 0.65rem; letter-spacing: 0.16em;
+      text-transform: uppercase; font-weight: 400; transition: background 0.2s;
+    }
+    .shop-btn-wa:hover { background: #1aad55; }
+    .shop-btn-email, .shop-btn-call {
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+      padding: 0.55rem; font-size: 0.62rem; letter-spacing: 0.14em;
+      text-transform: uppercase; font-weight: 400; transition: all 0.2s;
+      text-decoration: none; border: 1px solid var(--steam); color: var(--slate);
+    }
+    .shop-btn-email:hover { border-color: var(--ember); color: var(--ember); }
+    .shop-btn-call:hover { background: var(--slate); color: #fff; border-color: var(--slate); }
+
+    @media (max-width: 900px) {
+      .shop-grid { grid-template-columns: 1fr 1fr; }
+      .shop-grid-bundles { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .shop-grid { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -1346,7 +1461,7 @@
       </ul>
       <div class="nav-cta-links">
         <a href="#rent">I Want to Rent</a>
-        <a href="#buy">I Want to Buy</a>
+        <a href="#shop">I Want to Buy</a>
         <a href="#business">I'm a Business</a>
         <a href="/digitaldetoxretreat" style="color:var(--ember); border-color:var(--ember);">Digital Detox Retreat</a>
       </div>
@@ -1373,7 +1488,7 @@
     <a href="#locations" onclick="closeMenu()">Locations</a>
     <div class="menu-divider"></div>
     <a href="#rent" onclick="closeMenu()">I Want to Rent</a>
-    <a href="#buy" onclick="closeMenu()">I Want to Buy</a>
+    <a href="#shop" onclick="closeMenu()">I Want to Buy</a>
     <a href="#business" onclick="closeMenu()">I'm a Business</a>
     <div class="menu-divider"></div>
     <a href="#sessions" onclick="closeMenu()">Session Packages</a>
@@ -1521,26 +1636,6 @@
           </div>
         </div>
 
-        <!-- BUY -->
-        <div class="offer-card" id="buy">
-          <div class="offer-card-header">
-            <span class="offer-card-eyebrow">Purchase</span>
-            <h3>Buy Your Own 9 Waves Sauna or Ice Bath</h3>
-          </div>
-          <div class="offer-card-divider"></div>
-          <p class="offer-detail">We currently have a very special offer where you can get a <strong>free ice bath</strong> with the purchase of a premium Bjork sauna tent. Check out our price list for Autumn 2026 and DM for more info.</p>
-          <p class="offer-detail" style="margin-bottom:1rem;">All prices include VAT, shipping and delivery.</p>
-          <a href="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20price%20card.png" target="_blank" rel="noopener" style="display:block; line-height:0; margin: 0 -2rem;">
-            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20Waves%20price%20card.png" alt="9 Waves Autumn 2026 Price List" style="width:100%; height:auto; display:block;" />
-          </a>
-          <div class="offer-cta">
-            <a class="btn-whatsapp" href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I%20found%209%20Waves%20and%20I'm%20interested%20in%20buying%20a%20sauna%20or%20ice%20bath%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              DM Us to Buy
-            </a>
-          </div>
-        </div>
-
         <!-- BUSINESS -->
         <div class="offer-card dark" id="business">
           <div class="offer-card-header">
@@ -1562,6 +1657,226 @@
           </div>
         </div>
 
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ++ SHOP ++ -->
+  <section id="shop">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Own It</span>
+        <h2>Buy a Bast Sauna or Ice Bath</h2>
+        <p>Official 9 Waves reseller pricing. All prices include VAT, shipping and delivery to Cyprus.</p>
+      </div>
+
+      <div class="shop-subhead">
+        <span>Sauna Tents &amp; Ice Bath</span>
+      </div>
+      <div class="shop-grid">
+        <div class="shop-card" id="shop-naver-basic">
+          <div class="shop-card-imgs">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Naver_Basic.png" alt="Naver Basic" onerror="this.style.display='none'" />
+            <img src='https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Naver_Dimensions.png' alt='Naver Basic dimensions' onerror="this.style.display='none'" />
+          </div>
+          <div class="shop-card-body">
+            <span class="shop-card-eyebrow">Sauna Tent</span>
+            <h3 class="shop-card-title">Naver Basic</h3>
+            <div class="shop-card-price">&euro;1,975 <span class="shop-price-vat">incl. VAT &amp; delivery</span></div>
+            
+            <details class="shop-includes">
+              <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
+              <ul class="shop-includes-list"><li>Naver sauna tent and carrying bag</li><li>Stove and carrying bag</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li></ul>
+            </details>
+          <div class="shop-ctas">
+            <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Naver Basic (EUR1,975) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Buy via WhatsApp
+            </a>
+            <a class="shop-btn-email" href="mailto:hello9waves@gmail.com?subject=Purchase%20Enquiry%3A%20Naver%20Basic&body=Hi%2C%20I%20am%20interested%20in%20purchasing%20the%20Naver%20Basic%20(EUR1,975).%20Please%20let%20me%20know%20the%20next%20steps.">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> Buy via Email
+            </a>
+            <a class="shop-btn-call" href="tel:+35794334411">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg> Call to Buy &nbsp;+357 94 334 411
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="shop-card" id="shop-naver-premium">
+          <div class="shop-card-imgs">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Naver_Premium.png" alt="Naver Premium" onerror="this.style.display='none'" />
+            <img src='https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Naver_Dimensions.png' alt='Naver Premium dimensions' onerror="this.style.display='none'" />
+          </div>
+          <div class="shop-card-body">
+            <span class="shop-card-eyebrow">Sauna Tent</span>
+            <h3 class="shop-card-title">Naver Premium</h3>
+            <div class="shop-card-price">&euro;2,635 <span class="shop-price-vat">incl. VAT &amp; delivery</span></div>
+            
+            <details class="shop-includes">
+              <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
+              <ul class="shop-includes-list"><li>Black Naver sauna tent with extra window</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Naver weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li></ul>
+            </details>
+          <div class="shop-ctas">
+            <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Naver Premium (EUR2,635) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Buy via WhatsApp
+            </a>
+            <a class="shop-btn-email" href="mailto:hello9waves@gmail.com?subject=Purchase%20Enquiry%3A%20Naver%20Premium&body=Hi%2C%20I%20am%20interested%20in%20purchasing%20the%20Naver%20Premium%20(EUR2,635).%20Please%20let%20me%20know%20the%20next%20steps.">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> Buy via Email
+            </a>
+            <a class="shop-btn-call" href="tel:+35794334411">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg> Call to Buy &nbsp;+357 94 334 411
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="shop-card" id="shop-frost">
+          <div class="shop-card-imgs">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Frost_ice_bath.png" alt="Frost Premium Ice Bath" onerror="this.style.display='none'" />
+            <img src='https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Frost_outside.png' alt='Frost Premium Ice Bath dimensions' onerror="this.style.display='none'" />
+          </div>
+          <div class="shop-card-body">
+            <span class="shop-card-eyebrow">Ice Bath</span>
+            <h3 class="shop-card-title">Frost Premium Ice Bath</h3>
+            <div class="shop-card-price">&euro;519 <span class="shop-price-vat">incl. VAT &amp; delivery</span></div>
+            
+            <details class="shop-includes">
+              <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
+              <ul class="shop-includes-list"><li>Frost Premium ice bath</li><li>Ice-bath lid</li><li>Pump</li><li>Carry bag</li><li>User manual</li><li>Ice-bath weather cover</li><li>Ice-bath thermometer</li><li>Ice form / ice mould</li></ul>
+            </details>
+          <div class="shop-ctas">
+            <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Frost Premium Ice Bath (EUR519) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Buy via WhatsApp
+            </a>
+            <a class="shop-btn-email" href="mailto:hello9waves@gmail.com?subject=Purchase%20Enquiry%3A%20Frost%20Premium%20Ice%20Bath&body=Hi%2C%20I%20am%20interested%20in%20purchasing%20the%20Frost%20Premium%20Ice%20Bath%20(EUR519).%20Please%20let%20me%20know%20the%20next%20steps.">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> Buy via Email
+            </a>
+            <a class="shop-btn-call" href="tel:+35794334411">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg> Call to Buy &nbsp;+357 94 334 411
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-subhead">
+        <span>Bjork Sauna Tents</span>
+      </div>
+      <div class="shop-grid">
+        <div class="shop-card" id="shop-bjork-basic">
+          <div class="shop-card-imgs">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Bjork_basic.png" alt="Bjork Basic" onerror="this.style.display='none'" />
+            <img src='https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Bjork_dimensions.png' alt='Bjork Basic dimensions' onerror="this.style.display='none'" />
+          </div>
+          <div class="shop-card-body">
+            <span class="shop-card-eyebrow">Sauna Tent</span>
+            <h3 class="shop-card-title">Bjork Basic</h3>
+            <div class="shop-card-price">&euro;2,195 <span class="shop-price-vat">incl. VAT &amp; delivery</span></div>
+            
+            <details class="shop-includes">
+              <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
+              <ul class="shop-includes-list"><li>Bjork sauna tent and carrying bag</li><li>Stove and carrying bag</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li></ul>
+            </details>
+          <div class="shop-ctas">
+            <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Bjork Basic (EUR2,195) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Buy via WhatsApp
+            </a>
+            <a class="shop-btn-email" href="mailto:hello9waves@gmail.com?subject=Purchase%20Enquiry%3A%20Bjork%20Basic&body=Hi%2C%20I%20am%20interested%20in%20purchasing%20the%20Bjork%20Basic%20(EUR2,195).%20Please%20let%20me%20know%20the%20next%20steps.">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> Buy via Email
+            </a>
+            <a class="shop-btn-call" href="tel:+35794334411">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg> Call to Buy &nbsp;+357 94 334 411
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="shop-card" id="shop-bjork-premium">
+          <div class="shop-card-imgs">
+            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Bjork_Premium.png" alt="Bjork Premium" onerror="this.style.display='none'" />
+            <img src='https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_Bjork_dimensions.png' alt='Bjork Premium dimensions' onerror="this.style.display='none'" />
+          </div>
+          <div class="shop-card-body">
+            <span class="shop-card-eyebrow">Sauna Tent</span>
+            <h3 class="shop-card-title">Bjork Premium</h3>
+            <div class="shop-card-price">&euro;3,515 <span class="shop-price-vat">incl. VAT &amp; delivery</span></div>
+            
+            <details class="shop-includes">
+              <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
+              <ul class="shop-includes-list"><li>Black Bjork sauna tent</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>1 two-level wooden bench</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Bjork weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li></ul>
+            </details>
+          <div class="shop-ctas">
+            <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Bjork Premium (EUR3,515) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Buy via WhatsApp
+            </a>
+            <a class="shop-btn-email" href="mailto:hello9waves@gmail.com?subject=Purchase%20Enquiry%3A%20Bjork%20Premium&body=Hi%2C%20I%20am%20interested%20in%20purchasing%20the%20Bjork%20Premium%20(EUR3,515).%20Please%20let%20me%20know%20the%20next%20steps.">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> Buy via Email
+            </a>
+            <a class="shop-btn-call" href="tel:+35794334411">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg> Call to Buy &nbsp;+357 94 334 411
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-subhead">
+        <span>Bundles</span>
+      </div>
+      <div class="shop-grid shop-grid-bundles">
+        <div class="shop-card shop-card-bundle" id="shop-naver-bundle">
+          <div class='shop-card-imgs'><img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy_sauna_and_ice_bath_bundle.png" alt="Naver Premium + Frost Bundle" onerror="this.style.display='none'" /></div>
+          <div class="shop-card-body">
+            <span class="shop-card-eyebrow">Bundle</span>
+            <h3 class="shop-card-title">Naver Premium + Frost Bundle</h3>
+            <div class="shop-card-price">&euro;3,072 <span class="shop-price-vat">incl. VAT &amp; delivery</span></div>
+            <div class="shop-bundle-saving">
+              <span>Bought separately &euro;3,154</span>
+              <span class="saving-badge">Save &euro;82</span>
+            </div>
+            <details class="shop-includes">
+              <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
+              <ul class="shop-includes-list"><li><strong>Naver Premium sauna package</strong></li><li>Black Naver sauna tent with extra window</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Naver weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li><li><strong>Frost Premium ice bath package</strong></li><li>Frost Premium ice bath</li><li>Ice-bath lid</li><li>Pump</li><li>Carry bag</li><li>User manual</li><li>Ice-bath weather cover</li><li>Ice-bath thermometer</li><li>Ice form / ice mould</li><li><strong>Bundle extras</strong></li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li></ul>
+            </details>
+          <div class="shop-ctas">
+            <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Naver Premium + Frost Bundle (EUR3,072) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Buy via WhatsApp
+            </a>
+            <a class="shop-btn-email" href="mailto:hello9waves@gmail.com?subject=Purchase%20Enquiry%3A%20Naver%20Premium%20+%20Frost%20Bundle&body=Hi%2C%20I%20am%20interested%20in%20purchasing%20the%20Naver%20Premium%20+%20Frost%20Bundle%20(EUR3,072).%20Please%20let%20me%20know%20the%20next%20steps.">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> Buy via Email
+            </a>
+            <a class="shop-btn-call" href="tel:+35794334411">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg> Call to Buy &nbsp;+357 94 334 411
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="shop-card shop-card-bundle" id="shop-bjork-bundle">
+          
+          <div class="shop-card-body">
+            <span class="shop-card-eyebrow">Bundle</span>
+            <h3 class="shop-card-title">Bjork Premium + Frost Bundle</h3>
+            <div class="shop-card-price">&euro;3,912 <span class="shop-price-vat">incl. VAT &amp; delivery</span></div>
+            <div class="shop-bundle-saving">
+              <span>Bought separately &euro;4,034</span>
+              <span class="saving-badge">Save &euro;122</span>
+            </div>
+            <details class="shop-includes">
+              <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
+              <ul class="shop-includes-list"><li><strong>Bjork Premium sauna package</strong></li><li>Black Bjork sauna tent</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>1 two-level wooden bench</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Bjork weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li><li><strong>Frost Premium ice bath package</strong></li><li>Frost Premium ice bath</li><li>Ice-bath lid</li><li>Pump</li><li>Carry bag</li><li>User manual</li><li>Ice-bath weather cover</li><li>Ice-bath thermometer</li><li>Ice form / ice mould</li><li><strong>Bundle extras</strong></li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li></ul>
+            </details>
+          <div class="shop-ctas">
+            <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Bjork Premium + Frost Bundle (EUR3,912) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Buy via WhatsApp
+            </a>
+            <a class="shop-btn-email" href="mailto:hello9waves@gmail.com?subject=Purchase%20Enquiry%3A%20Bjork%20Premium%20+%20Frost%20Bundle&body=Hi%2C%20I%20am%20interested%20in%20purchasing%20the%20Bjork%20Premium%20+%20Frost%20Bundle%20(EUR3,912).%20Please%20let%20me%20know%20the%20next%20steps.">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> Buy via Email
+            </a>
+            <a class="shop-btn-call" href="tel:+35794334411">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.04 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg> Call to Buy &nbsp;+357 94 334 411
+            </a>
+          </div>
+          </div>
+        </div>
       </div>
 
     </div>
