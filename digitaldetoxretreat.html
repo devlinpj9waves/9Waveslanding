@@ -191,7 +191,7 @@
       padding:0.75rem 2rem; font-family:'Jost',sans-serif; font-size:0.72rem;
       letter-spacing:0.18em; text-transform:uppercase; cursor:pointer;
       background:#fff; border:1px solid var(--steam); color:var(--birch);
-      transition:all 0.2s; font-weight:400;
+      transition:all 0.2s; font-weight:400; line-height:1.6; text-align:center;
     }
     .date-btn + .date-btn { border-left:none; }
     .date-btn.active { background:var(--slate); color:#fff; border-color:var(--slate); }
@@ -229,6 +229,17 @@
     .select-option.selected { background:var(--slate); color:#fff; border-color:var(--slate); }
     .select-option:disabled { opacity:0.4; cursor:not-allowed; }
     .select-option .opt-price { font-family:'Cormorant Garamond',serif; font-size:1.1rem; }
+
+    /* Earlybird label above pricing */
+    .earlybird-note {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1aad55;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
 
     /* Availability badge */
     .avail-badge {
@@ -420,8 +431,8 @@
           <span class="hero-meta-value">6 days / 5 nights</span>
         </div>
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Location</span>
-          <span class="hero-meta-value">Agios Theodoros, Larnaca</span>
+          <span class="hero-meta-label">Available Dates</span>
+          <span class="hero-meta-value">Sep 20–25 &nbsp;·&nbsp; Oct 18–23</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Earlybird from</span>
@@ -621,8 +632,12 @@
 
       <!-- Date selector -->
       <div class="date-selector">
-        <button class="date-btn active" onclick="selectDate('sep', this)">Sep 20 - 25, 2025</button>
-        <button class="date-btn" onclick="selectDate('oct', this)">Oct 18 - 23, 2025</button>
+        <button class="date-btn active" onclick="selectDate('sep', this)">
+          Sep 20 – 25, 2025<br><span style="font-size:0.55rem; opacity:0.75; font-weight:300; letter-spacing:0.1em;">Earlybird ends Sep 5</span>
+        </button>
+        <button class="date-btn" onclick="selectDate('oct', this)">
+          Oct 18 – 23, 2025<br><span style="font-size:0.55rem; opacity:0.75; font-weight:300; letter-spacing:0.1em;">Earlybird ends Oct 3</span>
+        </button>
       </div>
 
       <div class="accom-grid">
@@ -636,6 +651,7 @@
           <span class="accom-type">Shared Tent · 2 Single Beds</span>
             <h3>Simple & Spacious Tent</h3>
             <p>Spacious and breezy, fewer frills. Access to all For Rest facilities including outdoor kitchens, BBQs, and hot tubs. The surroundings are the real star.</p>
+            <span class="earlybird-note">Earlybird pricing shown — book before date shown above</span>
             <div class="accom-pricing">
               <div class="pricing-row">
                 <span class="pricing-row-label">2 people sharing</span>
@@ -666,6 +682,7 @@
           <span class="accom-type">Private Tent · 1 Double Bed</span>
             <h3>Simple & Spacious Tent -- Double</h3>
             <p>The same breezy, natural simplicity with a private double bed. Access to all shared For Rest facilities. A great choice for couples who know the surroundings are what matters.</p>
+            <span class="earlybird-note">Earlybird pricing shown — book before date shown above</span>
             <div class="accom-pricing">
               <div class="pricing-row">
                 <span class="pricing-row-label">2 people sharing double</span>
@@ -696,6 +713,7 @@
           <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
             <h3>Fat Owl Tent</h3>
             <p>AC, double bed, private outdoor bathroom, pergola kitchen, gas BBQ, and a private hot tub with views over the trees and hills. Can sleep up to 6 -- contact us for groups of 3+.</p>
+            <span class="earlybird-note">Earlybird pricing shown — book before date shown above</span>
             <div class="accom-pricing">
               <div class="pricing-row">
                 <span class="pricing-row-label">2 people sharing</span>
@@ -733,6 +751,7 @@
           <span class="accom-type">Extra Comfort · Double Bed · Private Hot Tub</span>
             <h3>Aura Tent</h3>
             <p>Peaceful stay close to nature. Double bed and sofa bed, AC, private outdoor bathroom with shower, pergola with outdoor kitchen, and an exclusive hot tub with hill views. Can sleep up to 5.</p>
+            <span class="earlybird-note">Earlybird pricing shown — book before date shown above</span>
             <div class="accom-pricing">
               <div class="pricing-row">
                 <span class="pricing-row-label">2 people sharing</span>
@@ -770,6 +789,7 @@
           <span class="accom-type">Extra Comfort · Open-Air Bathtub Under the Stars</span>
             <h3>Mudra Tent</h3>
             <p>A quiet retreat for deep rest. The highlight is a private white bathtub under the open sky -- available only to guests of this tent. Pergola with kitchen, BBQ, and hill views. Sleeps up to 4.</p>
+            <span class="earlybird-note">Earlybird pricing shown — book before date shown above</span>
             <div class="accom-pricing">
               <div class="pricing-row">
                 <span class="pricing-row-label">2 people sharing</span>
@@ -807,6 +827,7 @@
           <span class="accom-type">Luxury · Geodesic Dome · Outdoor Hot Tub</span>
             <h3>Luxury Geo-Spheres</h3>
             <p>Beautiful geodesic domes 5 minutes from the main glamping. Full kitchen, AC, hanging cocoons, barbecue area, and an outdoor hot tub with hydromassage. Double bed, mini kitchen, private bathroom.</p>
+            <span class="earlybird-note">Earlybird pricing shown — book before date shown above</span>
             <div class="accom-pricing">
               <div class="pricing-row">
                 <span class="pricing-row-label">2 people sharing</span>
@@ -822,11 +843,11 @@
               </div>
             </div>
             <div class="accom-select-btns" id="geo-btns">
-              <button class="select-option soldout" disabled>
-                <span>2 Sharing -- Sep 20</span><span class="opt-price">Sold Out</span>
+              <button class="select-option" onclick="selectOption(this, 'Luxury Geo-Sphere (2 sharing, Sep 20)', 1167, 'geo')">
+                <span>2 Sharing -- Sep 20</span><span class="opt-price">€1,167 pp</span>
               </button>
-              <button class="select-option soldout" disabled>
-                <span>Single -- Sep 20</span><span class="opt-price">Sold Out</span>
+              <button class="select-option" onclick="selectOption(this, 'Luxury Geo-Sphere (single, Sep 20)', 1332, 'geo')">
+                <span>Single -- Sep 20</span><span class="opt-price">€1,332</span>
               </button>
               <button class="select-option" onclick="selectOption(this, 'Luxury Geo-Sphere (2 sharing, Oct 18)', 1167, 'geo')">
                 <span>2 Sharing -- Oct 18</span><span class="opt-price">€1,167 pp</span>
@@ -1002,7 +1023,7 @@
         'fatowl':      { status: 'few',    label: 'Two left' },
         'aura':        { status: 'plenty', label: 'Available' },
         'mudra':       { status: 'one',    label: 'One left' },
-        'geo':         { status: 'soldout',label: 'Sold out' },
+        'geo':         { status: 'plenty', label: 'Available' },
       },
       oct: {
         'simple-twin': { status: 'plenty', label: 'Available' },
