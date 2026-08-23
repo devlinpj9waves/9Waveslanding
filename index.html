@@ -1295,14 +1295,17 @@
 
     /* ── SHOP ── */
     #shop { background: var(--snow); padding: 7rem 0; }
+    #shop .section-inner { display: flex; flex-direction: column; align-items: center; }
+    #shop .section-inner > * { width: 100%; }
 
     .shop-subhead {
-      display: flex; align-items: center; gap: 1rem;
-      margin: 3rem 0 1.5rem;
+      display: flex; align-items: center; gap: 1.2rem;
+      margin: 3.5rem 0 2rem; width: 100%;
     }
     .shop-subhead span {
-      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--birch); font-weight: 400; white-space: nowrap;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; letter-spacing: 0.06em; text-transform: none;
+      color: var(--slate); font-weight: 400; white-space: nowrap;
     }
     .shop-subhead::before, .shop-subhead::after {
       content: ''; flex: 1; height: 1px; background: var(--steam);
@@ -1310,7 +1313,13 @@
 
     .shop-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-bottom: 1rem;
+      gap: 1.5rem; margin-bottom: 1rem; width: 100%;
+    }
+    .shop-grid-two {
+      grid-template-columns: repeat(2, 1fr) !important;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .shop-grid-bundles { grid-template-columns: repeat(2, 1fr); }
 
@@ -1403,7 +1412,7 @@
 
     /* Shop grid variants */
     .shop-grid-one {
-      display: flex; justify-content: center;
+      display: flex; justify-content: center; width: 100%;
     }
     .shop-grid-one .shop-card {
       max-width: 380px; width: 100%;
@@ -1433,14 +1442,24 @@
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
     }
-    .shop-card-bundle .shop-card-eyebrow,
-    .shop-card-bundle .shop-card-title,
+    .shop-card-bundle { color: #fff; }
+    .shop-card-bundle .shop-card-eyebrow { color: var(--ember); }
+    .shop-card-bundle .shop-card-title { color: #fff; font-size: 1.5rem; }
     .shop-card-bundle .shop-card-price { color: #fff; }
-    .shop-card-bundle .shop-price-vat,
-    .shop-card-bundle .shop-bundle-saving,
-    .shop-card-bundle .shop-includes summary,
-    .shop-card-bundle .shop-includes-list li { color: rgba(255,255,255,0.7); }
+    .shop-card-bundle .shop-price-vat { color: rgba(255,255,255,0.6); }
+    .shop-card-bundle .shop-bundle-saving { color: rgba(255,255,255,0.75); }
+    .shop-card-bundle .shop-includes summary { color: rgba(255,255,255,0.9); letter-spacing:0.14em; }
+    .shop-card-bundle .shop-includes-list li { color: rgba(255,255,255,0.65); }
+    .shop-card-bundle .shop-includes-list li strong { color: rgba(255,255,255,0.9); }
     .shop-card-bundle .shop-includes { border-top-color: rgba(255,255,255,0.2); }
+    .shop-card-bundle .shop-btn-email,
+    .shop-card-bundle .shop-btn-call {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.85);
+    }
+    .shop-card-bundle .shop-btn-email:hover { border-color: var(--ember); color: var(--ember); }
+    .shop-card-bundle .shop-btn-call:hover { background: rgba(255,255,255,0.2); color: #fff; }
 
     /* Image zoom cursor */
     .shop-card-imgs img {
@@ -1722,7 +1741,7 @@
       <div class="shop-subhead">
         <span>Bjork Sauna Tents</span>
       </div>
-      <div class="shop-grid">
+      <div class="shop-grid shop-grid-two">
         <div class="shop-card" id="shop-bjork-basic">
           <div class="shop-card-imgs">
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy%20Bjork%20basic.png" alt="Bjork Basic" onclick="openLightbox(this.src)" onerror="this.style.display='none'" />
@@ -1782,7 +1801,7 @@
       <div class="shop-subhead">
         <span>Naver Sauna Tents</span>
       </div>
-      <div class="shop-grid">
+      <div class="shop-grid shop-grid-two">
         <div class="shop-card" id="shop-naver-basic">
           <div class="shop-card-imgs">
             <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/Shopy%20Naver%20Basic.png" alt="Naver Basic" onclick="openLightbox(this.src)" onerror="this.style.display='none'" />
@@ -1872,8 +1891,8 @@
 
       </div>
 
-      <div class="shop-subhead">
-        <span>Bundles</span>
+      <div class="shop-subhead" style="--subhead-color:#fff;">
+        <span style="color:#fff;">Sauna and Plunge Bundles</span>
       </div>
       <div class="shop-bundle-wrapper">
         <div class="shop-bundle-bg"></div>
