@@ -1153,15 +1153,15 @@
       z-index: 500;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
-      gap: 1rem;
+      padding: 1rem;
+      gap: 0.7rem;
       animation: fadeIn 0.3s ease;
     }
     .popup-backdrop.open { display: flex; }
 
     .popup-card {
       background: #fff;
-      width: 300px;
+      width: 210px;
       flex-shrink: 0;
       position: relative;
       overflow: hidden;
@@ -1237,8 +1237,8 @@
     .popup-retreat-btn:hover { background: var(--ember); }
 
     @media (max-width: 680px) {
-      .popup-backdrop { flex-direction: column; align-items: center; overflow-y: auto; padding: 3rem 1rem; }
-      .popup-card { width: 100%; max-width: 320px; }
+      .popup-backdrop { flex-direction: column; align-items: center; justify-content: center; padding: 1rem; gap: 0.6rem; }
+      .popup-card { width: 85vw; max-width: 260px; }
     }
 
     /* ── RETREAT SECTION ── */
@@ -1333,12 +1333,12 @@
       background: var(--frost);
     }
     .shop-card-imgs img {
-      width: 100%; height: 180px; object-fit: contain;
-      display: block; padding: 1rem; background: var(--frost);
+      width: 100%; height: auto; aspect-ratio: 1/1; object-fit: contain;
+      display: block; padding: 0.8rem; background: var(--frost);
     }
-    .shop-card-imgs img:only-child { grid-column: span 2; height: 220px; }
+    .shop-card-imgs img:only-child { grid-column: span 2; aspect-ratio: 4/3; }
 
-    .shop-card-bundle .shop-card-imgs img { height: 260px; }
+    .shop-card-bundle .shop-card-imgs img { aspect-ratio: 3/2; }
 
     .shop-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
 
