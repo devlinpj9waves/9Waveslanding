@@ -1591,6 +1591,9 @@
         <a href="#business">I'm a Business</a>
         <a href="/digitaldetoxretreat" style="color:var(--ember); border-color:var(--ember);">Digital Detox Retreat</a>
       </div>
+      <div class="nav-cta-session-book" style="opacity:0;pointer-events:none;transition:opacity 0.4s ease;align-self:center;">
+        <a href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" style="font-family:'Jost',sans-serif;font-size:0.68rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;color:var(--slate);border:1px solid rgba(44,51,64,0.3);padding:0.48rem 1.1rem;transition:all 0.2s;white-space:nowrap;">Book a Session</a>
+      </div>
       <div class="nav-cta-book">
         <a href="#contact">Join the Community</a>
       </div>
@@ -1619,6 +1622,8 @@
     <div class="menu-divider"></div>
     <a href="#gallery" onclick="closeMenu()">Gallery</a>
     <a href="/digitaldetoxretreat" onclick="closeMenu()" style="color:var(--ember);">Digital Detox Retreat</a>
+    <div class="menu-divider"></div>
+    <a href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" onclick="closeMenu()" style="color:var(--ember);">Book a Session</a>
     <div class="menu-divider"></div>
     <a href="#contact" onclick="closeMenu()">Join the Community</a>
   </div>
@@ -1735,6 +1740,23 @@
       <!-- Three offer cards -->
       <div class="packages-grid-3">
 
+        <!-- BOOK A SESSION -->
+        <div class="offer-card" id="sessions-card">
+          <div class="offer-card-header">
+            <span class="offer-card-eyebrow">Book a Session</span>
+            <h3>Pop-up Sauna &amp; Ice Sessions</h3>
+          </div>
+          <div class="offer-card-divider"></div>
+          <p class="offer-detail">We have pop-up sauna sessions where you can book a sauna and ice slot. Check out our calendar below and book your slot.</p>
+          <p class="offer-detail highlight">Next available: Kahuna Surfhouse — Sep 16 &amp; 18</p>
+          <div class="offer-cta">
+            <a class="btn-whatsapp" href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM1 8a7 7 0 1112.452 4.391l3.328 3.329a1 1 0 11-1.414 1.414l-3.329-3.328A7 7 0 011 8z"/></svg>
+              View Calendar &amp; Book
+            </a>
+          </div>
+        </div>
+
         <!-- RENT -->
         <div class="offer-card" id="rent">
           <div class="offer-card-header">
@@ -1765,14 +1787,14 @@
         <div class="offer-card dark" id="business">
           <div class="offer-card-header">
             <span class="offer-card-eyebrow">Local Business?</span>
-            <h3>Test a Sauna Offering at Your Venue — Risk Free</h3>
+            <h3>Add a Sauna &amp; Ice Bath Offering to Your Venue Without the High Costs and Risk</h3>
           </div>
           <div class="offer-card-divider"></div>
-          <p class="offer-detail">Are you a health, wellness or holiday facility wanting to test out a sauna offering before investing in expensive spa equipment?</p>
-          <p class="offer-detail">We set up saunas and/or ice baths so you can <strong>test demand risk-free</strong> while attracting new clients.</p>
+          <p class="offer-detail">Are you a health, wellness or holiday facility looking to offer contrast therapy without investing upfront in permanent spa infrastructure?</p>
+          <p class="offer-detail">We handle setup, takedown and the full guest experience. You attract new clients and unlock a new revenue stream &mdash; we agree a <strong>commercial arrangement</strong> that works for both parties.</p>
           <div class="offer-card-divider"></div>
-          <p class="offer-detail">If it's a hit, we also partner with professionals here in Cyprus who can build more permanent hot and cold solutions to consolidate the demand you've unlocked with 9 Waves.</p>
-          <p class="offer-note">Every great spa started somewhere. Let's find out if your guests are ready for fire and ice.</p>
+          <p class="offer-detail">If demand is strong, we also work with professionals in Cyprus who can build permanent hot and cold solutions to consolidate what you've started with 9 Waves.</p>
+          <p class="offer-note">Let's talk about what works for your venue.</p>
           <div class="offer-cta">
             <a class="btn-whatsapp" href="https://wa.me/34679225067?text=〰〰〰〰〰%0AHi!%20I%20found%209%20Waves%20and%20I'm%20a%20local%20business%20interested%20in%20adding%20a%20sauna%20offering%20🔥🧊%0A〰〰〰〰" target="_blank" rel="noopener">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1968,7 +1990,7 @@
             </div>
             <details class="shop-includes">
               <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
-              <ul class="shop-includes-list"><li><strong>Naver Premium sauna package</strong></li><li>Black Naver sauna tent with extra window</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Naver weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li><li><strong>Frost Premium ice bath package</strong></li><li>Frost Premium ice bath</li><li>Ice-bath lid</li><li>Pump</li><li>Carry bag</li><li>User manual</li><li>Ice-bath weather cover</li><li>Ice-bath thermometer</li><li>Ice form / ice mould</li><li><strong>Bundle extras</strong></li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li></ul>
+              <ul class="shop-includes-list"><li><strong>Naver Premium sauna package</strong></li><li>Black Naver sauna tent with extra window</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Naver weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li><li><strong>Frost Premium ice bath package</strong></li><li>Frost Premium ice bath</li><li>Ice-bath lid</li><li>Pump</li><li>Carry bag</li><li>User manual</li><li>Ice-bath weather cover</li><li>Ice-bath thermometer</li><li>Ice form / ice mould</li></ul>
             </details>
           <div class="shop-ctas">
             <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Naver Premium + Frost Bundle (EUR3,072) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
@@ -1995,7 +2017,7 @@
             </div>
             <details class="shop-includes">
               <summary>What&apos;s included <span class="shop-includes-toggle"></span></summary>
-              <ul class="shop-includes-list"><li><strong>Bjork Premium sauna package</strong></li><li>Black Bjork sauna tent</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>1 two-level wooden bench</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Bjork weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li><li><strong>Frost Premium ice bath package</strong></li><li>Frost Premium ice bath</li><li>Ice-bath lid</li><li>Pump</li><li>Carry bag</li><li>User manual</li><li>Ice-bath weather cover</li><li>Ice-bath thermometer</li><li>Ice form / ice mould</li><li><strong>Bundle extras</strong></li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li></ul>
+              <ul class="shop-includes-list"><li><strong>Bjork Premium sauna package</strong></li><li>Black Bjork sauna tent</li><li>Sauna-tent carrying bag</li><li>Premium wood-fired stove</li><li>Stove carrying bag</li><li>2 single-level wooden benches</li><li>1 two-level wooden bench</li><li>Ground stakes and storm lines</li><li>Removable floor</li><li>Fireproof mat for the stove</li><li>Stone basket</li><li>Heat-resistant gloves</li><li>Sauna bucket</li><li>Sauna ladle</li><li>Sauna thermometer</li><li>Bjork weather cover</li><li>2 black sauna hats</li><li>1 x 20 kg pack of sauna stones</li><li><strong>Frost Premium ice bath package</strong></li><li>Frost Premium ice bath</li><li>Ice-bath lid</li><li>Pump</li><li>Carry bag</li><li>User manual</li><li>Ice-bath weather cover</li><li>Ice-bath thermometer</li><li>Ice form / ice mould</li></ul>
             </details>
           <div class="shop-ctas">
             <a class="shop-btn-wa" href="https://wa.me/34679225067?text=%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0%0AHi! I found 9 Waves and I am interested in purchasing the Bjork Premium + Frost Bundle (EUR3,912) %F0%9F%94%A5%F0%9F%A7%8A%0A%E3%80%B0%E3%80%B0%E3%80%B0%E3%80%B0" target="_blank" rel="noopener">
@@ -2020,11 +2042,20 @@
   <section id="locations">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-label">Where to Find Us</span>
-        <h2>Locations</h2>
-        <p class="locations-intro">9 Waves tents love to wander, but we'll have permanent setups at select locations so you can just book and enjoy.</p>
+        <span class="section-label">Book single sessions in cool surrounds</span>
+        <h2>Pop-up Sauna and Ice Locations</h2>
+        <p class="locations-intro">9 Waves tents love to wander, but we'll have pop-up setups at select locations so you can just book and enjoy. Keep an eye on this section for dates and book right <a href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" style="color:var(--ember);text-decoration:none;border-bottom:1px solid var(--ember);">here</a>.<br><br><strong>Next available pop-up sauna dates:</strong> Kahuna Surfhouse &mdash; 16th and 18th of September.</p>
       </div>
-      <div class="locations-grid" style="grid-template-columns: 1fr; max-width: 560px; margin: 0 auto;">
+      <div class="locations-grid">
+        <div class="location-card">
+          <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/kahuna%20map.png" alt="Kahuna Surfhouse Kiti">
+          <div class="card-gradient"></div>
+          <div class="card-content">
+            <span class="loc-tag">New Pop-up Location!</span>
+            <h3>Kahuna Surfhouse, Kiti</h3>
+          </div>
+        </div>
+
         <div class="location-card coming-soon">
           <div class="card-content">
             <span class="section-label">Where to next?</span>
