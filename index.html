@@ -1153,19 +1153,20 @@
       z-index: 500;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
-      gap: 0.7rem;
+      padding: 1.5rem;
+      gap: 1rem;
       animation: fadeIn 0.3s ease;
     }
     .popup-backdrop.open { display: flex; }
 
     .popup-card {
       background: #fff;
-      width: 210px;
+      width: 260px;
       flex-shrink: 0;
       position: relative;
       overflow: hidden;
       animation: fadeUp 0.35s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
 
     .popup-close {
@@ -1238,7 +1239,7 @@
 
     @media (max-width: 680px) {
       .popup-backdrop { flex-direction: column; align-items: center; justify-content: center; padding: 1rem; gap: 0.6rem; }
-      .popup-card { width: 85vw; max-width: 260px; }
+      .popup-card { width: 80vw; max-width: 280px; }
     }
 
     /* ── RETREAT SECTION ── */
@@ -1592,7 +1593,7 @@
         <a href="/digitaldetoxretreat" style="color:var(--ember); border-color:var(--ember);">Digital Detox Retreat</a>
       </div>
       <div class="nav-cta-session-book" style="opacity:0;pointer-events:none;transition:opacity 0.4s ease;align-self:center;">
-        <a href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" style="font-family:'Jost',sans-serif;font-size:0.68rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;color:var(--slate);border:1px solid rgba(44,51,64,0.3);padding:0.48rem 1.1rem;transition:all 0.2s;white-space:nowrap;">Book a Session</a>
+        <a href="#locations" style="font-family:'Jost',sans-serif;font-size:0.68rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;color:var(--slate);border:1px solid rgba(44,51,64,0.3);padding:0.48rem 1.1rem;transition:all 0.2s;white-space:nowrap;">Book a Sauna Session</a>
       </div>
       <div class="nav-cta-book">
         <a href="#contact">Join the Community</a>
@@ -1623,7 +1624,7 @@
     <a href="#gallery" onclick="closeMenu()">Gallery</a>
     <a href="/digitaldetoxretreat" onclick="closeMenu()" style="color:var(--ember);">Digital Detox Retreat</a>
     <div class="menu-divider"></div>
-    <a href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" onclick="closeMenu()" style="color:var(--ember);">Book a Session</a>
+    <a href="#locations" onclick="closeMenu()" style="color:var(--ember);">Book a Sauna Session</a>
     <div class="menu-divider"></div>
     <a href="#contact" onclick="closeMenu()">Join the Community</a>
   </div>
@@ -1739,23 +1740,6 @@
 
       <!-- Three offer cards -->
       <div class="packages-grid-3">
-
-        <!-- BOOK A SESSION -->
-        <div class="offer-card" id="sessions-card">
-          <div class="offer-card-header">
-            <span class="offer-card-eyebrow">Book a Session</span>
-            <h3>Pop-up Sauna &amp; Ice Sessions</h3>
-          </div>
-          <div class="offer-card-divider"></div>
-          <p class="offer-detail">We have pop-up sauna sessions where you can book a sauna and ice slot. Check out our calendar below and book your slot.</p>
-          <p class="offer-detail highlight">Next available: Kahuna Surfhouse — Sep 16 &amp; 18</p>
-          <div class="offer-cta">
-            <a class="btn-whatsapp" href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM1 8a7 7 0 1112.452 4.391l3.328 3.329a1 1 0 11-1.414 1.414l-3.329-3.328A7 7 0 011 8z"/></svg>
-              View Calendar &amp; Book
-            </a>
-          </div>
-        </div>
 
         <!-- RENT -->
         <div class="offer-card" id="rent">
