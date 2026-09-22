@@ -73,9 +73,10 @@
     }
 
     .offer-num {
-      font-family: 'Cormorant Garamond', serif; font-size: 3.5rem;
-      font-weight: 300; color: var(--ember); line-height: 1;
-      margin-bottom: 0.8rem; display: block;
+      font-family: 'Jost', sans-serif; font-size: 0.65rem;
+      font-weight: 400; color: var(--ember); line-height: 1;
+      margin-bottom: 0.6rem; display: block;
+      letter-spacing: 0.28em; text-transform: uppercase;
     }
     .offer-card h2 {
       font-family: 'Cormorant Garamond', serif; font-weight: 400;
@@ -127,12 +128,23 @@
     footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
     footer a:hover { color: var(--ember); }
 
+    .ig-embed-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+    .ig-embed-wrap .instagram-media {
+      min-width: unset !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
     @media (max-width: 650px) {
       .offers-grid { grid-template-columns: 1fr; }
       #hero { padding: 4rem 1.5rem 3rem; }
       .section-inner { padding: 0 1.2rem; }
     }
   </style>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </head>
 <body>
 
@@ -159,7 +171,7 @@
 
         <!-- OFFER 1: Free session -->
         <div class="offer-card">
-          <span class="offer-num">01</span>
+          <span class="offer-num">Offer One</span>
           <span class="section-label">For You & a Friend</span>
           <h2>A Free Sauna Session — for Two</h2>
           <p>Book a wood-fired sauna session for you and a friend, on us. Use the code below at checkout on our booking calendar.</p>
@@ -187,7 +199,7 @@
 
         <!-- OFFER 2: Home sauna setup -->
         <div class="offer-card dark">
-          <span class="offer-num">02</span>
+          <span class="offer-num">Offer Two</span>
           <span class="section-label">Host an Experience</span>
           <h2>A Free Home Sauna Setup — at Your Place</h2>
           <p>Got a garden, driveway, patio, or rooftop? We'll bring the whole 9 Waves experience to you — for free. Tell us why your spot is the perfect place for a home sauna session.</p>
@@ -210,7 +222,12 @@
             </a>
           </div>
 
-          <p class="offer-fine-print">Limited availability — first come, first served. Must be in Larnaca, Limassol, Nicosia, or Protaras/Paralimni area. We'll confirm feasibility after you reach out.</p>
+          <!-- Instagram embed -->
+          <div class="ig-embed-wrap">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaNtvz7MNPn/" data-instgrm-version="14" style="margin:1rem 0 0; min-width:unset; width:100% !important;"></blockquote>
+          </div>
+
+          <p class="offer-fine-print">Limited availability — first come, first served.</p>
         </div>
 
       </div>
