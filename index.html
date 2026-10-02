@@ -1112,6 +1112,75 @@
       letter-spacing: 0.1em;
     }
 
+
+    /* ── LOCATION CARD ACTION MENU ── */
+    .loc-action-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 600;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 2rem;
+      background: rgba(20,24,32,0.55);
+      animation: fadeIn 0.2s ease;
+    }
+    .loc-action-menu.open { display: flex; }
+    .loc-action-sheet {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      padding: 1.5rem;
+      animation: fadeUp 0.25s ease;
+    }
+    .loc-action-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.3rem;
+    }
+    .loc-action-sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--birch);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .loc-action-btns { display: flex; flex-direction: column; gap: 0.5rem; }
+    .loc-action-btn {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.85rem 1rem;
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 400;
+      border: 1px solid var(--steam);
+      color: var(--slate);
+      transition: all 0.2s;
+      cursor: pointer;
+      background: #fff;
+      width: 100%;
+      text-align: left;
+    }
+    .loc-action-btn:hover { border-color: var(--ember); color: var(--ember); }
+    .loc-action-btn.primary { background: var(--ember); color: #fff; border-color: var(--ember); }
+    .loc-action-btn.primary:hover { background: #b05e3a; border-color: #b05e3a; }
+    .loc-action-close {
+      width: 100%; text-align: center; font-size: 0.65rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--birch); background: none; border: none;
+      cursor: pointer; margin-top: 0.8rem; padding: 0.5rem;
+      font-family: 'Jost', sans-serif;
+    }
+    .loc-action-close:hover { color: var(--slate); }
+    /* Make Kahuna card clickable */
+    .location-card.clickable { cursor: pointer; }
+    .location-card.clickable:hover .card-bg-img { opacity: 0.8; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .packages-grid-3 { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -1123,7 +1192,6 @@
       .nav-cta-links { display: none; }
       .nav-cta-book { display: flex; }
       .nav-cta-book a { font-size: 0.62rem; padding: 0.45rem 0.9rem; letter-spacing: 0.15em; }
-      .nav-cta-session-book { display: none !important; }
       .section-inner { padding: 0 1.5rem; }
       .locations-grid { grid-template-columns: 1fr; }
       .location-card { aspect-ratio: 1 / 1; }
@@ -1219,24 +1287,7 @@
     .popup-copy-btn:hover { color: var(--ember); border-color: var(--ember); }
     .popup-copy-btn.copied { color: #25D366; border-color: #25D366; }
 
-    /* Retreat card */
-    .popup-retreat-label {
-      font-size: 0.58rem; letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--ember); display: block; margin-bottom: 0.4rem;
-    }
-    .popup-retreat-title {
-      font-family: 'Cormorant Garamond', serif; font-weight: 400;
-      font-size: 1.2rem; color: var(--slate); line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-    .popup-retreat-btn {
-      display: block; background: var(--slate); color: #fff;
-      text-decoration: none; padding: 0.65rem 1rem;
-      font-family: 'Jost', sans-serif; font-size: 0.68rem;
-      font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
-      transition: background 0.2s ease; width: 100%; text-align: center;
-    }
-    .popup-retreat-btn:hover { background: var(--ember); }
+
 
     @media (max-width: 680px) {
       .popup-backdrop { flex-direction: column; align-items: center; justify-content: center; padding: 1rem; gap: 0.6rem; }
@@ -1559,20 +1610,7 @@
         </div>
       </div>
     </div>
-    <!-- Retreat card -->
-    <div class="popup-card popup-retreat">
-      <div class="popup-img">
-        <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_IMAGE.jpg" alt="Digital Detox Retreat" />
-      </div>
-      <div class="popup-body">
-        <span class="popup-retreat-label">9 Waves x For Rest Glamping</span>
-        <p class="popup-retreat-title">Digital Detox &amp; Nervous System Reset</p>
-        <p class="popup-tagline">6 days &nbsp;·&nbsp; Cyprus hills &nbsp;·&nbsp; Oct &amp; Nov 2025</p>
-        <div class="popup-btns">
-          <a class="popup-retreat-btn" href="/digitaldetoxretreat" onclick="closePopup()">Discover the Retreat</a>
-        </div>
-      </div>
-    </div>
+
   </div>
 
   <!-- ── HERO ── -->
@@ -1692,7 +1730,7 @@
     <div class="section-inner retreat-content">
       <span class="section-label">New from 9 Waves</span>
       <h2>Digital Detox &amp; <em>Nervous System Reset</em></h2>
-      <p>6 days in the Cyprus hills with For Rest Glamping. Wood-fired saunas, ice baths, moonlight yoga, real food, and a lockbox for your phone. October &amp; November 2025.</p>
+      <p>6 days in the Cyprus hills with For Rest Glamping. Wood-fired saunas, ice baths, moonlight yoga, real food, and a lockbox for your phone. Late September &amp; October 2025.</p>
       <div class="retreat-meta">
         <div class="retreat-meta-item"><span class="retreat-meta-label">From</span><span class="retreat-meta-value">&#8364;674 per person</span></div>
         <div class="retreat-meta-item"><span class="retreat-meta-label">Duration</span><span class="retreat-meta-value">6 days / 5 nights</span></div>
@@ -2029,10 +2067,10 @@
       <div class="section-header">
         <span class="section-label">Book single sessions in cool surrounds</span>
         <h2>Pop-up Sauna and Ice Locations</h2>
-        <p class="locations-intro">9 Waves tents love to wander, but we'll have pop-up setups at select locations so you can just book and enjoy. Keep an eye on this section for dates and book right <a href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" style="color:var(--ember);text-decoration:none;border-bottom:1px solid var(--ember);">here</a>.<br><br><strong>Next available pop-up sauna dates:</strong> Kahuna Surfhouse &mdash; 16th and 18th of September.</p>
+        <p class="locations-intro">Book your sessions <a href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" style="color:var(--ember);text-decoration:none;border-bottom:1px solid var(--ember);">here</a>.</p>
       </div>
       <div class="locations-grid">
-        <div class="location-card">
+        <div class="location-card clickable" onclick="openLocMenu()">
           <img class="card-bg-img" src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/kahuna%20map.png" alt="Kahuna Surfhouse Kiti">
           <div class="card-gradient"></div>
           <div class="card-content">
@@ -2251,6 +2289,19 @@
       }
       contactForm.addEventListener('submit', submitForm);
     }
+
+    function openLocMenu() {
+      document.getElementById('kahunaMenu').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLocMenu() {
+      document.getElementById('kahunaMenu').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLocMenu();
+    });
+
     // Instagram embeds
     if (window.instgrm) window.instgrm.Embeds.process();
 
@@ -2282,5 +2333,24 @@
     <a class="mobile-float-retreat" href="/digitaldetoxretreat">Digital Detox</a>
   </div>
 
+
+  <!-- ── KAHUNA LOCATION ACTION MENU ── -->
+  <div class="loc-action-menu" id="kahunaMenu" onclick="if(event.target===this)closeLocMenu()">
+    <div class="loc-action-sheet">
+      <div class="loc-action-title">Kahuna Surfhouse, Kiti</div>
+      <span class="loc-action-sub">Pop-up Sauna &amp; Ice Location</span>
+      <div class="loc-action-btns">
+        <a class="loc-action-btn primary" href="https://link.wunderbook.com/tenant?tenantName=Nine_Waves" target="_blank" rel="noopener" onclick="closeLocMenu()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Book a Session Here
+        </a>
+        <a class="loc-action-btn" href="https://maps.app.goo.gl/7cPfbca6Z9iE2t836" target="_blank" rel="noopener" onclick="closeLocMenu()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Find on Google Maps
+        </a>
+      </div>
+      <button class="loc-action-close" onclick="closeLocMenu()">Close</button>
+    </div>
+  </div>
 </body>
 </html>
