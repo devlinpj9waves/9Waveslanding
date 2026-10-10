@@ -394,7 +394,6 @@
       height: 1px; background: rgba(255,255,255,0.12);
     }
 
-    .pay-btn-icon { font-size: 1rem; }
     .limited-badge {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
@@ -702,21 +701,12 @@
               Suggested format: one link per session, named REVOLUT_LINK_AM and REVOLUT_LINK_PM
             -->
             <a class="pay-btn pay-btn-revolut" id="revolut-btn"
-               href="#revolut-placeholder"
-               onclick="return checkRevolutLink(event)">
-              <span class="pay-btn-icon">💳</span>
-              <span id="revolut-btn-text">Pay via Revolut — €25 now, €35 after 20 Oct</span>
+               href="#" onclick="return checkRevolutLink(event)">
+              Pay via Revolut
             </a>
 
-            <!--
-              STRIPE PLACEHOLDER
-              Replace href="#stripe-placeholder" with your Stripe payment link.
-              Create one at: dashboard.stripe.com → Payment Links
-            -->
             <a class="pay-btn pay-btn-stripe" id="stripe-btn"
-               href="#stripe-placeholder"
-               onclick="return checkStripeLink(event)">
-              <span class="pay-btn-icon">🔒</span>
+               href="#" onclick="return checkStripeLink(event)">
               Pay via Stripe
             </a>
 
@@ -724,7 +714,6 @@
 
             <a class="pay-btn pay-btn-whatsapp" id="whatsapp-pay-btn"
                href="#" onclick="return openWhatsAppBook(event)">
-              <span class="pay-btn-icon">💬</span>
               Confirm via WhatsApp (Paul)
             </a>
           </div>
@@ -753,12 +742,12 @@
           <div class="host-avatar">
             <!--
               HOST IMAGE PLACEHOLDER
-              Upload a square photo of Anne to your repo as: HCFR_HOST_ANNE.jpg
+              Upload a square photo of Anne to your repo as: HCFR_HOST_ANNE_V2.jpg
             -->
-            <img data-src="HCFR_HOST_ANNE.jpg" alt="Anne"
+            <img data-src="HCFR_HOST_ANNE_V2.jpg" alt="Anne"
                  onload="this.classList.add('loaded')">
             <div class="host-avatar-icon">📸</div>
-            <div class="host-avatar-label">HCFR_HOST_ANNE.jpg</div>
+            <div class="host-avatar-label">HCFR_HOST_ANNE_V2.jpg</div>
           </div>
           <div>
             <div class="host-title">Lymphatic Therapist · Reset Program Coach</div>
@@ -829,9 +818,19 @@
     const ANNE_WA   = '35795171383';
     const EARLYBIRD_ENDS = new Date('2026-10-20T23:59:00');
 
-    // Payment links — replace these when ready
-    const REVOLUT_LINK = '#revolut-placeholder'; // e.g. 'https://revolut.me/yourname/EUR/25'
-    const STRIPE_LINK  = '#stripe-placeholder';  // e.g. 'https://buy.stripe.com/yourlink'
+    // ── PAYMENT LINKS ──────────────────────────────────────────────────────────
+    // EARLYBIRD (until 20 Oct 23:59). After that, the page auto-switches to REGULAR.
+    // On 21 Oct: come back here and swap the REVOLUT_LINK / STRIPE_LINK values below
+    // to the REGULAR links. The earlybird lines can be left as comments for reference.
+    const REVOLUT_LINK_EB = 'https://revolut.me/paulsd2ct?currency=EUR&amount=2500&note=Early_bird_HCFR_9Waves_Anast%C3%A9';
+    const STRIPE_LINK_EB  = 'https://buy.stripe.com/8x2eV526xeDJ7Mw00A04802';
+    const REVOLUT_LINK_REG = 'https://revolut.me/paulsd2ct?currency=EUR&amount=3500&note=HCFR_9waves_Anast%C3%A9';
+    const STRIPE_LINK_REG  = 'https://buy.stripe.com/8x25kvh1r67d8QA8x604803';
+    // Active links — auto-select based on date. No manual change needed until 21 Oct.
+    const _eb = new Date() <= new Date('2026-10-20T23:59:00');
+    const REVOLUT_LINK = _eb ? REVOLUT_LINK_EB : REVOLUT_LINK_REG;
+    const STRIPE_LINK  = _eb ? STRIPE_LINK_EB  : STRIPE_LINK_REG;
+    // ───────────────────────────────────────────────────────────────────────────
 
     /* ── STATE ── */
     let selectedSession = null;
@@ -885,22 +884,14 @@
 
     function checkRevolutLink(event) {
       if (!requireSession(event)) return false;
-      if (REVOLUT_LINK === '#revolut-placeholder') {
-        event.preventDefault();
-        alert('Revolut payment link coming soon — use WhatsApp for now or contact Paul directly.');
-        return false;
-      }
+      event.preventDefault();
       window.open(REVOLUT_LINK, '_blank');
       return false;
     }
 
     function checkStripeLink(event) {
       if (!requireSession(event)) return false;
-      if (STRIPE_LINK === '#stripe-placeholder') {
-        event.preventDefault();
-        alert('Stripe payment link coming soon — use WhatsApp for now or contact Paul directly.');
-        return false;
-      }
+      event.preventDefault();
       window.open(STRIPE_LINK, '_blank');
       return false;
     }
@@ -972,13 +963,6 @@
           '<strong>€35</strong><span>per person · book now</span>';
         const expiryNote = document.getElementById('expiryNote');
         if (expiryNote) expiryNote.textContent = 'Earlybird ended 20 October';
-      }
-      // Update Revolut button label to reflect live pricing
-      const revBtn = document.getElementById('revolut-btn-text');
-      if (revBtn) {
-        revBtn.textContent = eb
-          ? 'Pay via Revolut — €25 earlybird (€35 after 20 Oct)'
-          : 'Pay via Revolut — €35';
       }
     })();
   </script>
