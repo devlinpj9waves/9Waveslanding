@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heat. Cold. Flow. Restore. — 9 Waves × Anasté · 7 November, Moni</title>
+  <meta name="description" content="A ritual of contrast therapy, connection & renewal. Saturday 7 November, Moni Limassol. Hot sauna, cold plunge, lymphatic flow, Yoga Nidra. €25 earlybird.">
+  <meta name="robots" content="noindex">
+
+  <!-- OG -->
+  <meta property="og:title" content="Heat. Cold. Flow. Restore. — 9 Waves × Anasté">
+  <meta property="og:description" content="Saturday 7 November · Moni, Limassol · €25 earlybird until 20 Oct">
+  <meta property="og:url" content="https://9-waves.com/heatcoldflow">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f5f0e8;
+      --dark-navy: #0d1b2a;
+      --navy: #162032;
+      --amber: #c8621a;
+      --amber-light: #e07828;
+      --gold: #d4a843;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+      --text-light: #888;
+      --wa-green: #25D366;
+      --revolut-blue: #0075eb;
+      --stripe-purple: #635bff;
+      --border: rgba(255,255,255,0.12);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(13,27,42,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-logo { height: 36px; width: auto; }
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo-wrap { display: flex; align-items: center; gap: 10px; }
+    .nav-cta {
+      background: var(--amber);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .nav-cta:hover { background: var(--amber-light); }
+
+    /* ── VIDEO HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 580px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background: var(--dark-navy);
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(13,27,42,0.3) 0%,
+        rgba(13,27,42,0.1) 40%,
+        rgba(13,27,42,0.6) 80%,
+        rgba(13,27,42,0.85) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 860px;
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .hero-headline .word-heat { color: var(--white); }
+    .hero-headline .word-cold { color: #7ec8e3; }
+    .hero-headline .word-flow { color: var(--gold); }
+    .hero-headline .word-restore { color: var(--white); }
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 8px;
+    }
+    .hero-meta {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+    }
+    .hero-meta span { margin: 0 10px; }
+    .hero-price-pill {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(200,98,26,0.9);
+      color: var(--white);
+      padding: 10px 22px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-price-pill strong { font-size: 1.1rem; font-weight: 700; }
+    .hero-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--dark-navy);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-btn:hover { background: var(--gold); color: var(--white); }
+    .hero-scroll-hint {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .scroll-arrow {
+      width: 20px; height: 20px;
+      border-right: 1.5px solid rgba(255,255,255,0.3);
+      border-bottom: 1.5px solid rgba(255,255,255,0.3);
+      transform: rotate(45deg);
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* ── SECTION SHELL ── */
+    .section { padding: 80px 24px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400; line-height: 1.15;
+      color: var(--dark-navy);
+      margin-bottom: 20px;
+    }
+    .section-body {
+      font-size: 0.95rem; line-height: 1.75;
+      color: var(--text-mid); max-width: 640px;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-section { background: var(--dark-navy); padding: 70px 24px; }
+    .included-section .section-title { color: var(--white); }
+    .included-section .section-label { color: var(--gold); }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .pillar-icon { font-size: 2rem; margin-bottom: 12px; }
+    .pillar-name {
+      font-family: var(--font-sans);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .pillar-desc {
+      font-family: var(--font-serif);
+      font-size: 0.95rem; line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+      font-style: italic;
+    }
+    .bonus-bar {
+      margin-top: 28px;
+      background: rgba(212,168,67,0.12);
+      border: 1px solid rgba(212,168,67,0.3);
+      padding: 18px 24px;
+      display: flex; align-items: center; gap: 14px;
+      color: var(--gold);
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .bonus-bar strong { font-weight: 700; }
+
+    /* ── IMAGE PLACEHOLDER ── */
+    .img-placeholder {
+      width: 100%; aspect-ratio: 16/7;
+      background: linear-gradient(135deg, #1a2a1a 0%, #0d1b0d 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      border: 2px dashed rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .img-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(255,255,255,0.02) 20px,
+        rgba(255,255,255,0.02) 40px
+      );
+    }
+    .img-placeholder-icon { font-size: 2.5rem; opacity: 0.4; }
+    .img-placeholder-text {
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase; font-weight: 600;
+    }
+    .img-placeholder-sub { font-size: 0.7rem; opacity: 0.6; }
+
+    /* ── SESSION PICKER & BOOKING ── */
+    .booking-section { background: var(--cream); padding: 80px 24px; }
+    .session-picker {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      margin: 32px 0 40px;
+    }
+    .session-btn {
+      flex: 1; min-width: 160px;
+      background: transparent;
+      border: 2px solid var(--dark-navy);
+      color: var(--dark-navy);
+      font-family: var(--font-sans);
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 18px 24px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .session-btn span.time { font-size: 1.1rem; letter-spacing: 0; }
+    .session-btn span.label { font-size: 0.6rem; opacity: 0.6; font-weight: 500; }
+    .session-btn:hover { background: var(--dark-navy); color: var(--white); }
+    .session-btn.active { background: var(--dark-navy); color: var(--white); }
+    .session-btn.active span.label { opacity: 0.7; }
+
+    /* Booking card */
+    .booking-card {
+      background: var(--dark-navy);
+      padding: 36px;
+      max-width: 520px;
+    }
+    .booking-card-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 24px; padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .booking-selected-session {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .booking-event-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem; color: var(--white);
+    }
+    .booking-price-block { text-align: right; }
+    .booking-price-early {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .booking-price-amount {
+      font-family: var(--font-serif);
+      font-size: 2.2rem; font-weight: 600; color: var(--white);
+      line-height: 1;
+    }
+    .booking-price-standard {
+      font-size: 0.72rem; color: rgba(255,255,255,0.4);
+      text-decoration: line-through;
+    }
+    .booking-expiry {
+      font-size: 0.65rem; color: rgba(255,255,255,0.45);
+      margin-top: 2px;
+    }
+    .booking-notice {
+      font-size: 0.72rem; color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .booking-notice strong { color: rgba(255,255,255,0.8); }
+
+    /* Payment buttons */
+    .pay-btns { display: flex; flex-direction: column; gap: 10px; }
+    .pay-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 15px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      width: 100%;
+    }
+    .pay-btn:hover { opacity: 0.88; }
+    .pay-btn:active { transform: scale(0.99); }
+    .pay-btn-revolut { background: var(--revolut-blue); color: var(--white); }
+    .pay-btn-stripe { background: var(--stripe-purple); color: var(--white); }
+    .pay-btn-whatsapp { background: var(--wa-green); color: var(--white); }
+    .pay-btn-info {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.25) !important;
+      color: rgba(255,255,255,0.7);
+    }
+    .pay-divider {
+      font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); text-align: center;
+      margin: 6px 0; display: flex; align-items: center; gap: 10px;
+    }
+    .pay-divider::before, .pay-divider::after {
+      content: ''; flex: 1;
+      height: 1px; background: rgba(255,255,255,0.12);
+    }
+
+    .pay-btn-icon { font-size: 1rem; }
+    .limited-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-top: 14px;
+    }
+    .limited-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%; background: var(--amber);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    /* No session selected state */
+    .booking-card.no-selection .booking-card-body { opacity: 0.45; pointer-events: none; }
+    .booking-card.no-selection .session-prompt {
+      display: block;
+      font-size: 0.8rem; color: rgba(255,255,255,0.5);
+      margin-bottom: 20px; text-align: center;
+      font-style: italic;
+    }
+    .session-prompt { display: none; }
+
+    /* ── HOSTS ── */
+    .hosts-section { background: #f0ebe0; padding: 80px 24px; }
+    .hosts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .host-card {
+      background: var(--white);
+      padding: 36px 28px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .host-avatar {
+      width: 100%; aspect-ratio: 1/1;
+      background: linear-gradient(135deg, #1e2d1e, #0d1b0d);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+      border: 2px dashed rgba(255,255,255,0.12);
+      position: relative; overflow: hidden;
+      color: rgba(255,255,255,0.35);
+    }
+    .host-avatar img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .host-avatar-label {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-align: center; line-height: 1.4;
+    }
+    .host-avatar-icon { font-size: 1.6rem; opacity: 0.4; }
+    .host-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem; font-weight: 400;
+      color: var(--dark-navy);
+    }
+    .host-title {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--amber);
+    }
+    .host-bio {
+      font-size: 0.9rem; line-height: 1.7;
+      color: var(--text-mid);
+    }
+    .host-wa-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      border: 1.5px solid var(--wa-green);
+      color: var(--wa-green);
+      padding: 10px 18px;
+      font-family: var(--font-sans);
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      align-self: flex-start;
+    }
+    .host-wa-btn:hover {
+      background: var(--wa-green); color: var(--white);
+    }
+
+    /* ── COLLAB STRIP ── */
+    .collab-strip {
+      background: var(--dark-navy);
+      padding: 28px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .collab-strip p {
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .collab-strip strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #0a1520;
+      padding: 40px 24px 28px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.4rem; color: var(--white);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .footer-tagline {
+      font-size: 0.7rem; color: rgba(255,255,255,0.35);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-links a {
+      font-size: 0.7rem; color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy {
+      font-size: 0.65rem; color: rgba(255,255,255,0.2);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .nav { padding: 12px 16px; }
+      .section { padding: 56px 16px; }
+      .booking-card { padding: 24px 18px; }
+      .booking-card-header { flex-direction: column; gap: 12px; }
+      .booking-price-block { text-align: left; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .session-picker { flex-direction: column; }
+      .session-btn { min-width: unset; }
+      .hosts-grid { grid-template-columns: 1fr; }
+      .hero-content { padding: 0 16px; }
+    }
+
+    @media (max-width: 400px) {
+      .pillars { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo-wrap">
+      <!--
+        LOGO PLACEHOLDER
+        Upload the 9waves × Anasté collab logo to your repo as: HCFR_COLLAB_LOGO.png
+        Remove the fallback spans once the image is live.
+      -->
+      <img src="HCFR_COLLAB_LOGO.png"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+           alt="9 Waves × Anasté Body Flow" class="nav-logo" style="height:40px;width:auto;">
+      <span class="nav-logo-text" style="display:none;align-items:center;gap:8px">
+        <span style="color:var(--white)">9waves</span>
+        <span style="color:rgba(255,255,255,0.3)">×</span>
+        <span style="color:var(--gold)">Anasté</span>
+      </span>
+    </div>
+    <a href="#booking" class="nav-cta">Secure Your Spot</a>
+  </nav>
+
+  <!-- HERO: video background -->
+  <section class="hero" id="hero">
+    <!--
+      VIDEO PLACEHOLDER
+      Replace src with your video filename once uploaded to GitHub repo.
+      Expected file: HCFR_hero_video.mp4 (or .webm for better compression)
+    -->
+    <video class="hero-video" autoplay muted loop playsinline
+           src="HCFR_HERO_VIDEO.mp4"
+           poster="HCFR_HERO_POSTER.jpg">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">9 Waves × Anasté · Moni, Limassol</p>
+      <h1 class="hero-headline">
+        <span class="word-heat">Heat.</span>
+        <span class="word-cold"> Cold.</span><br>
+        <span class="word-flow">Flow.</span>
+        <span class="word-restore"> Restore.</span>
+      </h1>
+      <p class="hero-sub">A ritual of contrast therapy, connection &amp; renewal</p>
+      <p class="hero-meta">
+        <span>Saturday 7 November</span>
+        <span>·</span>
+        <span>Ages 16+</span>
+      </p>
+      <div>
+        <div class="hero-price-pill">
+          <strong>€25</strong>
+          <span>earlybird · ends 20 Oct</span>
+          <span style="font-size:0.6rem;opacity:0.65;font-weight:400;letter-spacing:0.05em">(€35 after)</span>
+        </div>
+      </div>
+      <a href="#booking" class="hero-btn">Choose Your Session →</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="included-section">
+    <div class="section-inner">
+      <p class="section-label">What's Included</p>
+      <h2 class="section-title" style="color:var(--white)">One Morning. Four Rituals.</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">🔥</div>
+          <div class="pillar-name">Hot Sauna</div>
+          <div class="pillar-desc">In 9 Waves Swedish wood-fired pop-up saunas — deep heat, deep calm</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">❄️</div>
+          <div class="pillar-name">Cold Plunge</div>
+          <div class="pillar-desc">In the pool — the reset you didn't know you needed</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌿</div>
+          <div class="pillar-name">Guided Fast</div>
+          <div class="pillar-desc">Nourishing drink &amp; electrolytes to support your body</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🫁</div>
+          <div class="pillar-name">Lymphatic Flow</div>
+          <div class="pillar-desc">Talk + self-drainage workshop with Anne</div>
+        </div>
+      </div>
+      <div class="bonus-bar">
+        <span>✦</span>
+        <span><strong>Bonus:</strong> Complimentary Yoga Nidra with Ian — the deepest rest you'll have all week.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE PLACEHOLDER (hero flyer photo) -->
+  <div class="img-placeholder">
+    <div class="img-placeholder-icon">📸</div>
+    <div class="img-placeholder-text">HCFR_HERO_IMAGE.jpg</div>
+    <div class="img-placeholder-sub">Upload your main event photo here (flyer image or similar shot)</div>
+  </div>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking-section" id="booking">
+    <div class="section-inner">
+      <p class="section-label">Choose Your Session</p>
+      <h2 class="section-title">Pick Your Time &amp; Book</h2>
+      <p class="section-body" style="margin-bottom:0">Two sessions available. Both include everything. Limited spots — first in, first confirmed.</p>
+
+      <div class="session-picker">
+        <button class="session-btn" data-session="10:00–13:00" onclick="selectSession(this)">
+          <span class="time">10:00 – 13:00</span>
+          <span class="label">Morning session</span>
+        </button>
+        <button class="session-btn" data-session="15:00–18:00" onclick="selectSession(this)">
+          <span class="time">15:00 – 18:00</span>
+          <span class="label">Afternoon session</span>
+        </button>
+      </div>
+
+      <div class="booking-card no-selection" id="bookingCard">
+        <div class="booking-card-header">
+          <div>
+            <div class="booking-selected-session" id="selectedSessionLabel">Select a session above ↑</div>
+            <div class="booking-event-name">Heat. Cold. Flow. Restore.</div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:0.05em">Saturday 7 November · Moni, Limassol</div>
+          </div>
+          <div class="booking-price-block" id="priceBlock">
+            <div class="booking-price-early" id="earlyLabel">Earlybird</div>
+            <div class="booking-price-amount" id="priceAmount">€25</div>
+            <div class="booking-price-standard">€35 standard</div>
+            <div class="booking-expiry" id="expiryNote">Until 20 Oct</div>
+          </div>
+        </div>
+
+        <div class="booking-card-body">
+          <p class="session-prompt">Please select a session time above to unlock payment options.</p>
+          <p class="booking-notice">
+            <strong>Earlybird pricing (€25) ends 20 October.</strong><br>
+            Pay below to confirm your spot — or send a WhatsApp and we'll hold it for 24 hours.
+          </p>
+          <div class="pay-btns">
+            <!--
+              REVOLUT PLACEHOLDER
+              Replace href="#revolut-placeholder" with your Revolut payment link.
+              Create one at: revolut.me or via Revolut Business → Payment Links
+              Suggested format: one link per session, named REVOLUT_LINK_AM and REVOLUT_LINK_PM
+            -->
+            <a class="pay-btn pay-btn-revolut" id="revolut-btn"
+               href="#revolut-placeholder"
+               onclick="return checkRevolutLink(event)">
+              <span class="pay-btn-icon">💳</span>
+              <span id="revolut-btn-text">Pay via Revolut — €25 now, €35 after 20 Oct</span>
+            </a>
+
+            <!--
+              STRIPE PLACEHOLDER
+              Replace href="#stripe-placeholder" with your Stripe payment link.
+              Create one at: dashboard.stripe.com → Payment Links
+            -->
+            <a class="pay-btn pay-btn-stripe" id="stripe-btn"
+               href="#stripe-placeholder"
+               onclick="return checkStripeLink(event)">
+              <span class="pay-btn-icon">🔒</span>
+              Pay via Stripe
+            </a>
+
+            <div class="pay-divider">or</div>
+
+            <a class="pay-btn pay-btn-whatsapp" id="whatsapp-pay-btn"
+               href="#" onclick="return openWhatsAppBook(event)">
+              <span class="pay-btn-icon">💬</span>
+              Confirm via WhatsApp (Paul)
+            </a>
+          </div>
+          <div class="limited-badge">
+            <div class="limited-dot"></div>
+            Limited spots — book early
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND IMAGE PLACEHOLDER -->
+  <div class="img-placeholder" style="aspect-ratio:16/6;">
+    <div class="img-placeholder-icon">📸</div>
+    <div class="img-placeholder-text">HCFR_SECOND_IMAGE.jpg</div>
+    <div class="img-placeholder-sub">Second event photo — atmosphere, people, setting</div>
+  </div>
+
+  <!-- HOSTS -->
+  <section class="hosts-section">
+    <div class="section-inner">
+      <p class="section-label">Your Hosts</p>
+      <h2 class="section-title">The People Behind the Ritual</h2>
+      <div class="hosts-grid">
+
+        <div class="host-card">
+          <div class="host-avatar">
+            <!--
+              HOST IMAGE PLACEHOLDER
+              Upload a square photo of Anne to your repo as: HCFR_HOST_ANNE.jpg
+            -->
+            <img src="HCFR_HOST_ANNE.jpg"
+                 onerror="this.style.display='none'"
+                 alt="Anne">
+            <div class="host-avatar-icon">📸</div>
+            <div class="host-avatar-label">HCFR_HOST_ANNE.jpg</div>
+          </div>
+          <div>
+            <div class="host-title">Lymphatic Therapist · Reset Program Coach</div>
+            <div class="host-name">Anne</div>
+          </div>
+          <p class="host-bio">Anne guides the lymphatic flow talk and self-drainage workshop — practical, grounded, and immediately applicable. She's been running Reset Programs across Cyprus and brings warmth, expertise, and a deep care for every participant's wellbeing.</p>
+          <a class="host-wa-btn" href="#" onclick="return openAnneWhatsApp(event)">
+            <span>💬</span> Ask Anne a Question
+          </a>
+        </div>
+
+        <div class="host-card">
+          <div class="host-avatar">
+            <!--
+              HOST IMAGE PLACEHOLDER
+              Upload a square photo of Paul to your repo as: HCFR_HOST_PAUL.jpg
+            -->
+            <img src="HCFR_HOST_PAUL.jpg"
+                 onerror="this.style.display='none'"
+                 alt="Paul">
+            <div class="host-avatar-icon">📸</div>
+            <div class="host-avatar-label">HCFR_HOST_PAUL.jpg</div>
+          </div>
+          <div>
+            <div class="host-title">9 Waves · Sauna &amp; Ice</div>
+            <div class="host-name">Paul</div>
+          </div>
+          <p class="host-bio">Paul runs the sauna and cold plunge experience — the heat, the ritual, the cold, the community. He's hosted 9 Waves sessions across Cyprus, creates the conditions for people to feel genuinely good, and makes sure the domes are exactly right.</p>
+          <a class="host-wa-btn" href="#" onclick="return openPaulWhatsApp(event)">
+            <span>💬</span> Ask Paul a Question
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLAB STRIP -->
+  <div class="collab-strip">
+    <p>A collaboration between <strong>9 Waves Sauna &amp; Ice</strong> and <strong>Anasté Body Flow</strong></p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div style="display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:wrap;margin-bottom:20px">
+      <!--
+        FOOTER LOGO PLACEHOLDER
+        Same file as nav: HCFR_COLLAB_LOGO.png
+        Displays at a comfortable footer size with fallback text.
+      -->
+      <img src="HCFR_COLLAB_LOGO.png"
+           alt="9 Waves × Anasté Body Flow"
+           style="height:52px;width:auto;opacity:0.85;"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="footer-logo" style="display:none">9waves × Anasté</span>
+    </div>
+    <div class="footer-tagline">A 9 Waves × Anasté Body Flow Event · Cyprus</div>
+    <div class="footer-links">
+      <a href="https://9-waves.com">9-waves.com</a>
+      <a href="https://instagram.com/9wavessaunaice">@9wavessaunaice</a>
+      <a href="https://www.instagram.com/anaste_body_flow?igsh=MXF0dHFnOG9xbWFjZg%3D%3D" target="_blank" rel="noopener">@anaste_body_flow</a>
+      <a href="mailto:hello9waves@gmail.com">hello9waves@gmail.com</a>
+    </div>
+    <div class="footer-copy">© 2026 9 Waves. All rights reserved.</div>
+  </footer>
+
+  <script>
+    /* ── CONFIG ── */
+    const PAUL_WA   = '34679225067';
+    const ANNE_WA   = '35795171383';
+    const EARLYBIRD_ENDS = new Date('2026-10-20T23:59:00');
+
+    // Payment links — replace these when ready
+    const REVOLUT_LINK = '#revolut-placeholder'; // e.g. 'https://revolut.me/yourname/EUR/25'
+    const STRIPE_LINK  = '#stripe-placeholder';  // e.g. 'https://buy.stripe.com/yourlink'
+
+    /* ── STATE ── */
+    let selectedSession = null;
+
+    function isEarlybird() {
+      return new Date() <= EARLYBIRD_ENDS;
+    }
+
+    /* ── SESSION PICKER ── */
+    function selectSession(btn) {
+      document.querySelectorAll('.session-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSession = btn.dataset.session;
+
+      const card = document.getElementById('bookingCard');
+      card.classList.remove('no-selection');
+
+      document.getElementById('selectedSessionLabel').textContent =
+        'Session: ' + selectedSession;
+
+      const eb = isEarlybird();
+      document.getElementById('priceAmount').textContent = eb ? '€25' : '€35';
+      document.getElementById('earlyLabel').textContent = eb ? 'Earlybird Price' : 'Standard Price';
+      document.getElementById('earlyLabel').style.color = eb ? 'var(--gold)' : 'rgba(255,255,255,0.5)';
+      document.getElementById('expiryNote').textContent = eb
+        ? 'Ends 20 October — book now'
+        : 'Earlybird ended 20 October';
+
+      const notice = card.querySelector('.booking-notice');
+      if (eb) {
+        notice.innerHTML = '<strong>Earlybird pricing (€25) ends 20 October.</strong><br>Pay below to confirm your spot — or send a WhatsApp and we\'ll hold it for 24 hours.';
+      } else {
+        notice.innerHTML = '<strong>Standard price: €35.</strong><br>Pay below to confirm your spot — or send a WhatsApp and we\'ll hold it for 24 hours.';
+      }
+    }
+
+    function requireSession(event) {
+      if (!selectedSession) {
+        event.preventDefault();
+        document.querySelector('.session-picker').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.querySelectorAll('.session-btn').forEach(b => {
+          b.style.animation = 'none';
+          b.offsetHeight;
+          b.style.animation = 'flash 0.5s 2';
+        });
+        alert('Please choose a session time first (10:00–13:00 or 15:00–18:00).');
+        return false;
+      }
+      return true;
+    }
+
+    function checkRevolutLink(event) {
+      if (!requireSession(event)) return false;
+      if (REVOLUT_LINK === '#revolut-placeholder') {
+        event.preventDefault();
+        alert('Revolut payment link coming soon — use WhatsApp for now or contact Paul directly.');
+        return false;
+      }
+      window.open(REVOLUT_LINK, '_blank');
+      return false;
+    }
+
+    function checkStripeLink(event) {
+      if (!requireSession(event)) return false;
+      if (STRIPE_LINK === '#stripe-placeholder') {
+        event.preventDefault();
+        alert('Stripe payment link coming soon — use WhatsApp for now or contact Paul directly.');
+        return false;
+      }
+      window.open(STRIPE_LINK, '_blank');
+      return false;
+    }
+
+    function openWhatsAppBook(event) {
+      event.preventDefault();
+      if (!requireSession(event)) return false;
+      const eb = isEarlybird();
+      const price = eb ? '€25 earlybird' : '€35';
+      const msg = encodeURIComponent(
+        `Hi Paul 👋 I'd like to book a spot for the Heat. Cold. Flow. Restore. event on Saturday 7 November — ${selectedSession} session (${price}). Can you confirm my place?`
+      );
+      window.open(`https://wa.me/${PAUL_WA}?text=${msg}`, '_blank');
+      return false;
+    }
+
+    function openAnneWhatsApp(event) {
+      event.preventDefault();
+      const msg = encodeURIComponent(
+        'Hi Anne 👋 I have a question about the Heat. Cold. Flow. Restore. event on 7 November:'
+      );
+      window.open(`https://wa.me/${ANNE_WA}?text=${msg}`, '_blank');
+      return false;
+    }
+
+    function openPaulWhatsApp(event) {
+      event.preventDefault();
+      const msg = encodeURIComponent(
+        'Hi Paul 👋 I have a question about the Heat. Cold. Flow. Restore. event on 7 November:'
+      );
+      window.open(`https://wa.me/${PAUL_WA}?text=${msg}`, '_blank');
+      return false;
+    }
+
+    /* ── PRICE AUTO-UPDATE on load ── */
+    (function() {
+      const eb = isEarlybird();
+      if (!eb) {
+        document.querySelector('.hero-price-pill').innerHTML =
+          '<strong>€35</strong><span>per person · book now</span>';
+        const expiryNote = document.getElementById('expiryNote');
+        if (expiryNote) expiryNote.textContent = 'Earlybird ended 20 October';
+      }
+      // Update Revolut button label to reflect live pricing
+      const revBtn = document.getElementById('revolut-btn-text');
+      if (revBtn) {
+        revBtn.textContent = eb
+          ? 'Pay via Revolut — €25 earlybird (€35 after 20 Oct)'
+          : 'Pay via Revolut — €35';
+      }
+    })();
+  </script>
+</body>
+</html>
