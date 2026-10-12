@@ -43,12 +43,14 @@
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Montserrat', sans-serif;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 16px; }
     body {
       font-family: var(--font-sans);
       background: var(--cream);
       color: var(--text-dark);
       overflow-x: hidden;
+      /* Minimum readable size — nothing below 0.82rem (≈13px) */
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
     }
     a { text-decoration: none; color: inherit; }
     img { display: block; max-width: 100%; }
@@ -76,7 +78,7 @@
       background: var(--amber);
       color: var(--white);
       font-family: var(--font-sans);
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -120,7 +122,7 @@
       max-width: 860px;
     }
     .hero-eyebrow {
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.25em;
       text-transform: uppercase;
@@ -149,7 +151,7 @@
       margin-bottom: 8px;
     }
     .hero-meta {
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -162,7 +164,7 @@
       background: rgba(200,98,26,0.9);
       color: var(--white);
       padding: 10px 22px;
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -174,7 +176,7 @@
       background: var(--white);
       color: var(--dark-navy);
       font-family: var(--font-sans);
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -187,7 +189,7 @@
       z-index: 2;
       display: flex; flex-direction: column; align-items: center; gap: 6px;
       color: rgba(255,255,255,0.4);
-      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase;
     }
     .scroll-arrow {
       width: 20px; height: 20px;
@@ -205,7 +207,7 @@
     .section { padding: 80px 24px; }
     .section-inner { max-width: 900px; margin: 0 auto; }
     .section-label {
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.28em;
       text-transform: uppercase; color: var(--amber);
       margin-bottom: 12px;
     }
@@ -240,7 +242,7 @@
     .pillar-icon { font-size: 2rem; margin-bottom: 12px; }
     .pillar-name {
       font-family: var(--font-sans);
-      font-size: 0.7rem; font-weight: 700;
+      font-size: 0.82rem; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--white); margin-bottom: 8px;
     }
@@ -286,10 +288,10 @@
     }
     .img-placeholder-icon { display: none; }
     .img-placeholder-text {
-      font-size: 0.75rem; letter-spacing: 0.15em;
+      font-size: 0.88rem; letter-spacing: 0.15em;
       text-transform: uppercase; font-weight: 600;
     }
-    .img-placeholder-sub { font-size: 0.7rem; opacity: 0.6; }
+    .img-placeholder-sub { font-size: 0.82rem; opacity: 0.6; }
 
     /* ── SESSION PICKER & BOOKING ── */
     .booking-section { background: var(--cream); padding: 80px 24px; }
@@ -311,7 +313,7 @@
       display: flex; flex-direction: column; align-items: center; gap: 4px;
     }
     .session-btn span.time { font-size: 1.1rem; letter-spacing: 0; }
-    .session-btn span.label { font-size: 0.6rem; opacity: 0.6; font-weight: 500; }
+    .session-btn span.label { font-size: 0.82rem; opacity: 0.6; font-weight: 500; }
     .session-btn:hover { background: var(--dark-navy); color: var(--white); }
     .session-btn.active { background: var(--dark-navy); color: var(--white); }
     .session-btn.active span.label { opacity: 0.7; }
@@ -328,7 +330,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .booking-selected-session {
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--gold);
       margin-bottom: 6px;
     }
@@ -338,7 +340,7 @@
     }
     .booking-price-block { text-align: right; }
     .booking-price-early {
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.15em;
       text-transform: uppercase; color: var(--gold);
       margin-bottom: 2px;
     }
@@ -348,15 +350,15 @@
       line-height: 1;
     }
     .booking-price-standard {
-      font-size: 0.72rem; color: rgba(255,255,255,0.4);
+      font-size: 0.85rem; color: rgba(255,255,255,0.4);
       text-decoration: line-through;
     }
     .booking-expiry {
-      font-size: 0.65rem; color: rgba(255,255,255,0.45);
+      font-size: 0.82rem; color: rgba(255,255,255,0.45);
       margin-top: 2px;
     }
     .booking-notice {
-      font-size: 0.72rem; color: rgba(255,255,255,0.5);
+      font-size: 0.85rem; color: rgba(255,255,255,0.5);
       margin-bottom: 20px;
       line-height: 1.6;
     }
@@ -368,7 +370,7 @@
       display: flex; align-items: center; justify-content: center; gap: 10px;
       padding: 15px 20px;
       font-family: var(--font-sans);
-      font-size: 0.75rem; font-weight: 700;
+      font-size: 0.88rem; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase;
       border: none; cursor: pointer;
       transition: opacity 0.2s, transform 0.1s;
@@ -385,7 +387,7 @@
       color: rgba(255,255,255,0.7);
     }
     .pay-divider {
-      font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase;
       color: rgba(255,255,255,0.3); text-align: center;
       margin: 6px 0; display: flex; align-items: center; gap: 10px;
     }
@@ -396,7 +398,7 @@
 
     .limited-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--amber);
       margin-top: 14px;
@@ -453,7 +455,7 @@
       display: block;
     }
     .host-avatar-label {
-      font-size: 0.62rem; font-weight: 600;
+      font-size: 0.82rem; font-weight: 600;
       letter-spacing: 0.18em; text-transform: uppercase;
       text-align: center; line-height: 1.4;
     }
@@ -464,7 +466,7 @@
       color: var(--dark-navy);
     }
     .host-title {
-      font-size: 0.65rem; font-weight: 600;
+      font-size: 0.82rem; font-weight: 600;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--amber);
     }
@@ -479,7 +481,7 @@
       color: var(--wa-green);
       padding: 10px 18px;
       font-family: var(--font-sans);
-      font-size: 0.68rem; font-weight: 700;
+      font-size: 0.82rem; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase;
       cursor: pointer;
       transition: all 0.2s;
@@ -498,7 +500,7 @@
       border-top: 1px solid rgba(255,255,255,0.07);
     }
     .collab-strip p {
-      font-size: 0.65rem; font-weight: 500;
+      font-size: 0.82rem; font-weight: 500;
       letter-spacing: 0.25em; text-transform: uppercase;
       color: rgba(255,255,255,0.35);
     }
@@ -517,7 +519,7 @@
       margin-bottom: 8px;
     }
     .footer-tagline {
-      font-size: 0.7rem; color: rgba(255,255,255,0.35);
+      font-size: 0.82rem; color: rgba(255,255,255,0.35);
       letter-spacing: 0.15em; text-transform: uppercase;
       margin-bottom: 20px;
     }
@@ -526,13 +528,48 @@
       margin-bottom: 20px;
     }
     .footer-links a {
-      font-size: 0.7rem; color: rgba(255,255,255,0.4);
+      font-size: 0.82rem; color: rgba(255,255,255,0.4);
       letter-spacing: 0.1em; text-transform: uppercase;
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--gold); }
     .footer-copy {
-      font-size: 0.65rem; color: rgba(255,255,255,0.2);
+      font-size: 0.82rem; color: rgba(255,255,255,0.2);
+    }
+
+    /* ── FAQ ACCORDION ── */
+    .faq-accordion { display: flex; flex-direction: column; }
+    .faq-item {
+      border-top: 1px solid rgba(0,0,0,0.09);
+    }
+    .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.09); }
+    .faq-q {
+      list-style: none;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 20px 4px;
+      font-family: var(--font-serif);
+      font-size: 1.1rem; font-weight: 400;
+      color: var(--dark-navy);
+      cursor: pointer;
+      user-select: none;
+      line-height: 1.35;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after {
+      content: '+';
+      font-family: var(--font-sans);
+      font-size: 1.3rem; font-weight: 300;
+      color: var(--amber);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    details[open] > .faq-q::after {
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      font-size: 0.95rem; line-height: 1.75;
+      color: var(--text-mid);
+      padding: 0 4px 20px;
     }
 
     /* ── MOBILE ── */
@@ -605,7 +642,7 @@
         <div class="hero-price-pill">
           <strong>€25</strong>
           <span>earlybird · ends 20 Oct</span>
-          <span style="font-size:0.6rem;opacity:0.65;font-weight:400;letter-spacing:0.05em">(€35 after)</span>
+          <span style="font-size:0.82rem;opacity:0.65;font-weight:400;letter-spacing:0.05em">(€35 after)</span>
         </div>
       </div>
       <a href="#booking" class="hero-btn">Choose Your Session →</a>
@@ -619,7 +656,7 @@
   <section class="included-section">
     <div class="section-inner">
       <p class="section-label">What's Included</p>
-      <h2 class="section-title" style="color:var(--white)">One Morning. Four Rituals.</h2>
+      <h2 class="section-title" style="color:var(--white)">One Session. Four Rituals.</h2>
       <div class="pillars">
         <div class="pillar">
           <div class="pillar-icon">🔥</div>
@@ -642,9 +679,13 @@
           <div class="pillar-desc">Talk + self-drainage workshop with Anne</div>
         </div>
       </div>
-      <div class="bonus-bar">
-        <span>✦</span>
-        <span><strong>Bonus:</strong> Complimentary Yoga Nidra with Ian — the deepest rest you'll have all week.</span>
+      <div class="bonus-bar" style="align-items:center;gap:18px;flex-wrap:wrap;">
+        <img src="HCFR_IAN_YOGA.jpg" alt="Ian — Yoga Nidra"
+             style="width:72px;height:72px;object-fit:cover;flex-shrink:0;border-radius:2px;"
+             onerror="this.outerHTML='<div style=\'width:72px;height:72px;background:rgba(255,255,255,0.06);border:1px dashed rgba(212,168,67,0.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.55rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(212,168,67,0.5);text-align:center;padding:4px;\'>HCFR_IAN_YOGA.jpg</div>'">
+        <span style="flex:1;min-width:180px;">
+          <span style="color:var(--gold);font-weight:700;">✦ Bonus:</span> Complimentary Yoga Nidra with Ian — the deepest rest you'll have all week.
+        </span>
       </div>
     </div>
   </section>
@@ -677,7 +718,7 @@
           <div>
             <div class="booking-selected-session" id="selectedSessionLabel">Select a session above ↑</div>
             <div class="booking-event-name">Heat. Cold. Flow. Restore.</div>
-            <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:0.05em">Saturday 7 November · Moni, Limassol</div>
+            <div style="font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:0.05em">Saturday 7 November · Moni, Limassol</div>
           </div>
           <div class="booking-price-block" id="priceBlock">
             <div class="booking-price-early" id="earlyLabel">Earlybird</div>
@@ -753,7 +794,7 @@
             <div class="host-title">Lymphatic Therapist · Reset Program Coach</div>
             <div class="host-name">Anne</div>
           </div>
-          <p class="host-bio">Anne guides the lymphatic flow talk and self-drainage workshop — practical, grounded, and immediately applicable. She's been running Reset Programs across Cyprus and brings warmth, expertise, and a deep care for every participant's wellbeing.</p>
+          <p class="host-bio">Anne guides the lymphatic flow talk and self-drainage workshop, offering practical, grounded techniques that are easy to understand and apply in everyday life. As part of this restorative journey, she'll also provide a nourishing drink and electrolytes to support you throughout your optional fasting experience.</p>
           <a class="host-wa-btn" href="#" onclick="return openAnneWhatsApp(event)">
             <span>💬</span> Ask Anne a Question
           </a>
@@ -774,11 +815,57 @@
             <div class="host-title">9 Waves · Sauna &amp; Ice</div>
             <div class="host-name">Paul</div>
           </div>
-          <p class="host-bio">Paul runs the sauna and cold plunge experience — the heat, the ritual, the cold, the community. He's hosted 9 Waves sessions across Cyprus, creates the conditions for people to feel genuinely good, and makes sure the domes are exactly right.</p>
+          <p class="host-bio">Paul brings Irish-inspired sauna and ice culture to Cyprus, hosting welcoming days built around fire, cold, nature and community. Curious, hands-on and always learning, he helps first-timers feel safe, relaxed and part of something memorable by sea, garden or mountain.</p>
           <a class="host-wa-btn" href="#" onclick="return openPaulWhatsApp(event)">
             <span>💬</span> Ask Paul a Question
           </a>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:var(--cream);" id="faq">
+    <div class="section-inner">
+      <p class="section-label">Questions</p>
+      <h2 class="section-title">Good to Know</h2>
+      <div class="faq-accordion" style="margin-top:36px;max-width:680px;">
+
+        <details class="faq-item">
+          <summary class="faq-q">What can I expect from the experience?</summary>
+          <div class="faq-a">This experience is an invitation to slow down, reconnect with your body, and create space for rest and renewal. Throughout the session you'll enjoy a combination of sauna, swimming, yoga, gentle lymphatic drainage movements, and an optional guided fast supported by a nourishing drink.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">I've never used a sauna or ice bath. Is that okay?</summary>
+          <div class="faq-a">Absolutely. Paul will explain everything before your first session and guide you throughout. No experience needed — the sessions are suitable for complete beginners.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Is sauna use mandatory?</summary>
+          <div class="faq-a">Not at all. Every part of the experience is an invitation, not an obligation. You can choose what feels right for your body, take breaks whenever needed, and skip any activity you're not comfortable with.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Do I need to participate in every activity?</summary>
+          <div class="faq-a">Not at all. You are encouraged to listen to your body and move at your own pace. Feel free to rest, take a break, or adapt any activity to suit your needs. There is no pressure to do everything.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">What should I bring with me?</summary>
+          <div class="faq-a">We recommend bringing 2 water bottles, 2 towels, 1 yoga mat and cover, swimwear, comfortable clothing for yoga and movement, and any personal essentials. If you choose not to fast, please bring a light snack.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Are there any health considerations I should be aware of?</summary>
+          <div class="faq-a">Your well-being comes first. Sauna use and fasting may not be suitable for everyone, particularly during pregnancy or for people with certain medical conditions or medications. Please consult your healthcare professional if you have any concerns, and let us know privately about any needs we should be aware of. You are always welcome to skip an activity.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">How can I prepare for the experience?</summary>
+          <div class="faq-a">We recommend arriving well-rested and hydrated, wearing comfortable clothing, and coming with an open mind. Please avoid arriving dehydrated or pushing yourself physically before the session. If you choose to participate in the guided fast, please avoid eating solid food for at least 2 hours before the session.</div>
+        </details>
 
       </div>
     </div>
