@@ -886,11 +886,11 @@
                   <option value="phone">Phone</option>
                 </select>
               </div>
-              <div class="contact-toggle-wrap">
-                <button class="contact-toggle-link" id="contactToggleBtn" onclick="toggleContactType()">I don't use WhatsApp</button>
-              </div>
             </div>
             <div class="contact-hint" id="contactHint">We'll add you to the WhatsApp group before the event.</div>
+            <div class="contact-toggle-wrap">
+              <button class="contact-toggle-link" id="contactToggleBtn" onclick="toggleContactType()">I don't use WhatsApp</button>
+            </div>
             <div class="contact-error-msg" id="contactErrorMsg">Please fill in your name and contact details before paying.</div>
           </div>
 
@@ -927,8 +927,8 @@
         <!-- CONFIRMATION STATE (hidden until payment click) -->
         <div class="booking-confirmation" id="bookingConfirmation" style="display:none">
           <div class="confirm-icon">✓</div>
-          <h3 class="confirm-heading">You're almost there!</h3>
-          <p class="confirm-body">Complete your payment in the tab that just opened. Once done, Paul will add you to the WhatsApp group within 24 hours and send you all the details.</p>
+          <h3 class="confirm-heading">You're booked in</h3>
+          <p class="confirm-body">Once they receive your payment confirmation, Paul or Anne will be in touch within 24 hours.</p>
           <p class="confirm-body" style="margin-top:8px">Any questions in the meantime?</p>
           <a class="pay-btn pay-btn-whatsapp confirm-wa-btn" id="confirmWaBtn" href="#" onclick="return openPaulWhatsApp(event)">
             Message Paul on WhatsApp
