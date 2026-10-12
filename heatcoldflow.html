@@ -814,25 +814,37 @@
           </p>
           <!-- CONTACT CAPTURE -->
           <div class="contact-capture" id="contactCapture">
-            <div class="contact-capture-label" id="contactLabel">Your WhatsApp number</div>
+            <div class="contact-capture-label">Your name</div>
             <div class="contact-input-row">
               <input
                 class="contact-input"
-                type="tel"
-                id="contactInput"
-                placeholder="+357 96 000 000"
-                autocomplete="tel"
+                type="text"
+                id="nameInput"
+                placeholder="Your name here"
+                autocomplete="given-name"
               >
-              <select class="contact-type-select" id="contactTypeSelect" onchange="onContactTypeChange()" style="display:none">
-                <option value="email">Email</option>
-                <option value="phone">Phone</option>
-              </select>
             </div>
-            <div class="contact-toggle-wrap">
-              <button class="contact-toggle-link" id="contactToggleBtn" onclick="toggleContactType()">I don't use WhatsApp</button>
+            <div style="margin-top:12px">
+              <div class="contact-capture-label" id="contactLabel">Your WhatsApp number</div>
+              <div class="contact-input-row">
+                <input
+                  class="contact-input"
+                  type="tel"
+                  id="contactInput"
+                  placeholder="+357 96 000 000"
+                  autocomplete="tel"
+                >
+                <select class="contact-type-select" id="contactTypeSelect" onchange="onContactTypeChange()" style="display:none">
+                  <option value="email">Email</option>
+                  <option value="phone">Phone</option>
+                </select>
+              </div>
+              <div class="contact-toggle-wrap">
+                <button class="contact-toggle-link" id="contactToggleBtn" onclick="toggleContactType()">I don't use WhatsApp</button>
+              </div>
             </div>
             <div class="contact-hint" id="contactHint">We'll add you to the WhatsApp group before the event.</div>
-            <div class="contact-error-msg" id="contactErrorMsg">Please fill in your contact details before paying.</div>
+            <div class="contact-error-msg" id="contactErrorMsg">Please fill in your name and contact details before paying.</div>
           </div>
 
           <div class="pay-btns">
@@ -1126,20 +1138,23 @@
     }
 
     function clearContactError() {
-      var input = document.getElementById('contactInput');
-      var err = document.getElementById('contactErrorMsg');
-      input.classList.remove('error');
-      err.style.display = 'none';
+      document.getElementById('nameInput').classList.remove('error');
+      document.getElementById('contactInput').classList.remove('error');
+      document.getElementById('contactErrorMsg').style.display = 'none';
     }
 
     function validateContact() {
-      var input = document.getElementById('contactInput');
+      var nameInput = document.getElementById('nameInput');
+      var contactInput = document.getElementById('contactInput');
       var err = document.getElementById('contactErrorMsg');
-      var val = input.value.trim();
-      if (!val) {
-        input.classList.add('error');
+      var nameVal = nameInput.value.trim();
+      var contactVal = contactInput.value.trim();
+      if (!nameVal || !contactVal) {
+        if (!nameVal) nameInput.classList.add('error');
+        if (!contactVal) contactInput.classList.add('error');
         err.style.display = 'block';
-        input.focus();
+        if (!nameVal) nameInput.focus();
+        else contactInput.focus();
         return false;
       }
       clearContactError();
@@ -1147,13 +1162,14 @@
     }
 
     function fireEmailJS(paymentMethod) {
-      var input = document.getElementById('contactInput');
-      var contactValue = input.value.trim();
+      var nameValue = document.getElementById('nameInput').value.trim();
+      var contactValue = document.getElementById('contactInput').value.trim();
       var contactType = getContactType();
       var eb = isEarlybird();
       var price = eb ? '€25 (earlybird)' : '€35';
       try {
         emailjs.send('service_kp7ge8b', 'template_qm1j4gr', {
+          name: nameValue,
           session: selectedSession || 'unknown',
           contact_type: contactType,
           contact_value: contactValue,
