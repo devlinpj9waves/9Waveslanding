@@ -17,6 +17,10 @@
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('S7Ya-qzo6SNtnZloj');</script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -572,6 +576,80 @@
       padding: 0 4px 20px;
     }
 
+    /* ── CONTACT CAPTURE ── */
+    .contact-capture {
+      margin-bottom: 18px;
+    }
+    .contact-capture-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .contact-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .contact-input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      min-width: 0;
+    }
+    .contact-input::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-input:focus { border-color: var(--amber); }
+    .contact-input.error { border-color: #e05555; }
+    .contact-type-select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      padding: 12px 10px;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .contact-type-select:focus { border-color: var(--amber); }
+    .contact-toggle-wrap {
+      margin-top: 8px;
+    }
+    .contact-toggle-link {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: var(--font-sans);
+      transition: color 0.2s;
+    }
+    .contact-toggle-link:hover { color: rgba(255,255,255,0.75); }
+    .contact-hint {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 6px;
+    }
+    .contact-error-msg {
+      font-size: 0.82rem;
+      color: #e07070;
+      margin-top: 6px;
+      display: none;
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 640px) {
       .nav { padding: 12px 16px; }
@@ -734,6 +812,29 @@
             <strong>Earlybird pricing (€25) ends 20 October.</strong><br>
             Pay below to confirm your spot — or send a WhatsApp and we'll hold it for 24 hours.
           </p>
+          <!-- CONTACT CAPTURE -->
+          <div class="contact-capture" id="contactCapture">
+            <div class="contact-capture-label" id="contactLabel">Your WhatsApp number</div>
+            <div class="contact-input-row">
+              <input
+                class="contact-input"
+                type="tel"
+                id="contactInput"
+                placeholder="+357 96 000 000"
+                autocomplete="tel"
+              >
+              <select class="contact-type-select" id="contactTypeSelect" onchange="onContactTypeChange()" style="display:none">
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+              </select>
+            </div>
+            <div class="contact-toggle-wrap">
+              <button class="contact-toggle-link" id="contactToggleBtn" onclick="toggleContactType()">I don't use WhatsApp</button>
+            </div>
+            <div class="contact-hint" id="contactHint">We'll add you to the WhatsApp group before the event.</div>
+            <div class="contact-error-msg" id="contactErrorMsg">Please fill in your contact details before paying.</div>
+          </div>
+
           <div class="pay-btns">
             <!--
               REVOLUT PLACEHOLDER
@@ -974,16 +1075,110 @@
       return true;
     }
 
+    /* ── CONTACT CAPTURE STATE ── */
+    var _contactMode = 'whatsapp'; // 'whatsapp' | 'other'
+
+    function toggleContactType() {
+      _contactMode = (_contactMode === 'whatsapp') ? 'other' : 'whatsapp';
+      var input = document.getElementById('contactInput');
+      var select = document.getElementById('contactTypeSelect');
+      var label = document.getElementById('contactLabel');
+      var hint = document.getElementById('contactHint');
+      var btn = document.getElementById('contactToggleBtn');
+      if (_contactMode === 'whatsapp') {
+        input.type = 'tel';
+        input.placeholder = '+357 96 000 000';
+        select.style.display = 'none';
+        label.textContent = 'Your WhatsApp number';
+        hint.textContent = 'We\'ll add you to the WhatsApp group before the event.';
+        btn.textContent = 'I don\'t use WhatsApp';
+      } else {
+        select.style.display = '';
+        onContactTypeChange();
+        btn.textContent = 'I do use WhatsApp';
+      }
+      input.value = '';
+      clearContactError();
+    }
+
+    function onContactTypeChange() {
+      var select = document.getElementById('contactTypeSelect');
+      var input = document.getElementById('contactInput');
+      var label = document.getElementById('contactLabel');
+      var hint = document.getElementById('contactHint');
+      if (select.value === 'email') {
+        input.type = 'email';
+        input.placeholder = 'you@email.com';
+        label.textContent = 'Your email address';
+        hint.textContent = 'We\'ll send you event details and any updates.';
+      } else {
+        input.type = 'tel';
+        input.placeholder = '+357 96 000 000';
+        label.textContent = 'Your phone number';
+        hint.textContent = 'We\'ll call or text you with event details.';
+      }
+    }
+
+    function getContactType() {
+      if (_contactMode === 'whatsapp') return 'WhatsApp';
+      var select = document.getElementById('contactTypeSelect');
+      return select.value === 'email' ? 'Email' : 'Phone';
+    }
+
+    function clearContactError() {
+      var input = document.getElementById('contactInput');
+      var err = document.getElementById('contactErrorMsg');
+      input.classList.remove('error');
+      err.style.display = 'none';
+    }
+
+    function validateContact() {
+      var input = document.getElementById('contactInput');
+      var err = document.getElementById('contactErrorMsg');
+      var val = input.value.trim();
+      if (!val) {
+        input.classList.add('error');
+        err.style.display = 'block';
+        input.focus();
+        return false;
+      }
+      clearContactError();
+      return true;
+    }
+
+    function fireEmailJS(paymentMethod) {
+      var input = document.getElementById('contactInput');
+      var contactValue = input.value.trim();
+      var contactType = getContactType();
+      var eb = isEarlybird();
+      var price = eb ? '€25 (earlybird)' : '€35';
+      try {
+        emailjs.send('service_kp7ge8b', 'template_qm1j4gr', {
+          session: selectedSession || 'unknown',
+          contact_type: contactType,
+          contact_value: contactValue,
+          price: price,
+          payment_method: paymentMethod
+        });
+      } catch(e) {
+        // silent — don't block payment if emailjs fails
+      }
+    }
+
     function checkRevolutLink(event) {
       if (!requireSession(event)) return false;
+      if (!validateContact()) return false;
       event.preventDefault();
+      fireEmailJS('Revolut');
       window.open(REVOLUT_LINK, '_blank');
       return false;
     }
 
     function checkStripeLink(event) {
       if (!requireSession(event)) return false;
+      if (!validateContact()) return false;
       event.preventDefault();
+      fireEmailJS('Stripe');
       window.open(STRIPE_LINK, '_blank');
       return false;
     }
@@ -991,6 +1186,8 @@
     function openWhatsAppBook(event) {
       event.preventDefault();
       if (!requireSession(event)) return false;
+      if (!validateContact()) return false;
+      fireEmailJS('WhatsApp (confirm)');
       const eb = isEarlybird();
       const price = eb ? '€25 earlybird' : '€35';
       const msg = encodeURIComponent(
