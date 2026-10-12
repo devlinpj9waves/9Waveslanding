@@ -650,6 +650,53 @@
       display: none;
     }
 
+    /* ── BOOKING CONFIRMATION ── */
+    .booking-confirmation {
+      padding: 8px 0 4px;
+      text-align: center;
+    }
+    .confirm-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(200,98,26,0.2);
+      border: 1.5px solid var(--amber);
+      color: var(--amber);
+      font-size: 1.4rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .confirm-heading {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .confirm-body {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+    }
+    .confirm-wa-btn {
+      display: block;
+      margin: 20px auto 0;
+      max-width: 280px;
+      text-align: center;
+    }
+    .confirm-back-link {
+      display: block;
+      margin: 14px auto 0;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.35);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    .confirm-back-link:hover { color: rgba(255,255,255,0.65); }
+
     /* ── MOBILE ── */
     @media (max-width: 640px) {
       .nav { padding: 12px 16px; }
@@ -875,6 +922,18 @@
             <div class="limited-dot"></div>
             Limited spots — book early
           </div>
+        </div>
+
+        <!-- CONFIRMATION STATE (hidden until payment click) -->
+        <div class="booking-confirmation" id="bookingConfirmation" style="display:none">
+          <div class="confirm-icon">✓</div>
+          <h3 class="confirm-heading">You're almost there!</h3>
+          <p class="confirm-body">Complete your payment in the tab that just opened. Once done, Paul will add you to the WhatsApp group within 24 hours and send you all the details.</p>
+          <p class="confirm-body" style="margin-top:8px">Any questions in the meantime?</p>
+          <a class="pay-btn pay-btn-whatsapp confirm-wa-btn" id="confirmWaBtn" href="#" onclick="return openPaulWhatsApp(event)">
+            Message Paul on WhatsApp
+          </a>
+          <button class="confirm-back-link" onclick="resetBookingCard()">← Go back</button>
         </div>
       </div>
     </div>
@@ -1181,12 +1240,23 @@
       }
     }
 
+    function showConfirmation() {
+      document.querySelector('.booking-card-body').style.display = 'none';
+      document.getElementById('bookingConfirmation').style.display = 'block';
+    }
+
+    function resetBookingCard() {
+      document.getElementById('bookingConfirmation').style.display = 'none';
+      document.querySelector('.booking-card-body').style.display = '';
+    }
+
     function checkRevolutLink(event) {
       if (!requireSession(event)) return false;
       if (!validateContact()) return false;
       event.preventDefault();
       fireEmailJS('Revolut');
       window.open(REVOLUT_LINK, '_blank');
+      showConfirmation();
       return false;
     }
 
@@ -1196,6 +1266,7 @@
       event.preventDefault();
       fireEmailJS('Stripe');
       window.open(STRIPE_LINK, '_blank');
+      showConfirmation();
       return false;
     }
 
