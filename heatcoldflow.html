@@ -831,7 +831,7 @@
                   class="contact-input"
                   type="tel"
                   id="contactInput"
-                  placeholder="+357 96 000 000"
+                  placeholder="Include country code e.g. +44…"
                   autocomplete="tel"
                 >
                 <select class="contact-type-select" id="contactTypeSelect" onchange="onContactTypeChange()" style="display:none">
@@ -1099,7 +1099,7 @@
       var btn = document.getElementById('contactToggleBtn');
       if (_contactMode === 'whatsapp') {
         input.type = 'tel';
-        input.placeholder = '+357 96 000 000';
+        input.placeholder = 'Include country code e.g. +44…';
         select.style.display = 'none';
         label.textContent = 'Your WhatsApp number';
         hint.textContent = 'We\'ll add you to the WhatsApp group before the event.';
@@ -1125,7 +1125,7 @@
         hint.textContent = 'We\'ll send you event details and any updates.';
       } else {
         input.type = 'tel';
-        input.placeholder = '+357 96 000 000';
+        input.placeholder = 'Include country code e.g. +44…';
         label.textContent = 'Your phone number';
         hint.textContent = 'We\'ll call or text you with event details.';
       }
