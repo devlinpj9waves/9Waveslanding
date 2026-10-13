@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="email-obfuscation" content="off" />
-  <title>6 Day Active Wellness & Nature Reset Retreat -- 9 Waves × For Rest, Cyprus</title>
+  <title>6-Day Active Wellness Reset Retreat -- 9 Waves × For Rest, Cyprus</title>
   <meta name="description" content="Six days to step away from your routine, spend more time outside, move your body and enjoy a slower way of living. Sauna, cold plunge, hikes, yoga and Mediterranean swims in the Cyprus hills." />
-  <meta property="og:title" content="Active Wellness & Nature Reset Retreat in Cyprus -- 9 Waves × For Rest" />
+  <meta property="og:title" content="6-Day Active Wellness Reset Retreat in Cyprus -- 9 Waves × For Rest" />
   <meta property="og:description" content="Six days in the Cyprus hills. Hike. Move. Swim. Sauna. Cold plunge. Comfortable glamping, shared meals, small international group. November 8–13, 2026." />
   <meta property="og:image" content="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/For%20Rest%20x%209%20Waves%20thumbnail.jpg" />
   <meta property="og:url" content="https://9-waves.com/digitaldetoxretreat" />
@@ -348,6 +348,18 @@
       .header-book-btn { font-size: 0.58rem; padding: 0.45rem 0.7rem; margin-right: 0.4rem; }
     }
 
+    /* ── ACCOMMODATION CAROUSEL ── */
+    .accom-carousel { position:relative; overflow:hidden; }
+    .accom-carousel-track { display:flex; transition:transform 0.35s ease; }
+    .accom-carousel-track img { min-width:100%; width:100%; height:auto; flex-shrink:0; display:block; object-fit:cover; }
+    .accom-carousel-dots { position:absolute; bottom:8px; left:0; right:0; display:flex; justify-content:center; gap:6px; }
+    .accom-carousel-dots button { width:7px; height:7px; border-radius:50%; border:none; background:rgba(255,255,255,0.55); cursor:pointer; padding:0; transition:background 0.2s; }
+    .accom-carousel-dots button.active { background:#fff; }
+    .accom-carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.32); border:none; color:#fff; width:30px; height:30px; cursor:pointer; font-size:1rem; line-height:1; display:flex; align-items:center; justify-content:center; z-index:2; }
+    .accom-carousel-arrow.prev { left:6px; }
+    .accom-carousel-arrow.next { right:6px; }
+    .accom-carousel-arrow:hover { background:rgba(0,0,0,0.55); }
+
     /* ── RESPONSIVE ── */
     @media (max-width:900px) {
       .intro-grid, .sessions-grid, .location-grid, .hosts-grid { grid-template-columns:1fr; gap:3rem; }
@@ -424,7 +436,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content section-inner">
       <span class="hero-collab">9 Waves × For Rest Glamping</span>
-      <h1>6 Day Active Wellness &<br /><em>Nature Reset Retreat</em></h1>
+      <h1>6-Day Active Wellness<br /><em>Reset Retreat</em></h1>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <span class="hero-meta-label">Duration</span>
@@ -485,10 +497,35 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-label">The Place</span>
-        <h2>For Rest in Pictures</h2>
+        <h2>Your Retreat Experience</h2>
       </div>
       <div class="photo-grid">
-        <!-- Images auto-adjust to their natural shape (portrait or landscape) -->
+        <!-- New gallery images (10–17) appear first -->
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_10.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_10','Community dinner under pergola')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_11.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_11','BBQ cooking at golden hour')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_12.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_12','Woman in hot tub')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_13.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_13','Group yoga on hill with gong')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_14.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_14','Man in ice plunge')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_15.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_15','Two women meditating')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_16.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_16','Camp kitchen gas stove')" />
+        </div>
+        <div class="photo-grid-item">
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_17.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_17','Hammock')" />
+        </div>
+        <!-- Original gallery images (01–09) below -->
         <div class="photo-grid-item">
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_01.jpg" alt="" onerror="imgFallback(this,'PHOTO_GRID_01','Group BBQ or dinner together')" />
         </div>
@@ -597,27 +634,95 @@
       <div class="programme-days">
         <div class="programme-day">
           <div class="programme-day-label"><span>Day 1</span><strong>Sunday</strong></div>
-          <div class="programme-day-content"><p>Check-in from 15:00. Arrive slowly, settle into your glamping home, explore the hill and leave the rush behind. <span class="highlight">Welcome dinner in the evening</span> — good food, new faces, shared stories and the beginning of six days together.</p></div>
+          <div class="programme-day-content">
+            <p><span class="highlight">15:00 – Arrival &amp; Check-in</span></p>
+            <p>Settle into your glamping tent, unpack, make yourself at home, and take your first slow breath surrounded by the peaceful Cyprus countryside. Your reset starts here.</p>
+            <p><span class="highlight">19:00 – Welcome Cyprus BBQ Dinner</span></p>
+            <p>We begin our week the Cypriot way — gathered around the table, sharing traditional local food, stories, and the first moments together. Enjoy a traditional Cyprus BBQ with sheftalies, chicken souvlaki, boiled baby potatoes, Greek salad, warm Greek pitas, and fresh seasonal fruit from the village gardens. This is our welcome evening — a chance to meet the people you'll be sharing the next six days with, hear each other's stories, and set the intention for a beautiful week together.</p>
+            <p><span class="highlight">21:00 – Hot Tub Relaxation Under the Stars</span></p>
+            <p>Time to let go of the stress and tension you arrived with. Unwind in the warm outdoor hot tub, listen to the sounds of nature, take in the rolling hills, and enjoy your first peaceful evening beneath the Cyprus night sky.</p>
+          </div>
         </div>
         <div class="programme-day">
           <div class="programme-day-label"><span>Day 2</span><strong>Monday</strong></div>
-          <div class="programme-day-content"><p>Morning movement and guided village tour and hilltop hike. Community breakfast in the fresh air. Free time in the afternoon. <span class="highlight">9 Waves guided sauna and ice therapy session</span> — an introduction to contrast therapy, followed by dinner at the local village tavern. Evening hot tub under the stars.</p></div>
+          <div class="programme-day-content">
+            <p><span class="highlight">08:30 – Morning Fuel: Smoothies &amp; Protein Shakes</span></p>
+            <p>Start the day light but nourished with fresh green smoothies and protein shakes, packed with nutrients and natural energy to fuel your morning hike.</p>
+            <p><span class="highlight">09:00 – Village Tour &amp; Hilltop Hike (3–3.5 hours)</span></p>
+            <p>A slow walk through the traditional Agios Theodoros village, quiet streets, local stories, hidden corners, and an authentic Cypriot atmosphere, followed by a scenic hike to the highest hilltop of the village with breathtaking panoramic views over the Cyprus countryside.</p>
+            <p><span class="highlight">11:30 – Panoramic Hilltop Brunch</span></p>
+            <p>Brunch tastes better with a view. Settle in at the top of the hill and enjoy a relaxed picnic-style brunch surrounded by nature and panoramic countryside views. Freshly baked croissants with ham/turkey &amp; cheese, boiled eggs, seasonal fruit and fresh vegetables — a nourishing recharge after the hike.</p>
+            <p><span class="highlight">13:00–16:00 – Free Time at the Glamping</span></p>
+            <p>Relax in a hammock, read a book, journal, enjoy your hot tub, take a nap, or simply slow down and reconnect with yourself.</p>
+            <p><span class="highlight">16:00 – Hot &amp; Cold Therapy Experience with Paul (2–3 hours)</span></p>
+            <p>Introduction to the benefits of hot and cold therapy, breathing techniques, guided sauna rituals with aromatic essential oils and rosemary infusions, ice plunges, recovery practices, and deep stress release.</p>
+            <p><span class="highlight">19:00 – Community Dinner</span></p>
+            <p>Come together around the table for another relaxed evening of traditional Cyprus food, good conversation, and time with the community. Traditional Cyprus pita souvlaki (chicken or pork, and/or sheftalies), potatoes, Greek salad, tahini, and homemade keftedes.</p>
+            <p><span class="highlight">20:00 – Evening Wind-Down</span></p>
+            <p>Hot tub relaxation, board games, hammock reading, meaningful conversations, and peaceful outdoor glamping vibes under the stars.</p>
+          </div>
         </div>
         <div class="programme-day">
           <div class="programme-day-label"><span>Day 3</span><strong>Tuesday</strong></div>
-          <div class="programme-day-content"><p>Morning yoga session on the edge of the hill. <span class="highlight">Beach day at Agios Theodoros beach</span> — swim, relax and enjoy the sea. Back at the glamping in the afternoon. <span class="highlight">Community cookery night</span> — hands on, sleeves rolled up, everyone around the barbecue. Board games and hot tub under the stars.</p></div>
+          <div class="programme-day-content">
+            <p><span class="highlight">08:30 – Morning Yoga</span></p>
+            <p>Start your day with gentle yoga and movement on the edge of the hill, overlooking the traditional Cyprus village below. Fresh morning air, birds singing, rolling hills all around.</p>
+            <p><span class="highlight">09:30 – Healthy Community Breakfast</span></p>
+            <p>A nourishing, protein-rich bowl of Greek yogurt, muesli, oats, honey, crushed almonds, and protein — fresh, balanced, and full of energy for the day ahead.</p>
+            <p><span class="highlight">11:30 – Shuttle to the Mediterranean Coast &amp; Free Time</span></p>
+            <p>Enjoy some free time by the Mediterranean Sea. Relax on a sunbed by the water, grab a fresh drink, or visit a local seaside tavern for fresh seafood and the catch of the day. For those who feel like exploring, take a scenic coastal hike along the beautiful white rocks, with open views over the Mediterranean.</p>
+            <p><span class="highlight">16:00 – Shuttle Back to the Glamping</span></p>
+            <p><span class="highlight">18:00 – Community Cooking Dinner</span></p>
+            <p>Relax, roll up your sleeves, and gently prepare a traditional Cyprus-inspired dinner together — fresh meat and fish, seasonal salads, traditional Cyprus pitas, and a selection of local dips such as tahini, taramasalata, tzatziki, and hummus.</p>
+            <p><span class="highlight">20:00 – Slow Evening</span></p>
+            <p>Hot tub relaxation, board games, hammock reading, meaningful conversations, and peaceful outdoor glamping vibes under the stars.</p>
+          </div>
         </div>
         <div class="programme-day">
           <div class="programme-day-label"><span>Day 4</span><strong>Wednesday</strong></div>
-          <div class="programme-day-content"><p><span class="highlight">Barefoot picnic in the morning</span> — feel the grass beneath your feet and slow down. <span class="highlight">Free day</span> to explore Cyprus — wander around Limassol Marina or Larnaca, visit the pink flamingo salt lakes, cycle, get a massage, or read in a hammock back at the glamping.</p></div>
+          <div class="programme-day-content">
+            <p><span class="highlight">08:00–08:30 – Shuttle to Governor's Beach &amp; White Stones</span></p>
+            <p>Start the morning with a short ride to the Mediterranean coast and the beautiful White Stones of Governor's Beach.</p>
+            <p><span class="highlight">08:30–09:00 – Outdoor Circuit Training</span></p>
+            <p>Wake up your body with a 20–30 minute outdoor circuit training session by the sea — light, energising movement designed to get your blood flowing.</p>
+            <p><span class="highlight">09:00 – Barefoot Picnic by the Sea</span></p>
+            <p>Take off your shoes, feel the grass beneath your feet, and slow down. A mindful barefoot picnic designed to help you feel grounded and reconnect with the land, the sea, and the present moment. A fresh, revitalising breakfast basket surrounded by nature, with the Mediterranean just beside you.</p>
+            <p><span class="highlight">10:00–19:00 – Free Day to Explore Cyprus</span></p>
+            <p>Spend the day however you like: relax back at glamping, visit nearby Limassol Marina or Larnaca city, book a massage session (pre-booking required), or continue your slow retreat with reading, journaling, or relaxing in nature.</p>
+            <p><span class="highlight">19:00 – Traditional Cyprus Meze Dinner</span></p>
+            <p>Community dinner at a traditional Cyprus tavern featuring authentic local meze. Come back to the village by this time, or feel free to have dinner in the city and return at your own pace.</p>
+            <p><span class="highlight">20:00 – Slow Evening</span></p>
+            <p>Hot tub relaxation, board games, hammock reading, meaningful conversations, and peaceful outdoor glamping vibes under the stars.</p>
+          </div>
         </div>
         <div class="programme-day">
           <div class="programme-day-label"><span>Day 5</span><strong>Thursday</strong></div>
-          <div class="programme-day-content"><p>Community breakfast. <span class="highlight">White Stones Beach day</span> by the Mediterranean. Back in the afternoon. <span class="highlight">9 Waves sauna and ice session</span> — deeper rounds, more intense contrast, a group that has been through the week together. <span class="highlight">Moonlight yoga</span> under the stars. Light community dinner.</p></div>
+          <div class="programme-day-content">
+            <p><span class="highlight">08:30 – Outdoor Circuit Training</span></p>
+            <p>Wake up your body with a 20–30 minute outdoor circuit training session.</p>
+            <p><span class="highlight">09:00 – Community Cyprus-Style Breakfast</span></p>
+            <p>By now, you're already becoming a professional in Cyprus food — so this morning, we cook breakfast together! Traditional Cyprus breakfast with fresh bread, grilled halloumi, lountza, pastourma, eggs, tomatoes, cucumber, warm pitas and local olives. Good food, slow morning, and everyone around the table.</p>
+            <p><span class="highlight">11:30 – Shuttle to the Beach</span></p>
+            <p>Free time at local beach bars. Swim in the crystal-clear Mediterranean Sea, do watersports, enjoy lunch, refreshing drinks, or simply relax by the sea.</p>
+            <p><span class="highlight">15:00 – Shuttle Back to the Glamping</span></p>
+            <p><span class="highlight">16:00 – Hot &amp; Cold Therapy Experience with Paul: Wood-Fired Sauna &amp; Ice Plunge</span></p>
+            <p>Step into the heat of a wood-burning sauna, filled with the scent of rosemary. Sweat, breathe, slow down — then step outside and plunge into the ice-cold water. Feel your whole body wake up: alive, clear and energised. And afterwards, sink into the hot tub and relax.</p>
+            <p><span class="highlight">18:30 – Moonlight Yoga &amp; Movement</span></p>
+            <p>As the sun disappears, we slow everything down. Only the hills, the stars, the moonlight and you. A gentle evening yoga &amp; movement session surrounded by the warm glow of fire, with the Cyprus countryside disappearing into darkness around you.</p>
+            <p><span class="highlight">19:30 – Community Dinner</span></p>
+            <p>A relaxed dinner together, prepared with fresh, local Cypriot ingredients — seasonal vegetables, meat and other local products.</p>
+            <p><span class="highlight">20:30 – Slow Evening</span></p>
+            <p>Hot tub relaxation, board games, hammock reading, meaningful conversations, and peaceful outdoor glamping vibes under the stars.</p>
+          </div>
         </div>
         <div class="programme-day">
           <div class="programme-day-label"><span>Day 6</span><strong>Friday</strong></div>
-          <div class="programme-day-content"><p>Farewell breakfast together — sharing reflections and the friendships that formed over the week. Check-out by 12:00. Head home rested, recharged and with something real to carry back.</p></div>
+          <div class="programme-day-content">
+            <p><span class="highlight">08:30 – Farewell Breakfast</span></p>
+            <p>One more breakfast together around the table — good food, fresh Cyprus air, favourite moments from the week, and people who were strangers only six days ago. A morning to laugh, share memories, exchange contacts, make plans to meet again, and enjoy a little more time together before heading home.</p>
+            <p><span class="highlight">Before 12:00 – Check-out &amp; See You Again</span></p>
+            <p>Take one more look at the hills, breathe in the fresh air, hug your new friends — and take a little piece of Cyprus with you. You came for a reset. Leave recharged, energised, connected, and ready to bring that feeling back into everyday life.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -637,8 +742,19 @@
 
         <!-- SHARED COMFORT LUX TENT -->
         <div class="accom-card">
-          <div class="accom-card-img">
-            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_TENT.jpg" alt="Shared Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_TENT','Shared comfort tent interior')" />
+          <div class="accom-card-img accom-carousel" id="carousel-simple-twin">
+            <div class="accom-carousel-track">
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_TENT.jpg" alt="Shared Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_TENT','Shared comfort tent interior')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_SIMPLE_TENT_2.jpg" alt="Shared Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_SIMPLE_TENT_2','')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_SIMPLE_TENT_3.jpg" alt="Shared Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_SIMPLE_TENT_3','')" />
+            </div>
+            <button class="accom-carousel-arrow prev" onclick="carouselPrev('carousel-simple-twin')" aria-label="Previous">&#8249;</button>
+            <button class="accom-carousel-arrow next" onclick="carouselNext('carousel-simple-twin')" aria-label="Next">&#8250;</button>
+            <div class="accom-carousel-dots" id="dots-carousel-simple-twin">
+              <button class="active" onclick="carouselGo('carousel-simple-twin',0)"></button>
+              <button onclick="carouselGo('carousel-simple-twin',1)"></button>
+              <button onclick="carouselGo('carousel-simple-twin',2)"></button>
+            </div>
           </div>
           <div class="accom-card-body">
           <span class="accom-type">Shared Tent · 2 Comfortable Beds</span>
@@ -660,8 +776,19 @@
 
         <!-- PRIVATE SIMPLE TENT -->
         <div class="accom-card">
-          <div class="accom-card-img">
-            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_DOUBLE.jpg" alt="Private Simple Tent" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_DOUBLE','Private simple tent with double bed')" />
+          <div class="accom-card-img accom-carousel" id="carousel-simple-dbl">
+            <div class="accom-carousel-track">
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_SIMPLE_DOUBLE.jpg" alt="Private Simple Tent" onerror="imgFallback(this,'ACCOM_IMAGE_SIMPLE_DOUBLE','Private simple tent with double bed')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_SIMPLE_DOUBLE_2.jpg" alt="Private Simple Tent" onerror="imgFallback(this,'ACCOM_SIMPLE_DOUBLE_2','')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_SIMPLE_DOUBLE_3.jpg" alt="Private Simple Tent" onerror="imgFallback(this,'ACCOM_SIMPLE_DOUBLE_3','')" />
+            </div>
+            <button class="accom-carousel-arrow prev" onclick="carouselPrev('carousel-simple-dbl')" aria-label="Previous">&#8249;</button>
+            <button class="accom-carousel-arrow next" onclick="carouselNext('carousel-simple-dbl')" aria-label="Next">&#8250;</button>
+            <div class="accom-carousel-dots" id="dots-carousel-simple-dbl">
+              <button class="active" onclick="carouselGo('carousel-simple-dbl',0)"></button>
+              <button onclick="carouselGo('carousel-simple-dbl',1)"></button>
+              <button onclick="carouselGo('carousel-simple-dbl',2)"></button>
+            </div>
           </div>
           <div class="accom-card-body">
           <span class="accom-type">Private Tent · Double Bed</span>
@@ -683,8 +810,19 @@
 
         <!-- PRIVATE COMFORT LUX TENT -->
         <div class="accom-card">
-          <div class="accom-card-img">
-            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_FAT_OWL.png" alt="Private Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_IMAGE_FAT_OWL','Private comfort lux tent')" />
+          <div class="accom-card-img accom-carousel" id="carousel-fatowl">
+            <div class="accom-carousel-track">
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_FAT_OWL.jpg" alt="Private Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_IMAGE_FAT_OWL','Private comfort lux tent')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_FAT_OWL_2.jpg" alt="Private Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_FAT_OWL_2','')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_FAT_OWL_3.jpg" alt="Private Comfort Lux Tent" onerror="imgFallback(this,'ACCOM_FAT_OWL_3','')" />
+            </div>
+            <button class="accom-carousel-arrow prev" onclick="carouselPrev('carousel-fatowl')" aria-label="Previous">&#8249;</button>
+            <button class="accom-carousel-arrow next" onclick="carouselNext('carousel-fatowl')" aria-label="Next">&#8250;</button>
+            <div class="accom-carousel-dots" id="dots-carousel-fatowl">
+              <button class="active" onclick="carouselGo('carousel-fatowl',0)"></button>
+              <button onclick="carouselGo('carousel-fatowl',1)"></button>
+              <button onclick="carouselGo('carousel-fatowl',2)"></button>
+            </div>
           </div>
           <div class="accom-card-body">
           <span class="accom-type">Private Tent · Double Bed · Sofa · Exclusive Outdoor Area</span>
@@ -706,8 +844,19 @@
 
         <!-- PRIVATE PREMIUM GEODOMES -->
         <div class="accom-card">
-          <div class="accom-card-img">
-            <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_GEODOME.png" alt="Private Premium Geodomes" onerror="imgFallback(this,'ACCOM_IMAGE_GEODOME','Private premium geodesic dome')" />
+          <div class="accom-card-img accom-carousel" id="carousel-geo">
+            <div class="accom-carousel-track">
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_IMAGE_GEODOME.jpg" alt="Private Premium Geodome" onerror="imgFallback(this,'ACCOM_IMAGE_GEODOME','Private premium geodesic dome')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_GEODOME_2.jpg" alt="Private Premium Geodome" onerror="imgFallback(this,'ACCOM_GEODOME_2','')" />
+              <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/ACCOM_GEODOME_3.jpg" alt="Private Premium Geodome" onerror="imgFallback(this,'ACCOM_GEODOME_3','')" />
+            </div>
+            <button class="accom-carousel-arrow prev" onclick="carouselPrev('carousel-geo')" aria-label="Previous">&#8249;</button>
+            <button class="accom-carousel-arrow next" onclick="carouselNext('carousel-geo')" aria-label="Next">&#8250;</button>
+            <div class="accom-carousel-dots" id="dots-carousel-geo">
+              <button class="active" onclick="carouselGo('carousel-geo',0)"></button>
+              <button onclick="carouselGo('carousel-geo',1)"></button>
+              <button onclick="carouselGo('carousel-geo',2)"></button>
+            </div>
           </div>
           <div class="accom-card-body">
           <span class="accom-type">Luxury · Geodesic Dome · Private En-suite</span>
@@ -983,6 +1132,25 @@
 
     // Init badges on load
     updateBadges();
+
+    // ── ACCOMMODATION CAROUSEL ──
+    const carouselIndex = {};
+    function carouselGo(id, idx) {
+      const el = document.getElementById(id);
+      const track = el.querySelector('.accom-carousel-track');
+      const imgs = track.querySelectorAll('img');
+      const total = imgs.length;
+      carouselIndex[id] = ((idx % total) + total) % total;
+      track.style.transform = 'translateX(-' + (carouselIndex[id] * 100) + '%)';
+      const dots = document.querySelectorAll('#dots-' + id + ' button');
+      dots.forEach((d, i) => d.classList.toggle('active', i === carouselIndex[id]));
+    }
+    function carouselPrev(id) { carouselGo(id, (carouselIndex[id] || 0) - 1); }
+    function carouselNext(id) { carouselGo(id, (carouselIndex[id] || 0) + 1); }
+    // Init all carousels
+    ['carousel-simple-twin','carousel-simple-dbl','carousel-fatowl','carousel-geo'].forEach(function(id) {
+      carouselIndex[id] = 0;
+    });
   </script>
 </body>
 </html>
