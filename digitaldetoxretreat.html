@@ -348,6 +348,22 @@
       .header-book-btn { font-size: 0.58rem; padding: 0.45rem 0.7rem; margin-right: 0.4rem; }
     }
 
+    /* ── EXPANDABLE SECTIONS ── */
+    .expand-wrap { position:relative; overflow:hidden; }
+    .expand-wrap.collapsed { max-height:var(--collapse-h); }
+    .expand-wrap.collapsed::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:80px;
+      background:linear-gradient(to bottom, transparent, var(--section-bg, var(--frost)));
+      pointer-events:none;
+    }
+    .expand-btn {
+      display:block; margin:1.8rem auto 0;
+      background:none; border:1px solid var(--steam); padding:0.65rem 2rem;
+      font-family:'Jost',sans-serif; font-size:0.68rem; letter-spacing:0.2em;
+      text-transform:uppercase; color:var(--birch); cursor:pointer; transition:all 0.2s;
+    }
+    .expand-btn:hover { border-color:var(--ember); color:var(--ember); }
+
     /* ── ACCOMMODATION CAROUSEL ── */
     .accom-carousel { position:relative; overflow:hidden; }
     .accom-carousel-track { display:flex; transition:transform 0.35s ease; }
@@ -431,7 +447,7 @@
   <section id="hero">
     <div class="hero-bg">
       <!-- PLACEHOLDER: HERO_IMAGE -- Suggested: Wide landscape shot of For Rest glamping at golden hour -->
-      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_IMAGE.jpg" alt="For Rest Glamping" onerror="this.parentElement.style.background='#2a3528'; this.remove();" />
+      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_LANDSCAPE.jpg" alt="For Rest Glamping Cyprus" onerror="this.parentElement.style.background='#2a3528'; this.remove();" />
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content section-inner">
@@ -486,7 +502,7 @@
           <a class="btn-outline-dark" href="#accommodation">Discover Your Stay</a>
         </div>
         <div class="intro-image">
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/INTRO_IMAGE_01.jpg" alt="At peace in nature" onerror="imgFallback(this,'INTRO_IMAGE_01','Suggested: Person at peace -- hammock, reading, or barefoot at For Rest')" />
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_IMAGE.png" alt="Active Wellness Reset Retreat" onerror="imgFallback(this,'HERO_IMAGE','4-way Active Wellness collage')" />
         </div>
       </div>
     </div>
@@ -499,6 +515,7 @@
         <span class="section-label">The Place</span>
         <h2>Your Retreat Experience</h2>
       </div>
+      <div class="expand-wrap collapsed" id="gallery-wrap" style="--collapse-h:600px; --section-bg:var(--frost);">
       <div class="photo-grid">
         <!-- New gallery images (10–17) appear first -->
         <div class="photo-grid-item">
@@ -554,6 +571,8 @@
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/PHOTO_GRID_09.png" alt="" onerror="imgFallback(this,'PHOTO_GRID_09','Village walk / hiking trail')" />
         </div>
       </div>
+      </div><!-- /expand-wrap -->
+      <button class="expand-btn" onclick="expandSection('gallery-wrap', this, 600)">Show more ↓</button>
     </div>
   </section>
 
@@ -631,6 +650,7 @@
         <h2>Day by Day</h2>
         <p>Enough structure to switch off, enough freedom to make it your own.</p>
       </div>
+      <div class="expand-wrap collapsed" id="programme-wrap" style="--collapse-h:520px; --section-bg:var(--snow);">
       <div class="programme-days">
         <div class="programme-day">
           <div class="programme-day-label"><span>Day 1</span><strong>Sunday</strong></div>
@@ -725,6 +745,8 @@
           </div>
         </div>
       </div>
+      </div><!-- /expand-wrap -->
+      <button class="expand-btn" onclick="expandSection('programme-wrap', this, 520)" style="--section-bg:var(--snow);">Show more ↓</button>
     </div>
   </section>
 
@@ -964,6 +986,7 @@
         <span class="section-label">Questions</span>
         <h2>Good to Know</h2>
       </div>
+      <div class="expand-wrap collapsed" id="faq-wrap" style="--collapse-h:480px; --section-bg:var(--frost);">
       <div class="faq-grid">
         <div class="faq-item"><h4>Can I hand in my phone?</h4><p>You're welcome to — many guests do and love it. We'll store it safely and you can collect it any time. It's entirely your choice. Before arrival, you'll receive an emergency contact number your family can use to reach you during the week.</p></div>
         <div class="faq-item"><h4>I've never used a sauna or ice bath. Is that okay?</h4><p>Absolutely. Paul will explain everything before your first session and guide you throughout. No experience needed -- the sessions are suitable for complete beginners.</p></div>
@@ -976,6 +999,8 @@
         <div class="faq-item"><h4>Is a shorter or longer stay possible?</h4><p>Reach out to us and let us know what you're thinking and we'll see what we can do!</p></div>
         <div class="faq-item"><h4>Do you cater to dietary requirements?</h4><p>Yes -- vegan, vegetarian, gluten-free, dairy-free, keto, nut-allergy-friendly and more. Just let us know when booking.</p></div>
       </div>
+      </div><!-- /expand-wrap -->
+      <button class="expand-btn" onclick="expandSection('faq-wrap', this, 480)">Show more ↓</button>
     </div>
   </section>
 
@@ -1132,6 +1157,22 @@
 
     // Init badges on load
     updateBadges();
+
+    // ── EXPANDABLE SECTIONS ──
+    function expandSection(id, btn, stepPx) {
+      const wrap = document.getElementById(id);
+      const current = parseInt(wrap.style.getPropertyValue('--collapse-h')) || stepPx;
+      const full = wrap.scrollHeight;
+      const next = current + stepPx;
+      if (next >= full) {
+        wrap.style.setProperty('--collapse-h', full + 'px');
+        wrap.classList.remove('collapsed');
+        btn.style.display = 'none';
+      } else {
+        wrap.style.setProperty('--collapse-h', next + 'px');
+        btn.textContent = next + stepPx >= full ? 'Show less ↑' : 'Show more ↓';
+      }
+    }
 
     // ── ACCOMMODATION CAROUSEL ──
     const carouselIndex = {};
