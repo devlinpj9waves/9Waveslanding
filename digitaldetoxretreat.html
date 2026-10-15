@@ -9,7 +9,7 @@
   <meta property="og:title" content="6-Day Active Wellness Reset Retreat in Cyprus -- 9 Waves × For Rest" />
   <meta property="og:description" content="Six days in the Cyprus hills. Hike. Move. Swim. Sauna. Cold plunge. Comfortable glamping, shared meals, small international group. November 8–13, 2026." />
   <meta property="og:image" content="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/For%20Rest%20x%209%20Waves%20thumbnail.jpg" />
-  <meta property="og:url" content="https://9-waves.com/digitaldetoxretreat" />
+  <meta property="og:url" content="https://9-waves.com/resetretreat" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +17,17 @@
   <script>
     // Must be in <head> so it's available when onerror fires on images
     function imgFallback(el, name, desc) {
+      // First attempt: try the other extension (jpg↔png) before giving up
+      var src = el.src || '';
+      if (!el.dataset.triedAlt) {
+        el.dataset.triedAlt = '1';
+        if (src.match(/\.jpg(\?|$)/i)) {
+          el.src = src.replace(/\.jpg(\?|$)/i, '.png$1'); return;
+        } else if (src.match(/\.png(\?|$)/i)) {
+          el.src = src.replace(/\.png(\?|$)/i, '.jpg$1'); return;
+        }
+      }
+      // Both extensions failed — show placeholder
       var ph = document.createElement('div');
       ph.className = 'img-ph';
       ph.innerHTML = '<span class="img-ph-name">' + name + '</span>' + (desc ? '<span class="img-ph-desc">' + desc + '</span>' : '');
@@ -447,7 +458,7 @@
   <section id="hero">
     <div class="hero-bg">
       <!-- PLACEHOLDER: HERO_IMAGE -- Suggested: Wide landscape shot of For Rest glamping at golden hour -->
-      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_LANDSCAPE.jpg" alt="For Rest Glamping Cyprus" onerror="this.parentElement.style.background='#2a3528'; this.remove();" />
+      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_LANDSCAPE.jpg" alt="For Rest Glamping Cyprus" onerror="imgFallback(this,'HERO_LANDSCAPE','')" />
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content section-inner">
@@ -942,7 +953,7 @@
         </div>
         <div class="location-images">
           <!-- Images display at their natural shape -- portrait or landscape -->
-          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/LOCATION_IMAGE_01.jpg" alt="For Rest exterior" onerror="imgFallback(this,'LOCATION_IMAGE_01','For Rest tents on the hillside')" />
+          <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/LOCATION_IMAGE_01.png" alt="For Rest exterior" onerror="imgFallback(this,'LOCATION_IMAGE_01','For Rest tents on the hillside')" />
           <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/LOCATION_IMAGE_02.jpg" alt="Hill view" onerror="imgFallback(this,'LOCATION_IMAGE_02','View from hilltop / panoramic landscape')" />
         </div>
       </div>
