@@ -423,7 +423,8 @@
       letter-spacing: 0.03em; line-height: 1.5;
       box-shadow: 0 -2px 16px rgba(0,0,0,0.25);
     }
-    #cookie-banner p { flex: 1 1 260px; margin: 0; }
+    #cookie-banner p { flex: 1 1 200px; margin: 0; max-width: 520px; }
+    #cookie-banner .cookie-btns { display: flex; gap: 0.75rem; flex-shrink: 0; }
     #cookie-banner a { color: var(--ember); text-decoration: underline; }
     .cookie-btn {
       padding: 0.55rem 1.4rem;
@@ -1236,8 +1237,10 @@
   <!-- ── COOKIE CONSENT + META PIXEL ── -->
   <div id="cookie-banner" style="display:none;" role="dialog" aria-label="Cookie consent">
     <p>We use cookies to understand how visitors find and use this page, so we can improve our retreats and reach more people who'd love them. You can decline if you prefer — the page works either way.</p>
-    <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
-    <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    <div class="cookie-btns">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieDecline()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieAccept()">Accept</button>
+    </div>
   </div>
 
   <script>
