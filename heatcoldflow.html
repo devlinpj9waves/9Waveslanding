@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heat. Cold. Flow. Restore. — 9 Waves × Anasté · 7 November, Moni</title>
-  <meta name="description" content="A ritual of contrast therapy, connection & renewal. Saturday 7 November, Moni Limassol. Hot sauna, cold plunge, lymphatic flow, Yoga Nidra. €25 earlybird.">
+  <meta name="description" content="A ritual of contrast therapy, connection & renewal. Saturday 7 November, Moni Limassol. Hot sauna, cold plunge, lymphatic flow, Yoga Nidra. €35 per person.">
   <meta name="robots" content="noindex">
 
   <!-- OG -->
   <meta property="og:title" content="Heat. Cold. Flow. Restore. — 9 Waves × Anasté">
-  <meta property="og:description" content="Saturday 7 November · Moni, Limassol · €25 earlybird until 20 Oct">
+  <meta property="og:description" content="Saturday 7 November · Moni, Limassol · €35 per person">
   <meta property="og:url" content="https://9-waves.com/heatcoldflow">
 
   <!-- Favicons -->
@@ -765,9 +765,8 @@
       </p>
       <div>
         <div class="hero-price-pill" style="flex-wrap:nowrap;">
-          <strong>€25</strong>
-          <span style="white-space:nowrap;">earlybird · ends 20 Oct</span>
-          <span style="white-space:nowrap;font-size:0.82rem;opacity:0.65;font-weight:400;letter-spacing:0.05em">(€35 after)</span>
+          <strong>€35</strong>
+          <span style="white-space:nowrap;">per person · book now</span>
         </div>
       </div>
       <a href="#booking" class="hero-btn">Choose Your Session →</a>
@@ -846,17 +845,15 @@
             <div style="font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:0.05em">Saturday 7 November · Moni, Limassol</div>
           </div>
           <div class="booking-price-block" id="priceBlock">
-            <div class="booking-price-early" id="earlyLabel">Earlybird</div>
-            <div class="booking-price-amount" id="priceAmount">€25</div>
-            <div class="booking-price-standard">€35 standard</div>
-            <div class="booking-expiry" id="expiryNote">Until 20 Oct</div>
+            <div class="booking-price-early" id="earlyLabel" style="color:rgba(255,255,255,0.5)">Standard Price</div>
+            <div class="booking-price-amount" id="priceAmount">€35</div>
+            <div class="booking-expiry" id="expiryNote">Early bird has closed</div>
           </div>
         </div>
 
         <div class="booking-card-body">
           <p class="session-prompt">Please select a session time above to unlock payment options.</p>
           <p class="booking-notice">
-            <strong>Earlybird pricing (€25) ends 20 October.</strong><br>
             Pay below to confirm your spot — or send a WhatsApp and we'll hold it for 24 hours.
           </p>
           <!-- CONTACT CAPTURE -->
@@ -1115,20 +1112,10 @@
       document.getElementById('selectedSessionLabel').textContent =
         'Session: ' + selectedSession;
 
-      const eb = isEarlybird();
-      document.getElementById('priceAmount').textContent = eb ? '€25' : '€35';
-      document.getElementById('earlyLabel').textContent = eb ? 'Earlybird Price' : 'Standard Price';
-      document.getElementById('earlyLabel').style.color = eb ? 'var(--gold)' : 'rgba(255,255,255,0.5)';
-      document.getElementById('expiryNote').textContent = eb
-        ? 'Ends 20 October — book now'
-        : 'Earlybird ended 20 October';
-
-      const notice = card.querySelector('.booking-notice');
-      if (eb) {
-        notice.innerHTML = '<strong>Earlybird pricing (€25) ends 20 October.</strong><br>Pay below to confirm your spot — or send a WhatsApp and we\'ll hold it for 24 hours.';
-      } else {
-        notice.innerHTML = '<strong>Standard price: €35.</strong><br>Pay below to confirm your spot — or send a WhatsApp and we\'ll hold it for 24 hours.';
-      }
+      document.getElementById('priceAmount').textContent = '€35';
+      document.getElementById('earlyLabel').textContent = 'Standard Price';
+      document.getElementById('earlyLabel').style.color = 'rgba(255,255,255,0.5)';
+      document.getElementById('expiryNote').textContent = 'Early bird has closed';
     }
 
     function requireSession(event) {
@@ -1224,8 +1211,7 @@
       var nameValue = document.getElementById('nameInput').value.trim();
       var contactValue = document.getElementById('contactInput').value.trim();
       var contactType = getContactType();
-      var eb = isEarlybird();
-      var price = eb ? '€25 (earlybird)' : '€35';
+      var price = '€35';
       try {
         emailjs.send('service_kp7ge8b', 'template_qm1j4gr', {
           name: nameValue,
@@ -1275,10 +1261,8 @@
       if (!requireSession(event)) return false;
       if (!validateContact()) return false;
       fireEmailJS('WhatsApp (confirm)');
-      const eb = isEarlybird();
-      const price = eb ? '€25 earlybird' : '€35';
       const msg = encodeURIComponent(
-        `Hi Paul 👋 I'd like to book a spot for the Heat. Cold. Flow. Restore. event on Saturday 7 November — ${selectedSession} session (${price}). Can you confirm my place?`
+        `Hi Paul 👋 I'd like to book a spot for the Heat. Cold. Flow. Restore. event on Saturday 7 November — ${selectedSession} session (€35). Can you confirm my place?`
       );
       window.open(`https://wa.me/${PAUL_WA}?text=${msg}`, '_blank');
       return false;
@@ -1331,15 +1315,10 @@
     });
 
 
-    /* ── PRICE AUTO-UPDATE on load ── */
+    /* ── PRICE: earlybird has closed, always show standard ── */
     (function() {
-      const eb = isEarlybird();
-      if (!eb) {
-        document.querySelector('.hero-price-pill').innerHTML =
-          '<strong>€35</strong><span>per person · book now</span>';
-        const expiryNote = document.getElementById('expiryNote');
-        if (expiryNote) expiryNote.textContent = 'Earlybird ended 20 October';
-      }
+      const expiryNote = document.getElementById('expiryNote');
+      if (expiryNote) expiryNote.textContent = 'Early bird has closed';
     })();
   </script>
 </body>
