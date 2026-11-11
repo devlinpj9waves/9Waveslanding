@@ -1690,7 +1690,6 @@
         <a href="#rent">I Want to Rent</a>
         <a href="#shop">I Want to Buy</a>
         <a href="#business">I'm a Business</a>
-        <a href="/digitaldetoxretreat" style="color:var(--ember); border-color:var(--ember);">Active Reset Retreat</a>
       </div>
       <div class="nav-cta-session-book" style="opacity:0;pointer-events:none;transition:opacity 0.4s ease;align-self:center;">
         <a href="#locations" style="font-family:'Jost',sans-serif;font-size:0.68rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;color:var(--slate);border:1px solid rgba(44,51,64,0.3);padding:0.48rem 1.1rem;transition:all 0.2s;white-space:nowrap;">Book a Sauna Session</a>
@@ -1722,7 +1721,6 @@
     <a href="#business" onclick="closeMenu()">I'm a Business</a>
     <div class="menu-divider"></div>
     <a href="#gallery" onclick="closeMenu()">Gallery</a>
-    <a href="/digitaldetoxretreat" onclick="closeMenu()" style="color:var(--ember);">Active Reset Retreat</a>
     <div class="menu-divider"></div>
     <a href="#locations" onclick="closeMenu()" style="color:var(--ember);">Book a Sauna Session</a>
     <div class="menu-divider"></div>
@@ -1779,21 +1777,6 @@
           See More on Instagram
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- ── RETREAT ── -->
-  <section id="retreat">
-    <div class="retreat-bg">
-      <!-- Wide-angle glamping shot: upload as RETREAT_GLAMPING_WIDE.jpg to replace HERO_IMAGE.jpg as the background -->
-      <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/RETREAT_WIDE_V2.png" alt="Digital Detox Retreat glamping" onerror="this.src='https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_IMAGE.jpg'" />
-    </div>
-    <div class="retreat-overlay"></div>
-    <div class="section-inner retreat-content">
-      <span class="section-label">9 Waves Retreat</span>
-      <h2>6 Day Active Wellness &amp; <em>Nature Reset Retreat</em></h2>
-      <p>Six days to step away from your usual routine, spend more time outside, move your body and enjoy a slower way of living.<br>Hike. Move. Swim. Sauna. Cold plunge.</p>
-      <a class="retreat-cta" href="/digitaldetoxretreat">Discover the Retreat</a>
     </div>
   </section>
 
@@ -2035,6 +2018,7 @@
           </div>
           </div>
         </div>
+      </div>
       <div class="shop-subhead">
         <span>Frost Ice Bath</span>
       </div>
@@ -2068,7 +2052,6 @@
         </div>
       </div>
 
-      </div>
 
 
       <div class="shop-subhead" style="--subhead-color:#fff;">
@@ -2269,6 +2252,44 @@
   </footer>
 
   <script>
+    // ── DEEP LINKS (e.g. 9-waves.com/#shop) ──
+    // Images and Instagram reels above the shop load after the browser has
+    // already jumped to the anchor, pushing the section down. We take over
+    // the jump and keep re-aligning until the layout settles or the visitor
+    // starts scrolling themselves.
+    var LANDING_HASH = (location.hash && location.hash.length > 1) ? location.hash : '';
+    if (LANDING_HASH && 'scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+    function scrollToTarget(target, smooth) {
+      var navH = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 64;
+      var top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+      window.scrollTo({ top: Math.max(0, top), behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    (function() {
+      if (!LANDING_HASH) return;
+      var target;
+      try { target = document.querySelector(LANDING_HASH); } catch (e) { return; }
+      if (!target) return;
+      var settled = false;
+      function stop() {
+        settled = true;
+        if (ro) ro.disconnect();
+        ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function(ev) {
+          window.removeEventListener(ev, stop, true);
+        });
+      }
+      function realign() { if (!settled) scrollToTarget(target, false); }
+      ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function(ev) {
+        window.addEventListener(ev, stop, { capture: true, passive: true });
+      });
+      var ro = ('ResizeObserver' in window) ? new ResizeObserver(realign) : null;
+      if (ro) ro.observe(document.body);
+      realign();
+      window.addEventListener('load', function() { realign(); setTimeout(realign, 500); });
+      setTimeout(stop, 8000);
+    })();
+
     // ── WHATSAPP POPUP ──
     const WA_LINK = 'https://chat.whatsapp.com/HPzblyxMPZPDHggqKMXRD5?mode=gi_t';
     const POPUP_KEY = 'waPopupDismissed';
@@ -2304,8 +2325,10 @@
         window.removeEventListener('scroll', showPopup);
         clearTimeout(popupTimer);
       };
-      const popupTimer = setTimeout(showPopup, 10000);
-      window.addEventListener('scroll', showPopup, { once: true });
+      // Visitors arriving on a direct link (e.g. #shop) get time to look first,
+      // and the automatic scroll to the section doesn't count as scrolling.
+      const popupTimer = setTimeout(showPopup, LANDING_HASH ? 30000 : 10000);
+      if (!LANDING_HASH) window.addEventListener('scroll', showPopup, { once: true });
     }
 
     function openMenu() {
@@ -2398,12 +2421,13 @@
     // Fix anchor scroll offset for fixed header on mobile
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
-        var target = document.querySelector(this.getAttribute('href'));
+        var href = this.getAttribute('href');
+        if (href.length < 2) return;
+        var target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
-        var headerH = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 64;
-        var top = target.getBoundingClientRect().top + window.scrollY - headerH - 8;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+        scrollToTarget(target, true);
+        if (history.replaceState) history.replaceState(null, '', href);
       });
     });
 
@@ -2435,7 +2459,6 @@
   <!-- ── MOBILE FLOATING BUTTONS ── -->
   <div class="mobile-float">
     <a class="mobile-float-shop" href="#shop">Shop</a>
-    <a class="mobile-float-retreat" href="/digitaldetoxretreat">Active Reset</a>
   </div>
 
 
