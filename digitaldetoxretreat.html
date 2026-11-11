@@ -7,7 +7,7 @@
   <title>6-Day Active Wellness Reset Retreat -- 9 Waves × For Rest, Cyprus</title>
   <meta name="description" content="Six days to step away from your routine, spend more time outside, move your body and enjoy a slower way of living. Sauna, cold plunge, hikes, yoga and Mediterranean swims in the Cyprus hills." />
   <meta property="og:title" content="6-Day Active Wellness Reset Retreat in Cyprus -- 9 Waves × For Rest" />
-  <meta property="og:description" content="Six days in the Cyprus hills. Hike. Move. Swim. Sauna. Cold plunge. Comfortable glamping, shared meals, small international group. November 8–13, 2026." />
+  <meta property="og:description" content="Six days in the Cyprus hills. Hike. Move. Swim. Sauna. Cold plunge. Comfortable glamping, shared meals, small international group. New dates coming soon." />
   <meta property="og:image" content="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/For%20Rest%20x%209%20Waves%20thumbnail.jpg" />
   <meta property="og:url" content="https://9-waves.com/resetretreat" />
   <meta property="og:type" content="website" />
@@ -411,6 +411,31 @@
       .date-selector { flex-direction:column; }
       .date-btn + .date-btn { border-left:1px solid var(--steam); border-top:none; }
     }
+    /* ── ON-HOLD BANNER & GREYED BOOKING ── */
+    .hold-banner {
+      position:absolute; top:64px; left:0; right:0; z-index:3;
+      background:rgba(20,24,32,0.78);
+      backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      border-bottom:1px solid rgba(196,113,74,0.4);
+      padding:0.9rem 1.5rem; text-align:center;
+      font-size:0.82rem; line-height:1.65; color:rgba(255,255,255,0.85); font-weight:300;
+    }
+    .hold-banner strong { color:#fff; font-weight:400; letter-spacing:0.04em; }
+    .hold-banner a { color:var(--ember); text-decoration:none; border-bottom:1px solid rgba(196,113,74,0.5); white-space:nowrap; }
+    .hold-banner a:hover { color:#fff; border-color:#fff; }
+    .hold-note {
+      display:inline-block; margin-top:1rem; padding:0.9rem 1.4rem;
+      background:#fff; border:1px solid var(--steam);
+      font-size:0.82rem; color:var(--ink); line-height:1.7;
+    }
+    .hold-note a { color:var(--ember); text-decoration:none; border-bottom:1px solid rgba(196,113,74,0.4); }
+    .is-disabled, .is-disabled:hover {
+      background:#c3cad1 !important; border-color:#c3cad1 !important; color:#fff !important;
+      cursor:not-allowed; pointer-events:none;
+    }
+    .select-option:disabled { opacity:1; background:var(--frost); color:var(--birch); border-color:var(--steam); }
+    .select-option:disabled .opt-price { color:var(--birch); }
+    @media (max-width:600px) { .hold-banner { top:64px; padding:0.8rem 1rem; font-size:0.78rem; } }
   </style>
   <style>
     /* ── COOKIE CONSENT BANNER ── */
@@ -468,7 +493,7 @@
       <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/9%20waves%20stamp%20landscape.png" alt="9 Waves" />
     </a>
     <a class="back-link" href="https://9-waves.com">← Back to 9 Waves</a>
-    <a class="header-book-btn" href="#accommodation">Book Your Spot</a>
+    <span class="header-book-btn is-disabled" aria-disabled="true">New Dates Soon</span>
     <div class="header-ask">
       <span class="header-ask-label">Ask us</span>
       <a class="header-icon-btn" href="mailto:hello9waves@gmail.com" title="Email us" aria-label="Email us">
@@ -487,6 +512,10 @@
       <img src="https://raw.githubusercontent.com/devlinpj9waves/9Waveslanding/main/HERO_LANDSCAPE.jpg" alt="For Rest Glamping Cyprus" onerror="imgFallback(this,'HERO_LANDSCAPE','')" />
     </div>
     <div class="hero-overlay"></div>
+    <div class="hold-banner" role="note">
+      <strong>New retreat dates coming soon.</strong>
+      Follow <a href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">@9wavessaunaice</a> on Instagram or join our <a href="https://chat.whatsapp.com/HPzblyxMPZPDHggqKMXRD5?mode=gi_t" target="_blank" rel="noopener">WhatsApp community</a> to hear first.
+    </div>
     <div class="hero-content section-inner">
       <span class="hero-collab">9 Waves × For Rest Glamping</span>
       <h1>6-Day Active Wellness<br /><em>Reset Retreat</em></h1>
@@ -497,7 +526,7 @@
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Date</span>
-          <span class="hero-meta-value">Nov 8–13, 2026</span>
+          <span class="hero-meta-value">New dates coming soon</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">From</span>
@@ -796,8 +825,9 @@
       <div class="section-header">
         <span class="section-label">Choose Your Sanctuary</span>
         <h2>Choose Your Sanctuary</h2>
-        <p>Select your accommodation and occupancy. Your selection will appear in the booking panel — then WhatsApp us to confirm your spot.</p>
-        <p style="margin-top:0.5rem; font-size:0.8rem; color:var(--birch);">Retreat dates: <strong style="color:var(--slate);">November 8–13, 2026</strong></p>
+        <p>Here are the stays on offer. Booking will open again once new dates are set.</p>
+        <p style="margin-top:0.5rem; font-size:0.8rem; color:var(--birch);">Retreat dates: <strong style="color:var(--slate);">New dates coming soon</strong></p>
+        <p class="hold-note">Keep an eye on <a href="https://www.instagram.com/9wavessaunaice" target="_blank" rel="noopener">@9wavessaunaice</a> or join our <a href="https://chat.whatsapp.com/HPzblyxMPZPDHggqKMXRD5?mode=gi_t" target="_blank" rel="noopener">WhatsApp community</a> for the next dates.</p>
       </div>
 
       <div class="accom-grid">
@@ -829,8 +859,8 @@
               </div>
             </div>
             <div class="accom-select-btns">
-              <button class="select-option" onclick="selectOption(this, 'Shared Comfort Lux Tent (per person)', 969, 'simple-twin')">
-                <span>Book — Shared</span><span class="opt-price">€969 pp</span>
+              <button class="select-option" disabled aria-disabled="true">
+                <span>Dates coming soon</span><span class="opt-price">€969 pp</span>
               </button>
             </div>
           </div>
@@ -863,8 +893,8 @@
               </div>
             </div>
             <div class="accom-select-btns">
-              <button class="select-option" onclick="selectOption(this, 'Private Simple Glamping Tent (single)', 1269, 'simple-dbl')">
-                <span>Book — Single</span><span class="opt-price">€1,269</span>
+              <button class="select-option" disabled aria-disabled="true">
+                <span>Dates coming soon</span><span class="opt-price">€1,269</span>
               </button>
             </div>
           </div>
@@ -897,8 +927,8 @@
               </div>
             </div>
             <div class="accom-select-btns">
-              <button class="select-option" onclick="selectOption(this, 'Private Comfort Lux Tent (single)', 1569, 'fatowl')">
-                <span>Book — Single</span><span class="opt-price">€1,569</span>
+              <button class="select-option" disabled aria-disabled="true">
+                <span>Dates coming soon</span><span class="opt-price">€1,569</span>
               </button>
             </div>
           </div>
@@ -931,8 +961,8 @@
               </div>
             </div>
             <div class="accom-select-btns">
-              <button class="select-option" onclick="selectOption(this, 'Private Premium Geodome (single)', 1829, 'geo')">
-                <span>Book — Single</span><span class="opt-price">€1,829</span>
+              <button class="select-option" disabled aria-disabled="true">
+                <span>Dates coming soon</span><span class="opt-price">€1,829</span>
               </button>
             </div>
           </div>
@@ -1051,7 +1081,7 @@
         <span class="section-label">Ready?</span>
         <h2>Disconnect to reconnect</h2>
         <div style="margin-top:1.5rem;">
-          <a class="btn-ember" href="#accommodation" style="padding:0.9rem 2.5rem;">Book Your Spot</a>
+          <span class="btn-ember is-disabled" aria-disabled="true" style="padding:0.9rem 2.5rem;">New Dates Coming Soon</span>
         </div>
       </div>
       <div class="pricing-strip">
@@ -1062,10 +1092,10 @@
       </div>
       <p class="pricing-cta-text">All activities included. Arrive Sunday. Leave Friday. Come back to yourself.</p>
       <div style="margin-bottom:2rem;">
-        <a class="btn-ember" href="#accommodation" style="padding:1rem 3rem; font-size:0.78rem; letter-spacing:0.22em;">Book Your Spot</a>
+        <span class="btn-ember is-disabled" aria-disabled="true" style="padding:1rem 3rem; font-size:0.78rem; letter-spacing:0.22em;">New Dates Coming Soon</span>
       </div>
       <div class="pricing-ctas">
-        <a class="btn-ember" href="#accommodation">Book Your Spot Now</a>
+        <a class="btn-ember" href="https://chat.whatsapp.com/HPzblyxMPZPDHggqKMXRD5?mode=gi_t" target="_blank" rel="noopener">Get Notified on WhatsApp</a>
         <div class="pricing-ask">
           <span>Ask us</span>
           <a class="header-icon-btn" href="mailto:hello9waves@gmail.com" title="Email" aria-label="Email us" style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--steam); text-decoration:none; color:var(--slate); transition:all 0.2s;">
@@ -1108,7 +1138,7 @@
     };
 
     const dateLabels = {
-      nov: 'Nov 8 – 13, 2026'
+      nov: 'New dates coming soon'
     };
 
     // Standard prices by cardKey
